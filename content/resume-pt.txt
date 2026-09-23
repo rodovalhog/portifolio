@@ -1,0 +1,84 @@
+Guilherme Rodovalho
+📧
+rodovalhogdeveloper@gmail.com 📞 +55 34 99173-9878
+🔗 https://www.linkedin.com/in/guilherme-rodovalho/
+🔗https://github.com/rodovalhog
+Resumo
+Engenheiro de Software Full Stack com mais de 6 anos de experiência no desenvolvimento de aplicações escaláveis
+e de alta performance. Atuação sólida com JavaScript e TypeScript em toda a stack, desde arquiteturas de frontend
+performáticas até serviços backend com Node.js. Experiência comprovada em ambientes de grande volume (19M+
+usuários), tomada de decisão arquitetural, aumento de confiabilidade de sistemas e impacto direto em métricas de
+negócio como aquisição orgânica, SEO e conversão. Referência técnica em times de produto, atuando como ponto
+de liderança em decisões arquiteturais e mentoria de desenvolvedores.
+Experiência
+Especialista Front-end Engineer
+E-commerce (GCB) | São Paulo, Brazil (remote) 10/2024 – Present
+Responsável pela evolução da arquitetura de busca e navegação em um dos maiores e-commerces do Brasil, impactando
+diretamente um canal crítico de aquisição com mais de 1 milhão de usuários diários.
+• Liderança de melhorias arquiteturais end-to-end, abrangendo frontend e camadas de backend
+• Estruturação de APIs escaláveis para suportar navegação por categorias, filtros e busca em tempo real
+• Evolução da consistência de dados em sistemas distribuídos, reduzindo inconsistências em fluxos críticos
+• Otimização de performance e SEO técnico com impacto direto na aquisição orgânica
+• Atuação como referência técnica, conduzindo decisões arquiteturais e revisões de código
+Skills: React, Next, SEO, TypeScript, JavaScript, semantic HTML, SSR/SSG, Refactoring, Tests, agent AI GA4.
+Senior Front-end Engineer
+Hotmart | São Paulo, Brazil (remote) 10/2023 – 10/2024
+Responsável pelo desenvolvimento de um sistema de onboarding modular, com foco em experimentação e
+personalização para base de mais de 35 milhões de usuários globais.
+•Desenvolvi sistemas modulares focados em experimentação (A/B testing)
+• Atuei na integração com serviços backend para suportar interfaces dinâmicas
+• Implementei observabilidade e monitoramento em fluxos críticos
+• Colaborei com produto e UX na evolução de soluções orientadas a dados
+• Atuação como referência técnica, conduzindo decisões arquiteturais e revisões de código
+• Desenvolvimento de sistemas modulares orientados a experimentação com A/B testing em escala
+• Integração com serviços backend para suporte a interfaces dinâmicas e fluxos personalizados
+• Implementação de observabilidade e monitoramento em fluxos críticos com Sentry e Web Vitals
+• Colaboração com times de produto e UX na evolução de soluções orientadas a dados
+• Garantia de acessibilidade (A11Y) e qualidade com testes automatizados e métricas de Core Web Vitals
+Skills: React, Node.js A11Y , TypeScript, JavaScript, semantic HTML, Sentry, Tests, Web vital, AB test, GA4.
+Senior Front-end Engineer
+Invilia | São Paulo, Brazil (remote) 03/2021 – 11/2023
+Responsável pela criação e arquitetura de um CMS (Sistema de Gerenciamento de Conteúdo) baseado em micro
+frontends, entregando um ecossistema modular e escalável para múltiplos times e criação de um Design system.
+• Arquitetura de micro frontends com Module Federation para isolamento e escalabilidade dos módulos
+• Desenvolvimento do backend com Node.js para suporte às funcionalidades do CMS
+• Implementação de gerenciamento de estado compartilhado entre aplicações independentes
+• Definição de padrões de testes e qualidade de código adotados por toda a equipe
+• Mentoria de desenvolvedores e liderança de decisões de arquitetura
+Skills: React, Node.js Module Federation, Micro Frontend, JavaScript, TypeScript, Tests, Postgres
+Senior Front-end Engineer
+NTT Data (Banco Bradesco)| São Paulo, Brazil (remote) 10/2024 – Present
+Responsável pela modernização do app de cartões do Banco Bradesco, fui responsável por desenvolver features
+complexas para uma aplicação de alto impacto com milhões de usuários ativos.
+• Desenvolvimento de integrações complexas entre camadas web e mobile (iOS/Android)
+• Implementação de fluxos de autenticação e navegação em ambiente híbrido
+• Otimização avançada de performance em JavaScript para garantir fluidez na experiência do usuário
+• Colaboração com times mobile e backend para alinhamento técnico e entrega de funcionalidades críticas
+Skills: React, Next, Optimizing performance JS advanced
+Educação
+Ciências da Computação – FAM
+Clean Code e Clean Architecture
+Languages
+English: B1 Professional Proficiency
+Portuguese: Nativo
+Skills
+Strong expertise in JavaScript and React, including performance optimization, state management, and scalable
+architecture design.
+React | Next.js | TypeScript | JavaScript | Front-End Architecture | SEO | Performance Optimization | Micro
+Frontends | Module Federation | Web Performance | Core Web Vitals | CI/CD | Testing (Jest, RTL) | Clean
+Architecture | SOLID
+Sobre mim
+Sou um profissional orientado a resultados, com forte senso de ownership sobre as entregas que realizo
+e sobre o impacto que gero no sistema e no time. Meu perfil é proativo e inconformado com a
+mediocridade: questiono constantemente o status quo e busco formas mais eficientes, escaláveis e
+sustentáveis de resolver problemas não como exercício intelectual, mas como uma postura ativa de
+melhoria contínua. Não me limito à execução. Atuo na identificação de oportunidades de melhoria,
+antecipo riscos antes que se tornem gargalos e proponho soluções com visão sistêmica. Encaro
+problemas como sinais de evolução oportunidades para refinar processos, fortalecer arquiteturas e elevar
+o padrão das soluções entregues. Minha abordagem é analítica e orientada a trade-offs: avalio diferentes
+alternativas com critério técnico e as conecto aos objetivos estratégicos do negócio, garantindo que cada
+decisão gere valor real e sustentável. Tenho compromisso contínuo com minha própria evolução e com o
+desenvolvimento das pessoas ao meu redor. Contribuo não apenas com entregas consistentes, mas
+também elevando o nível técnico do time, a qualidade das decisões e a maturidade das soluções
+construídas em conjunto porque acredito que times fortes entregam resultados que indivíduos isolados
+jamais alcançariam.

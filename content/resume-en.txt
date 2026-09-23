@@ -1,0 +1,128 @@
+GUILHERME RODOVALHO
+Senior software Engineer | Frontend Architect | Web Performance | AI Engineer
+Brazil|rodovalhogdeveloper@gmail.com | +5534991619467 | guilherme-rodovalho
+PROFESSIONAL SUMMARY
+Senior Frontend Engineer with 7+ years of experience building and evolving complex web
+applications using React, Next.js, TypeScript, and JavaScript, with strong expertise in frontend
+architecture, web performance, technical SEO, observability, testing, and scalable application
+design.
+Experienced in designing frontend architectures for high-traffic applications, improving Core Web
+Vitals, SSR/SSG rendering, caching strategies, JavaScript bundles, and resource loading, while
+balancing technical decisions with business, SEO, and user experience requirements.
+Strong track record of leading technical initiatives, defining architecture standards, mentoring
+developers, and solving complex problems involving performance bottlenecks, rendering behavior,
+caching, SEO, scalability, and application reliability.
+Currently expanding into AI Engineering, building and experimenting with AI Agents, LLM
+applications, Agentic AI, Compound AI, MCP, and context engineering applied to software
+development. Focused on using AI not only for code generation, but to preserve technical context,
+understand business rules, automate engineering workflows, and improve software development
+processes.
+CORE SKILLS
+Frontend: React, Next.js, TypeScript, JavaScript, HTML5, CSS3, Webpack, Module Federation
+Architecture: Frontend Architecture, Micro Frontends, Modular Architecture, Component
+Architecture, Software Design, Clean Code, Design Patterns
+Web Performance: Core Web Vitals, LCP , CLS, INP , TTFB, SSR, SSG, Code Splitting, Dynamic Imports,
+Lazy Loading, Bundle Optimization, JavaScript Execution, Resource Prioritization, CDN, Caching
+SEO: Technical SEO, Technical SEO Architecture, Structured Data, Semantic HTML, URL Normalization,
+Canonical URLs, Redirects, Crawlability, Indexation
+AI Engineering: Agentic AI, LLMs, Generative AI, Compound AI, MCP , Context Engineering, AI
+Workflows, AI-assisted Software Engineering
+Quality & Engineering: Jest, React Testing Library, Enzyme, TDD, SonarCloud, ESLint, CI/CD, GitHub
+Actions, Observability
+Backend & Integration: Node.js, GraphQL, REST APIs, MongoDB, drizzle-orm.
+PROFESSIONAL EXPERIENCE
+Senior Frontend Software Engineer / Technical Lead
+Grupo Casas Bahia · São Paulo, Brazil · Remote
+Oct 2024 – Present
+●
+●
+●
+●
+●
+●
+●
+●
+Led the refactoring of the search and filtering architecture for an e-commerce platform
+serving 19M+ users, addressing inconsistent filters, canonical URLs, indexing issues, and
+frontend rendering behavior to create a more stable and predictable experience.
+Redesigned the technical SEO and rendering strategy for category, department, and
+collection pages using SSR/SSG, structured data, semantic HTML, URL normalization, and
+canonicalization, contributing to organic growth from 12 to 92.6K clicks in 3 months and
+23M+ impressions, based on Google Search Console data.
+Investigated and optimized frontend performance across the critical rendering path,
+analyzing document loading, TTFB, LCP, JavaScript execution, resource loading, rendering
+behavior, and network requests to identify bottlenecks affecting the initial page experience.
+Improved frontend delivery through code splitting, dynamic imports, bundle optimization,
+lazy loading, and resource prioritization, reducing unnecessary JavaScript execution and
+improving the loading experience of critical page content.
+Investigated SSR performance, CDN/Akamai caching, cache invalidation, and server-side
+data fetching, identifying scenarios where caching behavior could affect page consistency
+and performance.
+Analyzed Core Web Vitals, including LCP, CLS, and INP, connecting metric degradation to
+concrete frontend causes such as large JavaScript bundles, render-blocking resources, image
+loading, hydration, and client-side execution.
+Restructured frontend data flows and application patterns, addressing edge cases and
+mutability issues that caused inconsistent behavior and recurring problems across the search
+experience.
+Led technical decisions and architecture standards for the initiative, guiding implementation
+toward greater scalability, maintainability, performance, and consistency.
+Senior Frontend Software Engineer
+Hotmart · Brazil · Remote
+10/2023 – 10/2024
+●
+●
+●
+●
+Designed and implemented a modular dashboard architecture using React, TypeScript,
+Webpack, and Module Federation, enabling independent modules and safer deployments
+while supporting continuous product evolution.
+Implemented frontend observability, including performance metrics, logging, and tracing,
+improving release quality and reducing Mean Time to Recovery (MTTR).
+Established practices for monitoring frontend behavior and identifying performance and
+reliability issues across production environments.
+Applied accessibility (a11y) practices and collaborated with Product and UX teams to deliver
+consistent, data-driven experiences in an A/B testing environment focused on user
+onboarding and conversion.
+Senior Frontend Software Engineer
+Invillia · Brazil Remote
+03/2021 – 10/2023
+●
+●
+●
+●
+Led the implementation of a micro frontend architecture using React and TypeScript,
+enabling teams to develop and deploy features independently with safer and faster release
+cycles.
+Designed shared state and integration patterns across applications, ensuring consistent
+communication while maintaining module isolation.
+Established frontend standards for component architecture, testing, integration patterns,
+performance, and clean code, while mentoring developers and accelerating team
+onboarding.
+Implemented automated testing and CI/CD practices using Jest, React Testing Library,
+SonarCloud, and GitHub Actions.
+●
+●
+Senior Frontend Software Engineer / Full Stack Developer
+everis · Uberlândia, Brazil
+May 2020 – Mar 2021
+Developed React applications integrated through WebView, solving complex communication
+and behavioral differences between iOS, Android, and web environments.
+Implemented authentication, SSO, navigation, and platform-specific flows while collaborating
+with mobile and backend teams to improve cross-platform stability.
+●
+Developed backend capabilities using TypeScript and Node.js.
+Web Developer
+eNe Solutions, Brazil · Remote
+Apr 2019 – Nov 2020
+●
+●
+Supported and evolved Algar Telecom systems, delivering improvements and fixes across
+web applications and APIs with a focus on stability, maintainability, and product evolution.
+Worked with React, Gatsby, MobX, GraphQL, Node.js, MongoDB, and TypeScript.
+EDUCATION
+Bachelor's Degree in Computer Science
+FAM · Brazil
+2019 – 2026
+LANGUAGES
+Portuguese: Native
+English: C1

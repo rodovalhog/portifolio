@@ -1,0 +1,51 @@
+# Guilherme Rodovalho — Software Architect & Staff Software Engineer
+
+> High-performance software engineering platform, autonomous WebMCP browser agent, real-time RUM performance observatory, and ATS career system.
+
+Guilherme Rodovalho is a Software Architect and Staff Software Engineer with over 10 years of experience building mission-critical distributed systems, high-throughput frontend architectures, and autonomous AI agents. His track record includes engineering platforms sustaining 150,000 requests/minute during Black Friday (Casas Bahia), serving 35M+ users globally (Hotmart), and architecting resilient financial micro-frontends (Cielo & Zup Innovation / Itaú).
+
+## Core Capabilities & Specializations
+
+- **Software Architecture**: Clean Architecture, Modular Monoliths, Micro-frontends, Event-Driven Architecture, SOLID, Design Patterns.
+- **Frontend & Web Engineering**: Next.js 14 (App Router, React Server Components, Streaming SSR), TypeScript, React, Tailwind CSS, Web Vitals Optimization (LCP 4.2s -> 1.4s at Casas Bahia).
+- **AI & Agentic Systems**: Model Context Protocol (WebMCP in-browser), Google Gemini 3.8 Flash, Gemini Nano (window.ai on-device), Deterministic Grounding RAG.
+- **Performance & Observability**: Real User Monitoring (RUM) via native browser APIs (PerformanceNavigationTiming, PerformanceObserver), zero-SDK overhead.
+- **Backend & Cloud**: Node.js, TypeScript, PostgreSQL, REST/GraphQL APIs, Serverless, Edge Functions, Resend transactional email, Docker, CI/CD.
+
+## Platform Navigation & Key Endpoints
+
+- [/pt-BR/experience](https://guilhermerodovalho.dev/pt-BR/experience): Trajetória profissional detalhada (Casas Bahia, Hotmart, Cielo, Zup/Itaú, Coreplan) com métricas de impacto e hard/soft skills.
+- [/en-US/experience](https://guilhermerodovalho.dev/en-US/experience): Full professional trajectory and corporate scale metrics in English.
+- [/pt-BR/performance](https://guilhermerodovalho.dev/pt-BR/performance): Observatório de Telemetria RUM ao vivo (TTFB, FCP, LCP, CLS, micro-benchmark de CPU e case study Casas Bahia).
+- [/en-US/performance](https://guilhermerodovalho.dev/en-US/performance): Real-Time RUM Performance Observatory with live browser metrics and architectural benchmarks.
+- [/pt-BR/skills](https://guilhermerodovalho.dev/pt-BR/skills): Matriz completa de competências técnicas, liderança de engenharia e governança de software.
+- [/en-US/skills](https://guilhermerodovalho.dev/en-US/skills): Comprehensive skill matrix covering architecture, frontend, backend, and engineering leadership.
+- [/pt-BR/projects](https://guilhermerodovalho.dev/pt-BR/projects): Projetos de engenharia, sistemas em produção e demonstrações práticas de arquitetura.
+- [/en-US/projects](https://guilhermerodovalho.dev/en-US/projects): Production engineering projects, system designs, and architectural blueprints.
+- [/pt-BR/resume](https://guilhermerodovalho.dev/pt-BR/resume): Visualizador e download do currículo vetorial otimizado para ATS (em Português).
+- [/en-US/resume](https://guilhermerodovalho.dev/en-US/resume): ATS-optimized vector resume viewer and PDF download (in English).
+- [/pt-BR/contact](https://guilhermerodovalho.dev/pt-BR/contact): Formulário de contato direto integrado à API transacional do Resend.
+- [/en-US/contact](https://guilhermerodovalho.dev/en-US/contact): Direct contact form powered by Resend transactional email API.
+
+## In-Browser WebMCP (Model Context Protocol)
+
+The platform implements an in-browser MCP agent server (`apps/web/src/lib/mcp/server.ts`) exposing semantic DOM tools for AI assistants:
+- `navigate_to`: Programmatic client-side navigation between portfolio sections.
+- `scroll_to_section`: Smooth scrolling to specific element IDs (`#experience`, `#projects`, `#skills`).
+- `highlight_element`: Canvas-based visual element spotlight and pulse animation.
+- `adjust_font_size`: Dynamic WCAG accessibility font scaling (`small`, `normal`, `large`) via root CSS variables.
+- `trigger_resume_download`: Automated ATS PDF resume generation and download.
+
+## API Endpoints
+
+- `POST /api/chat`: AI Career Assistant streaming endpoint with multi-tier fallback (Gemini 3.8 Flash -> Gemini Nano -> Heuristic Engine).
+- `POST /api/contact`: Transactional contact email delivery via Resend API (`rodovalhogdeveloper@gmail.com`).
+- `POST /api/job-application`: Automated ATS job description analyzer and cover letter generator.
+- `GET /api/resume?lang=pt-BR|en-US`: Dynamic ATS vector PDF resume generator via `pdf-lib`.
+
+## Documentation & Full Context (Optional)
+
+- [README.md](https://github.com/rodovalhog/portifolio/blob/main/README.md): Architecture & Technical Decision Manifesto (Clean Architecture, Modular Monolith, Trade-offs).
+- [content/resume-pt.txt](https://github.com/rodovalhog/portifolio/blob/main/content/resume-pt.txt): Complete raw resume in Brazilian Portuguese.
+- [content/resume-en.txt](https://github.com/rodovalhog/portifolio/blob/main/content/resume-en.txt): Complete raw resume in English.
+- [content/profile.json](https://github.com/rodovalhog/portifolio/blob/main/content/profile.json): Structured canonical career profile, accomplishments, and tech stacks.

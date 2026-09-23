@@ -1,0 +1,964 @@
+{
+  "id": "guilherme-rodovalho",
+  "version": "2.0.0",
+  "personal": {
+    "name": "Guilherme Rodovalho",
+    "headline": {
+      "pt-BR": "Senior Software Engineer | Especialista Frontend | Web Performance | AI Engineer",
+      "en-US": "Senior Software Engineer | Frontend Architect | Web Performance | AI Engineer"
+    },
+    "bio": {
+      "pt-BR": "Engenheiro de Software com mais de 7 anos de experiência no desenvolvimento de aplicações web complexas, escaláveis e de alta performance utilizando React, Next.js, TypeScript e JavaScript. Forte atuação em arquitetura de frontend, Core Web Vitals, SEO técnico, observabilidade e AI Engineering (Agentic AI, LLMs e WebMCP).",
+      "en-US": "Senior Frontend Engineer with 7+ years of experience building and evolving complex, scalable web applications using React, Next.js, TypeScript, and JavaScript. Deep expertise in frontend architecture, Core Web Vitals, technical SEO, observability, and AI Engineering (Agentic AI, LLMs, and WebMCP)."
+    },
+    "location": {
+      "pt-BR": "São Paulo, SP — Brasil",
+      "en-US": "São Paulo, SP — Brazil"
+    },
+    "email": "rodovalhogdeveloper@gmail.com",
+    "phone": "+55 (34) 99173-9878",
+    "avatarUrl": "/images/avatar.jpg",
+    "availability": {
+      "pt-BR": "Aberto a conversas estratégicas e liderança técnica",
+      "en-US": "Open to strategic roles and technical leadership"
+    },
+    "visibility": "PUBLIC"
+  },
+  "summary": {
+    "pt-BR": "Engenheiro de Software Full Stack com mais de 7 anos de experiência no desenvolvimento de aplicações escaláveis e de alta performance. Atuação sólida com JavaScript e TypeScript em toda a stack, desde arquiteturas de frontend performáticas com React e Next.js até serviços backend com Node.js. Experiência comprovada em ambientes de grande volume (19M+ usuários), tomada de decisão arquitetural, aumento de confiabilidade de sistemas e impacto direto em métricas de negócio como aquisição orgânica, SEO técnico e conversão. Referência técnica em times de produto, liderança arquitetural e mentoria de desenvolvedores. Atualmente expandindo em AI Engineering (Agentic AI, LLMs, MCP e engenharia de contexto aplicada ao desenvolvimento de software).",
+    "en-US": "Senior Frontend Engineer with 7+ years of experience building and evolving complex web applications using React, Next.js, TypeScript, and JavaScript, with strong expertise in frontend architecture, web performance, technical SEO, observability, testing, and scalable application design. Experienced in designing frontend architectures for high-traffic applications, improving Core Web Vitals, SSR/SSG rendering, caching strategies, JavaScript bundles, and resource loading. Strong track record of leading technical initiatives, defining architecture standards, mentoring developers, and solving complex bottlenecks involving performance, rendering, caching, SEO, scalability, and application reliability. Expanding into AI Engineering, building AI Agents, LLM applications, Agentic AI, Compound AI, MCP, and context engineering."
+  },
+  "engineeringPhilosophy": [
+    {
+      "pt-BR": "Ownership e inconformismo com a mediocridade: questionar constantemente o status quo e buscar formas mais eficientes, escaláveis e sustentáveis de resolver problemas como postura ativa de melhoria contínua.",
+      "en-US": "Ownership & bias for continuous improvement: actively pursuing more efficient, scalable, and sustainable solutions rather than settling for average execution."
+    },
+    {
+      "pt-BR": "Visão sistêmica e antecipação de riscos: não me limitar à execução, atuando na identificação de oportunidades de melhoria e antecipando gargalos antes que impactem a operação.",
+      "en-US": "Systemic vision & proactive risk mitigation: identifying architectural improvements early and eliminating bottlenecks before they degrade operations."
+    },
+    {
+      "pt-BR": "Abordagem analítica orientada a trade-offs: avaliar diferentes alternativas com rigor técnico e conectá-las aos objetivos estratégicos do negócio para gerar valor real e sustentável.",
+      "en-US": "Analytical, trade-off-driven mindset: aligning deep technical decisions with strategic business outcomes to deliver sustainable value."
+    },
+    {
+      "pt-BR": "Evolução coletiva e liderança técnica: contribuir não apenas com entregas consistentes, mas elevando o nível técnico do time e a maturidade das decisões, porque times fortes superam qualquer esforço isolado.",
+      "en-US": "Collective technical excellence: fostering team growth, rigorous standards, and mentorship because strong cohesive teams achieve what isolated individuals cannot."
+    }
+  ],
+  "experiences": [
+    {
+      "id": "casas-bahia-staff",
+      "company": "Grupo Casas Bahia (GCB)",
+      "role": {
+        "pt-BR": "Especialista Front-end Engineer / Technical Lead",
+        "en-US": "Senior Frontend Software Engineer / Technical Lead"
+      },
+      "location": {
+        "pt-BR": "São Paulo, Brasil · Remoto",
+        "en-US": "São Paulo, Brazil · Remote"
+      },
+      "type": "full-time",
+      "period": {
+        "startDate": "2024-10",
+        "isCurrent": true
+      },
+      "summary": {
+        "pt-BR": "Responsável pela evolução da arquitetura de busca e navegação em um dos maiores e-commerces do Brasil, impactando diretamente um canal crítico de aquisição com mais de 19 milhões de usuários e 1 milhão de acessos diários.",
+        "en-US": "Led the refactoring of the search and filtering architecture for an e-commerce platform serving 19M+ users and 1M+ daily active shoppers, addressing inconsistent filters, canonical URLs, indexing issues, and frontend rendering behavior."
+      },
+      "highlights": [
+        {
+          "pt-BR": "Liderança da refatoração da arquitetura de busca e filtros para plataforma com 19M+ usuários, corrigindo inconsistências de filtros, URLs canônicas, indexação e comportamento de renderização para criar uma experiência estável e previsível.",
+          "en-US": "Led the refactoring of the search and filtering architecture for an e-commerce platform serving 19M+ users, addressing inconsistent filters, canonical URLs, indexing issues, and frontend rendering behavior to create a more stable and predictable experience."
+        },
+        {
+          "pt-BR": "Redesenho do SEO técnico e estratégia de renderização para páginas de categoria, departamento e coleção com SSR/SSG, dados estruturados, HTML semântico, normalização de URLs e canonicalização, contribuindo para crescimento orgânico de 12 para 92,6 mil cliques em 3 meses e 23M+ impressões (Google Search Console).",
+          "en-US": "Redesigned the technical SEO and rendering strategy for category, department, and collection pages using SSR/SSG, structured data, semantic HTML, URL normalization, and canonicalization, contributing to organic growth from 12 to 92.6K clicks in 3 months and 23M+ impressions, based on Google Search Console data."
+        },
+        {
+          "pt-BR": "Investigação e otimização de performance no caminho crítico de renderização (Critical Rendering Path): análise de TTFB, LCP, execução de JavaScript, carregamento de recursos e requisições de rede para eliminar gargalos da experiência inicial.",
+          "en-US": "Investigated and optimized frontend performance across the critical rendering path, analyzing document loading, TTFB, LCP, JavaScript execution, resource loading, rendering behavior, and network requests to identify bottlenecks affecting the initial page experience."
+        },
+        {
+          "pt-BR": "Otimização de entrega no frontend através de code splitting, dynamic imports, bundle optimization, lazy loading e priorização de recursos, reduzindo execução desnecessária de JavaScript e acelerando o carregamento de conteúdo crítico.",
+          "en-US": "Improved frontend delivery through code splitting, dynamic imports, bundle optimization, lazy loading, and resource prioritization, reducing unnecessary JavaScript execution and improving the loading experience of critical page content."
+        },
+        {
+          "pt-BR": "Diagnóstico aprofundado de performance SSR, cache CDN/Akamai, invalidação de cache e server-side data fetching, identificando cenários onde o comportamento de cache afetava consistência e performance.",
+          "en-US": "Investigated SSR performance, CDN/Akamai caching, cache invalidation, and server-side data fetching, identifying scenarios where caching behavior could affect page consistency and performance."
+        },
+        {
+          "pt-BR": "Análise técnica de Core Web Vitals (LCP, CLS, INP), correlacionando degradações a causas concretas como bundles excessivos, recursos render-blocking, carregamento de imagens, hidratação e execução client-side.",
+          "en-US": "Analyzed Core Web Vitals, including LCP, CLS, and INP, connecting metric degradation to concrete frontend causes such as large JavaScript bundles, render-blocking resources, image loading, hydration, and client-side execution."
+        },
+        {
+          "pt-BR": "Reestruturação do fluxo de dados e padrões de aplicação no frontend, eliminando edge cases e problemas de mutabilidade que causavam comportamentos inconsistentes na experiência de busca.",
+          "en-US": "Restructured frontend data flows and application patterns, addressing edge cases and mutability issues that caused inconsistent behavior and recurring problems across the search experience."
+        },
+        {
+          "pt-BR": "Condução de decisões técnicas e definição de padrões arquiteturais da iniciativa, orientando a implementação para maior escalabilidade, manutenibilidade, performance e consistência.",
+          "en-US": "Led technical decisions and architecture standards for the initiative, guiding implementation toward greater scalability, maintainability, performance, and consistency."
+        }
+      ],
+      "engineeringCases": [
+        {
+          "title": {
+            "pt-BR": "Redesenho de SEO Técnico, SSR/SSG e Performance da Busca",
+            "en-US": "Technical SEO, SSR/SSG & Search Architecture Revamp"
+          },
+          "problem": {
+            "pt-BR": "Inconsistências em filtros de busca, canônicas incorretas e alto tempo de renderização limitavam a indexação orgânica e degradavam métricas de Core Web Vitals.",
+            "en-US": "Inconsistent search filters, canonical URL issues, and slow rendering degraded organic indexation and Google Core Web Vitals scores."
+          },
+          "decision": {
+            "pt-BR": "Adoção de renderização híbrida SSR/SSG, estruturação semântica profunda com schema.org, normalização de URLs e otimização rigorosa do caminho crítico de renderização.",
+            "en-US": "Adopted hybrid SSR/SSG rendering, rich semantic structured data, URL normalization, and systematic critical rendering path optimization."
+          },
+          "implementation": {
+            "pt-BR": "Refatoração do fluxo de dados de busca, code splitting agressivo, dynamic imports, cache CDN/Akamai e isolamento de dependências client-side.",
+            "en-US": "Refactored search data flow, deployed aggressive code splitting, dynamic imports, tuned CDN/Akamai caching, and streamlined client-side dependencies."
+          },
+          "impact": {
+            "pt-BR": "Crescimento orgânico de 12 para 92,6 mil cliques em 3 meses com 23M+ impressões no Google Search Console, estabilização do INP e confiabilidade na experiência de 19M+ usuários.",
+            "en-US": "Organic growth surging from 12 to 92.6K clicks in 3 months with 23M+ impressions (Google Search Console), INP stabilization, and robust reliability for 19M+ users."
+          },
+          "metrics": [
+            "Orgânico: 12 -> 92.6K cliques",
+            "Impressões: 23M+",
+            "Usuários: 19M+",
+            "Canal: 1M+ diários"
+          ],
+          "technologies": [
+            "React",
+            "Next.js",
+            "TypeScript",
+            "SSR/SSG",
+            "SEO Técnico",
+            "Akamai CDN",
+            "Core Web Vitals",
+            "GA4"
+          ]
+        }
+      ],
+      "technologies": [
+        "React",
+        "Next.js",
+        "TypeScript",
+        "JavaScript",
+        "HTML5",
+        "CSS3",
+        "SSR/SSG",
+        "SEO Técnico",
+        "Core Web Vitals",
+        "Akamai CDN",
+        "Node.js",
+        "Jest",
+        "GA4"
+      ],
+      "skills": [
+        "architecture",
+        "frontend",
+        "performance",
+        "seo"
+      ],
+      "visibility": "PUBLIC"
+    },
+    {
+      "id": "hotmart-senior",
+      "company": "Hotmart",
+      "role": {
+        "pt-BR": "Senior Frontend Software Engineer",
+        "en-US": "Senior Frontend Software Engineer"
+      },
+      "location": {
+        "pt-BR": "São Paulo / Brasil · Remoto",
+        "en-US": "Brazil · Remote"
+      },
+      "type": "full-time",
+      "period": {
+        "startDate": "2023-10",
+        "endDate": "2024-10",
+        "isCurrent": false
+      },
+      "summary": {
+        "pt-BR": "Responsável pelo desenvolvimento de um dashboard e sistema de onboarding modular, com foco em experimentação teste AB, personalização e acessibilidade para uma base de mais de 35 milhões de usuários globais.",
+        "en-US": "Designed and implemented a modular dashboard and onboarding architecture using React, TypeScript, Webpack, and Module Federation, enabling independent modules and safer deployments for 35M+ global users."
+      },
+      "highlights": [
+        {
+          "pt-BR": "Desenho e implementação de arquitetura de dashboard modular com React, TypeScript, Webpack e Module Federation, viabilizando módulos independentes e deploys seguros com evolução contínua do produto.",
+          "en-US": "Designed and implemented a modular dashboard architecture using React, TypeScript, Webpack, and Module Federation, enabling independent modules and safer deployments while supporting continuous product evolution."
+        },
+        {
+          "pt-BR": "Implementação de observabilidade no frontend (métricas de performance, logging e tracing com Sentry e Web Vitals), elevando a qualidade das releases e reduzindo o Mean Time to Recovery (MTTR).",
+          "en-US": "Implemented frontend observability, including performance metrics, logging, and tracing, improving release quality and reducing Mean Time to Recovery (MTTR)."
+        },
+        {
+          "pt-BR": "Estabelecimento de práticas para monitoramento do comportamento de frontend e identificação proativa de problemas de performance e confiabilidade em produção.",
+          "en-US": "Established practices for monitoring frontend behavior and identifying performance and reliability issues across production environments."
+        },
+        {
+          "pt-BR": "Aplicação de padrões de acessibilidade (a11y) e colaboração estreita com times de Produto e UX para entregar experiências orientadas a dados em ambiente de testes A/B voltado a onboarding e conversão.",
+          "en-US": "Applied accessibility (a11y) practices and collaborated with Product and UX teams to deliver consistent, data-driven experiences in an A/B testing environment focused on user onboarding and conversion."
+        }
+      ],
+      "engineeringCases": [
+        {
+          "title": {
+            "pt-BR": "Dashboard Modular com Module Federation e Observabilidade",
+            "en-US": "Modular Dashboard with Module Federation & Frontend Observability"
+          },
+          "problem": {
+            "pt-BR": "Necessidade de permitir deploys independentes em larga escala para mais de 35 milhões de usuários sem criar inconsistências visuais ou lentidão no onboarding.",
+            "en-US": "Required safe, independent deployments at high scale across 35M+ users without visual fragmentation or onboarding latency."
+          },
+          "decision": {
+            "pt-BR": "Adoção de Module Federation no Webpack com isolamento de dependências, observabilidade completa com Sentry/Web Vitals e conformidade rigorosa com a11y.",
+            "en-US": "Implemented Webpack Module Federation with dependency isolation, end-to-end Sentry/Web Vitals observability, and strict a11y compliance."
+          },
+          "implementation": {
+            "pt-BR": "Construção de casca compartilhada, módulos federados carregados dinamicamente sob demanda e esteiras automatizadas de testes com monitoramento de MTTR.",
+            "en-US": "Architected shared container shell, dynamically loaded federated micro-apps, and automated testing pipelines tracking MTTR."
+          },
+          "impact": {
+            "pt-BR": "Redução mensurável no tempo de recuperação (MTTR), autonomia para squads e aumento na taxa de conclusão de onboarding via testes A/B.",
+            "en-US": "Measurable reduction in MTTR, squad deployment autonomy, and increased onboarding completion through data-driven A/B testing."
+          },
+          "metrics": [
+            "35M+ usuários",
+            "Redução no MTTR",
+            "A/B Testing contínuo",
+            "A11Y compliant"
+          ],
+          "technologies": [
+            "React",
+            "TypeScript",
+            "Webpack",
+            "Module Federation",
+            "Sentry",
+            "Web Vitals",
+            "a11y",
+            "GA4"
+          ]
+        }
+      ],
+      "technologies": [
+        "React",
+        "TypeScript",
+        "Webpack",
+        "Module Federation",
+        "Node.js",
+        "Sentry",
+        "A/B Testing",
+        "a11y",
+        "Core Web Vitals",
+        "GA4"
+      ],
+      "skills": [
+        "frontend",
+        "architecture",
+        "testing"
+      ],
+      "visibility": "PUBLIC"
+    },
+    {
+      "id": "invillia-senior",
+      "company": "Invillia",
+      "role": {
+        "pt-BR": "Senior Frontend Software Engineer",
+        "en-US": "Senior Frontend Software Engineer"
+      },
+      "location": {
+        "pt-BR": "Brasil · Remoto",
+        "en-US": "Brazil · Remote"
+      },
+      "type": "full-time",
+      "period": {
+        "startDate": "2021-03",
+        "endDate": "2023-10",
+        "isCurrent": false
+      },
+      "summary": {
+        "pt-BR": "Liderança da concepção e arquitetura de um CMS baseado em micro frontends e criação de um Design System, entregando um ecossistema modular e escalável para múltiplos times com padrões corporativos de testes e CI/CD.",
+        "en-US": "Led the implementation of a micro frontend architecture with Module Federation and Design System, enabling teams to develop and deploy features independently with automated CI/CD and clean code standards."
+      },
+      "highlights": [
+        {
+          "pt-BR": "Liderança da implementação de arquitetura de micro frontends com React e TypeScript, permitindo que times desenvolvessem e realizassem deploy de features de forma autônoma com ciclos de release mais rápidos e seguros.",
+          "en-US": "Led the implementation of a micro frontend architecture using React and TypeScript, enabling teams to develop and deploy features independently with safer and faster release cycles."
+        },
+        {
+          "pt-BR": "Desenho de padrões de integração e gerenciamento de estado compartilhado entre aplicações independentes, garantindo comunicação consistente enquanto preservava o isolamento modular.",
+          "en-US": "Designed shared state and integration patterns across applications, ensuring consistent communication while maintaining module isolation."
+        },
+        {
+          "pt-BR": "Estabelecimento de padrões de frontend para arquitetura de componentes, testes, integração, performance e Clean Code, além de mentoria técnica de desenvolvedores e aceleração de onboarding.",
+          "en-US": "Established frontend standards for component architecture, testing, integration patterns, performance, and clean code, while mentoring developers and accelerating team onboarding."
+        },
+        {
+          "pt-BR": "Implementação de testes automatizados e práticas de CI/CD utilizando Jest, React Testing Library, SonarCloud e GitHub Actions, além de desenvolvimento backend com Node.js e PostgreSQL.",
+          "en-US": "Implemented automated testing and CI/CD practices using Jest, React Testing Library, SonarCloud, and GitHub Actions, along with backend development using Node.js and PostgreSQL."
+        }
+      ],
+      "engineeringCases": [
+        {
+          "title": {
+            "pt-BR": "CMS Baseado em Micro Frontends e Design System Corporativo",
+            "en-US": "Micro Frontend CMS & Enterprise Design System"
+          },
+          "problem": {
+            "pt-BR": "Múltiplos times desenvolviam sistemas isolados gerando redundância de código, divergência de UI e gargalos no processo de deploy unificado.",
+            "en-US": "Fragmented teams built redundant interfaces and faced massive merge conflicts in unified deployment cycles."
+          },
+          "decision": {
+            "pt-BR": "Criação de um Design System centralizado e arquitetura de micro frontends com Module Federation e comunicação por barramento tipado.",
+            "en-US": "Created centralized Design System and micro frontend ecosystem powered by Module Federation with strictly typed event communication."
+          },
+          "implementation": {
+            "pt-BR": "Empacotamento de componentes atômicos, backend BFF em Node.js com PostgreSQL e esteiras de qualidade com SonarCloud e Jest.",
+            "en-US": "Built atomic UI component library, Node.js BFF backend with PostgreSQL, and automated quality gates with SonarCloud."
+          },
+          "impact": {
+            "pt-BR": "Autonomia de deploy para múltiplos times, redução drástica de conflitos de integração e elevação da cobertura de testes corporativa.",
+            "en-US": "Multi-team deployment autonomy, significant decrease in integration bugs, and elevated organizational test coverage."
+          },
+          "metrics": [
+            "Múltiplos squads autônomos",
+            "SonarCloud Quality Gate",
+            "BFF Node.js + Postgres"
+          ],
+          "technologies": [
+            "React",
+            "TypeScript",
+            "Module Federation",
+            "Node.js",
+            "PostgreSQL",
+            "Jest",
+            "SonarCloud",
+            "GitHub Actions"
+          ]
+        }
+      ],
+      "technologies": [
+        "React",
+        "TypeScript",
+        "Micro Frontends",
+        "Module Federation",
+        "Node.js",
+        "PostgreSQL",
+        "Jest",
+        "React Testing Library",
+        "SonarCloud",
+        "GitHub Actions"
+      ],
+      "skills": [
+        "architecture",
+        "frontend",
+        "backend",
+        "testing"
+      ],
+      "visibility": "PUBLIC"
+    },
+    {
+      "id": "nttdata-bradesco",
+      "company": "NTT DATA / everis (Banco Bradesco)",
+      "role": {
+        "pt-BR": "Senior Frontend Software Engineer / Full Stack Developer",
+        "en-US": "Senior Frontend Software Engineer / Full Stack Developer"
+      },
+      "location": {
+        "pt-BR": "Uberlândia / São Paulo, Brasil",
+        "en-US": "Uberlândia / São Paulo, Brazil"
+      },
+      "type": "full-time",
+      "period": {
+        "startDate": "2020-05",
+        "endDate": "2021-03",
+        "isCurrent": false
+      },
+      "summary": {
+        "pt-BR": "Responsável pela modernização do app de cartões do Banco Bradesco, desenvolvendo features complexas para uma aplicação de alto impacto com milhões de usuários ativos integrando camadas web e mobile via WebView.",
+        "en-US": "Developed React applications integrated through WebView for Banco Bradesco's cards app, solving complex communication and behavioral differences between iOS, Android, and web environments."
+      },
+      "highlights": [
+        {
+          "pt-BR": "Desenvolvimento de aplicações React integradas através de WebView, resolvendo diferenças complexas de comunicação e comportamento entre iOS, Android e web.",
+          "en-US": "Developed React applications integrated through WebView, solving complex communication and behavioral differences between iOS, Android, and web environments."
+        },
+        {
+          "pt-BR": "Implementação de autenticação, Single Sign-On (SSO), navegação e fluxos específicos de plataforma, colaborando estreitamente com equipes mobile e backend para elevar a estabilidade cross-platform.",
+          "en-US": "Implemented authentication, SSO, navigation, and platform-specific flows while collaborating with mobile and backend teams to improve cross-platform stability."
+        },
+        {
+          "pt-BR": "Otimização avançada de performance em JavaScript para garantir fluidez e responsividade na experiência do usuário em dispositivos móveis heterogêneos.",
+          "en-US": "Engineered advanced JavaScript performance optimizations to ensure fluid UX and low-latency interaction in hybrid mobile environments."
+        },
+        {
+          "pt-BR": "Desenvolvimento de recursos backend utilizando TypeScript e Node.js para suporte às integrações do aplicativo de cartões.",
+          "en-US": "Developed backend capabilities using TypeScript and Node.js to power card services and transactional integration."
+        }
+      ],
+      "engineeringCases": [
+        {
+          "title": {
+            "pt-BR": "Integração Híbrida Web/Mobile de Alta Confiabilidade para Cartões Bradesco",
+            "en-US": "High-Reliability Hybrid Web/Mobile Integration for Bradesco Cards"
+          },
+          "problem": {
+            "pt-BR": "Divergências de renderização e perda de sessão entre WebView e app nativo impactavam negativamente a experiência de milhões de clientes.",
+            "en-US": "Rendering inconsistencies and session drops between WebView and native mobile apps disrupted customer transactions."
+          },
+          "decision": {
+            "pt-BR": "Padronização de ponte de comunicação nativa (JS Bridge), autenticação biométrica via SSO integrado e otimização da thread principal de JS.",
+            "en-US": "Standardized JS Bridge communication, biometrics-backed SSO token sharing, and strict main-thread JavaScript profiling."
+          },
+          "implementation": {
+            "pt-BR": "Arquitetura com React, TypeScript e Node.js no backend, sincronização de estado atômico e tratamento de eventos de ciclo de vida mobile.",
+            "en-US": "Implemented React, TypeScript, and Node.js backend integration with atomic state sync and native lifecycle handlers."
+          },
+          "impact": {
+            "pt-BR": "Experiência consistente e fluida para milhões de correntistas, zero perda de sessão e estabilidade elevada nas transações bancárias.",
+            "en-US": "Seamless, fluid experience across millions of active banking customers with zero session loss during critical card operations."
+          },
+          "metrics": [
+            "Milhões de usuários ativos",
+            "Zero incidentes de SSO",
+            "Performance fluida em mobile WebView"
+          ],
+          "technologies": [
+            "React",
+            "JavaScript",
+            "TypeScript",
+            "Node.js",
+            "WebView",
+            "Mobile Hybrid",
+            "SSO"
+          ]
+        }
+      ],
+      "technologies": [
+        "React",
+        "JavaScript",
+        "TypeScript",
+        "Node.js",
+        "WebView",
+        "Mobile Hybrid",
+        "SSO",
+        "Performance Optimization"
+      ],
+      "skills": [
+        "frontend",
+        "backend",
+        "performance"
+      ],
+      "visibility": "PUBLIC"
+    },
+    {
+      "id": "ene-solutions",
+      "company": "eNe Solutions (Algar Telecom)",
+      "role": {
+        "pt-BR": "Web Developer / Full Stack Developer",
+        "en-US": "Web Developer / Full Stack Developer"
+      },
+      "location": {
+        "pt-BR": "Brasil · Remoto",
+        "en-US": "Brazil · Remote"
+      },
+      "type": "full-time",
+      "period": {
+        "startDate": "2019-04",
+        "endDate": "2020-11",
+        "isCurrent": false
+      },
+      "summary": {
+        "pt-BR": "Sustentação e evolução de sistemas corporativos da Algar Telecom, entregando melhorias e correções em aplicações web e APIs com foco em estabilidade, manutenibilidade e evolução do produto.",
+        "en-US": "Supported and evolved Algar Telecom enterprise systems, delivering improvements and fixes across web applications and APIs with a focus on stability, maintainability, and product evolution."
+      },
+      "highlights": [
+        {
+          "pt-BR": "Desenvolvimento e manutenção de aplicações web e APIs com foco em estabilidade operacional e evolução de produto para a Algar Telecom.",
+          "en-US": "Supported and evolved Algar Telecom systems, delivering improvements and fixes across web applications and APIs with a focus on stability, maintainability, and product evolution."
+        },
+        {
+          "pt-BR": "Atuação com React, Gatsby, MobX, GraphQL, Node.js, MongoDB e TypeScript na construção de soluções corporativas e canais de atendimento.",
+          "en-US": "Worked with React, Gatsby, MobX, GraphQL, Node.js, MongoDB, and TypeScript across enterprise portals and client-facing telecom systems."
+        }
+      ],
+      "engineeringCases": [],
+      "technologies": [
+        "React",
+        "Gatsby",
+        "MobX",
+        "GraphQL",
+        "Node.js",
+        "MongoDB",
+        "TypeScript"
+      ],
+      "skills": [
+        "frontend",
+        "backend"
+      ],
+      "visibility": "PUBLIC"
+    }
+  ],
+  "projects": [
+    {
+      "id": "ecommerce-search-engine",
+      "slug": "high-scale-search-architecture",
+      "title": {
+        "pt-BR": "Arquitetura de Busca e Catálogo de Alta Escala (Casas Bahia)",
+        "en-US": "High-Scale Search & Catalog Architecture (Casas Bahia)"
+      },
+      "tagline": {
+        "pt-BR": "Reengenharia de frontend, SSR/SSG e SEO técnico para canal com 19M+ usuários e crescimento orgânico expressivo.",
+        "en-US": "Frontend reengineering, SSR/SSG & technical SEO for a platform with 19M+ users and major organic growth."
+      },
+      "featured": true,
+      "order": 1,
+      "period": "2024 - Presente",
+      "context": {
+        "pt-BR": "Modernização da arquitetura de busca e navegação de um dos maiores e-commerces da América Latina, atendendo mais de 19 milhões de usuários e 1 milhão de acessos diários.",
+        "en-US": "Modernizing the search and filtering architecture of one of Latin America's largest e-commerce platforms, serving 19M+ users and 1M+ daily visits."
+      },
+      "problem": {
+        "pt-BR": "Inconsistências em filtros, canônicas, indexação e tempo de carregamento no caminho crítico de renderização afetavam a conversão e o ranking no Google.",
+        "en-US": "Inconsistent filters, canonical URLs, indexing, and critical rendering path bottlenecks affected conversion rates and SEO rankings."
+      },
+      "constraints": {
+        "pt-BR": "Garantir 99.99% de disponibilidade sem interrupções nos fluxos de checkout e preservar compatibilidade com APIs de catálogo e facetas de negócio.",
+        "en-US": "Ensure 99.99% uptime with zero disruption to checkout flows while maintaining compatibility with legacy catalog APIs."
+      },
+      "optionsConsidered": {
+        "pt-BR": "1. SPA puro client-side (descartado por prejudicar SEO e TTFB no mobile). 2. SSR monolítico sem cache de borda (descartado por sobrecarregar origem). 3. Renderização híbrida SSR/SSG com CDN Akamai, code splitting e dados estruturados (escolhido).",
+        "en-US": "1. Pure client-side SPA (rejected due to poor SEO and mobile TTFB). 2. Monolithic SSR without edge cache (rejected due to server saturation). 3. Hybrid SSR/SSG with Akamai CDN caching, aggressive code splitting, and structured data (chosen)."
+      },
+      "decision": {
+        "pt-BR": "Implementamos renderização híbrida SSR/SSG, reestruturação completa de dados estruturados com HTML semântico e otimização profunda do caminho crítico de renderização.",
+        "en-US": "Implemented hybrid SSR/SSG rendering, rich semantic structured data, and rigorous optimization across the critical rendering path."
+      },
+      "tradeoffs": {
+        "pt-BR": "Gestão mais refinada de invalidação de cache na Akamai e contratos de dados tipados em troca de velocidade de carregamento instantânea e crescimento orgânico.",
+        "en-US": "Required sophisticated Akamai cache invalidation and strict data contracts in exchange for instant page delivery and massive organic lift."
+      },
+      "solution": {
+        "pt-BR": "Code splitting inteligente, lazy loading de componentes não críticos, normalização de URLs e dados semânticos com SSR/SSG e monitoramento contínuo de Core Web Vitals.",
+        "en-US": "Smart code splitting, lazy loading non-critical assets, URL normalization, and structured semantic SSR/SSG with real-time Core Web Vitals monitoring."
+      },
+      "implementation": {
+        "pt-BR": "Desenvolvido com React, Next.js, TypeScript estrito, Akamai CDN, GA4 e observabilidade em tempo real.",
+        "en-US": "Engineered with React, Next.js, strict TypeScript, Akamai CDN, GA4, and real-time observability."
+      },
+      "impact": {
+        "pt-BR": "Crescimento orgânico de 12 para 92,6 mil cliques em 3 meses com 23M+ impressões no Google Search Console, estabilidade comprovada para 19M+ usuários.",
+        "en-US": "Organic search surge from 12 to 92.6K clicks in 3 months with 23M+ impressions (Google Search Console), proving resilience across 19M+ shoppers."
+      },
+      "metrics": [
+        {
+          "label": {
+            "pt-BR": "Crescimento Orgânico",
+            "en-US": "Organic Growth"
+          },
+          "value": "92.6k",
+          "change": "12 -> 92.6k cliques"
+        },
+        {
+          "label": {
+            "pt-BR": "Impressões GSC",
+            "en-US": "GSC Impressions"
+          },
+          "value": "23M+",
+          "change": "em 3 meses"
+        },
+        {
+          "label": {
+            "pt-BR": "Base de Usuários",
+            "en-US": "User Base"
+          },
+          "value": "19M+",
+          "change": "1M+ diários"
+        }
+      ],
+      "technologies": [
+        "React",
+        "Next.js",
+        "TypeScript",
+        "SSR/SSG",
+        "SEO Técnico",
+        "Akamai CDN",
+        "Core Web Vitals",
+        "GA4"
+      ],
+      "skills": [
+        "architecture",
+        "performance",
+        "frontend",
+        "seo"
+      ],
+      "visibility": "PUBLIC"
+    },
+    {
+      "id": "ai-career-platform",
+      "slug": "ai-career-platform",
+      "title": {
+        "pt-BR": "Plataforma de Carreira com IA e Servidor WebMCP",
+        "en-US": "AI Career Platform & WebMCP Server"
+      },
+      "tagline": {
+        "pt-BR": "Engenharia de ponta a ponta combinando Clean Architecture, LLMs estruturados e automação com Human-in-the-Loop.",
+        "en-US": "End-to-end engineering blending Clean Architecture, structured LLMs, and Human-in-the-Loop automation."
+      },
+      "featured": true,
+      "order": 2,
+      "period": "2024",
+      "context": {
+        "pt-BR": "Criação de um sistema capaz de atuar como agente de carreira do engenheiro, analisar vagas de emprego, extrair requisitos e redigir documentos personalizados com comprovação estrita de dados.",
+        "en-US": "Engineering an autonomous career platform capable of analyzing technical job specs, extracting requirements, and drafting verified application materials with strict provenance."
+      },
+      "problem": {
+        "pt-BR": "Agentes de IA genéricos alucinam dados profissionais, expõem secrets e não respeitam contratos de tipagem estritos nem limites de segurança.",
+        "en-US": "Generic LLM assistants hallucinate career achievements, leak private data, and lack strict typed contract boundaries."
+      },
+      "decision": {
+        "pt-BR": "Adoção de Clean Architecture com AI Gateway desacoplado, validação de schema com Zod para saídas estruturadas, servidor MCP oficial para exposição segura de contexto e aprovação humana obrigatória.",
+        "en-US": "Adopted Clean Architecture with decoupled AI Gateway, Zod schema validation for structured outputs, official MCP server for secure context distribution, and mandatory human sign-off."
+      },
+      "solution": {
+        "pt-BR": "Modular Monolith em monorepo pnpm, separação estrita de tiers de dados (Public, Private, Restricted), e engine de geração de documentos orientada a evidências.",
+        "en-US": "pnpm monorepo modular monolith, strict data tier isolation (Public, Private, Restricted), and evidence-backed document generation engine."
+      },
+      "implementation": {
+        "pt-BR": "Next.js App Router, pacotes desacoplados de domínio, i18n nativo bilingue com validação em CI, e transporte oficial MCP SDK.",
+        "en-US": "Next.js App Router, decoupled domain packages, native bilingual i18n with CI parity checks, and official MCP SDK transport."
+      },
+      "impact": {
+        "pt-BR": "Demonstração viva de decisões de engenharia Staff+, zero dependência externa no domínio central e suporte completo a internacionalização.",
+        "en-US": "Living showcase of Staff-level engineering decisions, zero external dependencies in domain core, and native internationalization."
+      },
+      "metrics": [
+        {
+          "label": {
+            "pt-BR": "Alucinação em Dados",
+            "en-US": "Data Hallucination"
+          },
+          "value": "0%",
+          "change": "Strict"
+        },
+        {
+          "label": {
+            "pt-BR": "Desacoplamento de Domínio",
+            "en-US": "Domain Decoupling"
+          },
+          "value": "100%",
+          "change": "Clean Arch"
+        }
+      ],
+      "technologies": [
+        "Next.js",
+        "TypeScript",
+        "Zod",
+        "WebMCP",
+        "Gemini 3.8 Flash",
+        "Clean Architecture",
+        "Tailwind CSS"
+      ],
+      "skills": [
+        "architecture",
+        "ai",
+        "frontend",
+        "testing"
+      ],
+      "visibility": "PUBLIC"
+    }
+  ],
+  "skills": [
+    {
+      "id": "frontend-dev",
+      "name": "Frontend Development & React / Next.js",
+      "category": "frontend",
+      "level": "expert",
+      "highlight": true,
+      "description": {
+        "pt-BR": "Domínio profundo de React, Next.js, TypeScript, JavaScript moderno, HTML5, CSS3, Webpack e Module Federation para aplicações de ultra alta escala.",
+        "en-US": "Deep mastery of React, Next.js, TypeScript, JavaScript, HTML5, CSS3, Webpack, and Module Federation for ultra high-scale web platforms."
+      },
+      "yearsOfExperience": 7,
+      "tags": [
+        "React",
+        "Next.js",
+        "TypeScript",
+        "JavaScript",
+        "HTML5",
+        "CSS3",
+        "Webpack",
+        "Module Federation"
+      ],
+      "relatedProjectIds": [
+        "high-scale-search-architecture",
+        "ai-career-platform"
+      ],
+      "visibility": "PUBLIC"
+    },
+    {
+      "id": "frontend-architecture",
+      "name": "Frontend Architecture & Systems Design",
+      "category": "architecture",
+      "level": "expert",
+      "highlight": true,
+      "description": {
+        "pt-BR": "Arquitetura de Frontend, Micro Frontends, Arquitetura Modular, Component Architecture, Clean Code, SOLID e Design Patterns.",
+        "en-US": "Frontend Architecture, Micro Frontends, Modular Architecture, Component Architecture, Software Design, Clean Code, and Design Patterns."
+      },
+      "yearsOfExperience": 7,
+      "tags": [
+        "Frontend Architecture",
+        "Micro Frontends",
+        "Modular Architecture",
+        "Component Architecture",
+        "Clean Code",
+        "Design Patterns",
+        "SOLID"
+      ],
+      "relatedProjectIds": [
+        "high-scale-search-architecture",
+        "ai-career-platform"
+      ],
+      "visibility": "PUBLIC"
+    },
+    {
+      "id": "web-performance",
+      "name": "Web Performance & Core Web Vitals",
+      "category": "performance",
+      "level": "expert",
+      "highlight": true,
+      "description": {
+        "pt-BR": "Otimização meticulosa de Core Web Vitals (LCP, CLS, INP, TTFB), SSR/SSG, Code Splitting, Dynamic Imports, Lazy Loading, Bundle Optimization, CDN Akamai e Caching.",
+        "en-US": "Meticulous optimization of Core Web Vitals (LCP, CLS, INP, TTFB), SSR/SSG, Code Splitting, Dynamic Imports, Lazy Loading, Bundle Optimization, CDN, and Caching."
+      },
+      "yearsOfExperience": 7,
+      "tags": [
+        "Core Web Vitals",
+        "LCP",
+        "CLS",
+        "INP",
+        "TTFB",
+        "SSR",
+        "SSG",
+        "Code Splitting",
+        "Dynamic Imports",
+        "Lazy Loading",
+        "Bundle Optimization",
+        "CDN",
+        "Caching"
+      ],
+      "relatedProjectIds": [
+        "high-scale-search-architecture"
+      ],
+      "visibility": "PUBLIC"
+    },
+    {
+      "id": "technical-seo",
+      "name": "Technical SEO & Rendering Architecture",
+      "category": "performance",
+      "level": "expert",
+      "highlight": true,
+      "description": {
+        "pt-BR": "Arquitetura de SEO Técnico, Dados Estruturados (Schema.org), HTML Semântico, Normalização de URLs, Canônicas, Redirecionamentos, Rastreabilidade, Indexação e GA4.",
+        "en-US": "Technical SEO Architecture, Structured Data, Semantic HTML, URL Normalization, Canonical URLs, Redirects, Crawlability, Indexation, and GA4."
+      },
+      "yearsOfExperience": 6,
+      "tags": [
+        "Technical SEO",
+        "Structured Data",
+        "Semantic HTML",
+        "URL Normalization",
+        "Canonical URLs",
+        "Redirects",
+        "Crawlability",
+        "Indexation",
+        "GA4"
+      ],
+      "relatedProjectIds": [
+        "high-scale-search-architecture"
+      ],
+      "visibility": "PUBLIC"
+    },
+    {
+      "id": "ai-engineering",
+      "name": "AI Engineering, Agentic AI & WebMCP",
+      "category": "ai",
+      "level": "advanced",
+      "highlight": true,
+      "description": {
+        "pt-BR": "Construção de Agentes de IA, aplicações com LLMs, Agentic AI, Compound AI, Model Context Protocol (WebMCP), Context Engineering e fluxos assistidos por IA na engenharia de software.",
+        "en-US": "Building AI Agents, LLM applications, Agentic AI, Compound AI, MCP, Context Engineering, AI Workflows, and AI-assisted Software Engineering."
+      },
+      "yearsOfExperience": 2,
+      "tags": [
+        "Agentic AI",
+        "LLMs",
+        "Generative AI",
+        "Compound AI",
+        "MCP",
+        "Context Engineering",
+        "AI Workflows",
+        "AI-assisted Software Engineering"
+      ],
+      "relatedProjectIds": [
+        "ai-career-platform"
+      ],
+      "visibility": "PUBLIC"
+    },
+    {
+      "id": "quality-engineering",
+      "name": "Quality, Testing & CI/CD",
+      "category": "testing",
+      "level": "expert",
+      "highlight": false,
+      "description": {
+        "pt-BR": "Estratégia completa de testes e qualidade com Jest, React Testing Library, Enzyme, TDD, SonarCloud, ESLint, CI/CD, GitHub Actions e observabilidade com Sentry.",
+        "en-US": "Complete testing and quality strategy using Jest, React Testing Library, Enzyme, TDD, SonarCloud, ESLint, CI/CD, GitHub Actions, and Sentry observability."
+      },
+      "yearsOfExperience": 7,
+      "tags": [
+        "Jest",
+        "React Testing Library",
+        "Enzyme",
+        "TDD",
+        "SonarCloud",
+        "ESLint",
+        "CI/CD",
+        "GitHub Actions",
+        "Observability",
+        "Sentry"
+      ],
+      "visibility": "PUBLIC"
+    },
+    {
+      "id": "backend-integration",
+      "name": "Backend & Integration",
+      "category": "backend",
+      "level": "advanced",
+      "highlight": false,
+      "description": {
+        "pt-BR": "Construção e integração de APIs escaláveis com Node.js, GraphQL, REST APIs, MongoDB, PostgreSQL e drizzle-orm.",
+        "en-US": "Scalable API design and integration with Node.js, GraphQL, REST APIs, MongoDB, PostgreSQL, and drizzle-orm."
+      },
+      "yearsOfExperience": 6,
+      "tags": [
+        "Node.js",
+        "GraphQL",
+        "REST APIs",
+        "MongoDB",
+        "PostgreSQL",
+        "drizzle-orm"
+      ],
+      "visibility": "PUBLIC"
+    }
+  ],
+  "education": [
+    {
+      "id": "edu-computer-science",
+      "institution": "FAM (Faculdade de Americana)",
+      "degree": {
+        "pt-BR": "Bacharelado em Ciência da Computação",
+        "en-US": "Bachelor's Degree in Computer Science"
+      },
+      "fieldOfStudy": {
+        "pt-BR": "Ciência da Computação, Clean Code e Clean Architecture",
+        "en-US": "Computer Science, Clean Code & Software Architecture"
+      },
+      "startDate": "2019",
+      "endDate": "2026",
+      "visibility": "PUBLIC"
+    }
+  ],
+  "certifications": [
+    {
+      "id": "cert-clean-architecture",
+      "name": "Clean Code & Clean Architecture Mastery",
+      "issuer": "Specialized Architecture Programs",
+      "issueDate": "2023",
+      "visibility": "PUBLIC"
+    }
+  ],
+  "achievements": [
+    {
+      "id": "achieve-casas-bahia-seo",
+      "title": {
+        "pt-BR": "Salto Orgânico de 12 para 92.6k Cliques em 3 Meses",
+        "en-US": "Organic Growth Surge from 12 to 92.6K Clicks in 3 Months"
+      },
+      "description": {
+        "pt-BR": "Redesenho de SEO Técnico, SSR/SSG e canônicas no Grupo Casas Bahia gerando mais de 23 milhões de impressões no Google Search Console.",
+        "en-US": "Technical SEO, SSR/SSG and canonical architecture redesign at Grupo Casas Bahia generating 23M+ Google Search Console impressions."
+      },
+      "date": "2024",
+      "metrics": "12 -> 92.6k cliques • 23M+ impressões",
+      "visibility": "PUBLIC"
+    },
+    {
+      "id": "achieve-hotmart-modular",
+      "title": {
+        "pt-BR": "Arquitetura Modular para 35M+ Usuários na Hotmart",
+        "en-US": "Modular Dashboard Architecture for 35M+ Users at Hotmart"
+      },
+      "description": {
+        "pt-BR": "Implementação de Module Federation e observabilidade com redução de MTTR em fluxos de onboarding e conversão.",
+        "en-US": "Deployed Module Federation and frontend observability with MTTR reduction across global onboarding flows."
+      },
+      "date": "2024",
+      "metrics": "35M+ usuários • Redução de MTTR",
+      "visibility": "PUBLIC"
+    }
+  ],
+  "languages": [
+    {
+      "code": "pt-BR",
+      "name": {
+        "pt-BR": "Português",
+        "en-US": "Portuguese"
+      },
+      "proficiency": {
+        "pt-BR": "Nativo",
+        "en-US": "Native"
+      },
+      "visibility": "PUBLIC"
+    },
+    {
+      "code": "en-US",
+      "name": {
+        "pt-BR": "Inglês",
+        "en-US": "English"
+      },
+      "proficiency": {
+        "pt-BR": "Fluente / C1 Profissional",
+        "en-US": "Full Professional Proficiency (C1)"
+      },
+      "visibility": "PUBLIC"
+    }
+  ],
+  "links": {
+    "github": "https://github.com/rodovalhog",
+    "linkedin": "https://www.linkedin.com/in/guilherme-rodovalho/",
+    "email": "rodovalhogdeveloper@gmail.com"
+  },
+  "resumes": [
+    {
+      "id": "cv-pt-staff",
+      "version": "2.0",
+      "locale": "pt-BR",
+      "targetRole": "Senior Software Engineer | Especialista Frontend | AI Engineer",
+      "updatedAt": "2026-09-23",
+      "fileUrl": "/resumes/guilherme-rodovalho-cv-pt.pdf"
+    },
+    {
+      "id": "cv-en-staff",
+      "version": "2.0",
+      "locale": "en-US",
+      "targetRole": "Senior Software Engineer | Frontend Architect | AI Engineer",
+      "updatedAt": "2026-09-23",
+      "fileUrl": "/resumes/guilherme-rodovalho-cv-en.pdf"
+    }
+  ]
+}

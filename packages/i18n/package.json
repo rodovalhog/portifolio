@@ -1,0 +1,20 @@
+{
+  "name": "@portfolio/i18n",
+  "version": "1.0.0",
+  "private": true,
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "scripts": {
+    "build": "tsc -b",
+    "typecheck": "tsc --noEmit",
+    "check-parity": "node dist/scripts/check-parity.js",
+    "clean": "rm -rf dist"
+  },
+  "dependencies": {
+    "@portfolio/domain": "workspace:*"
+  },
+  "devDependencies": {
+    "@types/node": "^22.7.5",
+    "typescript": "^5.6.3"
+  }
+}
