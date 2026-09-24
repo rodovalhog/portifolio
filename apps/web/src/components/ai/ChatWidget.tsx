@@ -66,6 +66,31 @@ export const ChatWidget: React.FC = () => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
   }, [messages, isLoading]);
 
+  // Prevent background scroll when chat is open and handle Escape key
+  useEffect(() => {
+    if (!isOpen) return;
+
+    const originalOverflow = document.body.style.overflow;
+    const originalOverscroll = document.body.style.overscrollBehavior;
+
+    // Lock background scroll completely so only the full-screen modal scrolls
+    document.body.style.overflow = "hidden";
+    document.body.style.overscrollBehavior = "none";
+
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") {
+        toggleChat();
+      }
+    };
+    window.addEventListener("keydown", handleKeyDown);
+
+    return () => {
+      document.body.style.overflow = originalOverflow;
+      document.body.style.overscrollBehavior = originalOverscroll;
+      window.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [isOpen, toggleChat]);
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (!input.trim() || isLoading) return;
@@ -104,11 +129,13 @@ export const ChatWidget: React.FC = () => {
         </div>
       )}
 
-      {/* Floating Trigger Button */}
+      {/* Floating Trigger Button - hidden on mobile when modal is open */}
       <button
         id="btn-mcp-chat-trigger"
         onClick={toggleChat}
-        className="fixed bottom-6 right-6 z-40 flex items-center gap-3 px-4 py-3 bg-zinc-900/90 hover:bg-zinc-800 text-zinc-100 rounded-full shadow-2xl hover:shadow-emerald-500/20 hover:scale-105 transition-all duration-200 border border-zinc-700/80 backdrop-blur-md group"
+        className={`fixed bottom-6 right-6 z-40 ${
+          isOpen ? "hidden sm:flex" : "flex"
+        } items-center gap-3 px-4 py-3 bg-zinc-900/90 hover:bg-zinc-800 text-zinc-100 rounded-full shadow-2xl hover:shadow-emerald-500/20 hover:scale-105 transition-all duration-200 border border-zinc-700/80 backdrop-blur-md group`}
         aria-label="Abrir assistente semântico WebMCP"
       >
         <div className="relative">
@@ -141,27 +168,40 @@ export const ChatWidget: React.FC = () => {
         </div>
       </button>
 
-      {/* Floating Chat Drawer / Panel */}
+      {/* Mobile Backdrop Overlay */}
+      {isOpen && (
+        <div
+          className="fixed inset-0 bg-black/60 backdrop-blur-sm z-40 sm:hidden animate-in fade-in duration-200"
+          onClick={toggleChat}
+          aria-hidden="true"
+        />
+      )}
+
+      {/* Floating Chat Drawer / Full-Screen Modal on Mobile */}
       {isOpen && (
         <div
           id="mcp-chat-panel"
-          className="fixed bottom-24 right-4 sm:right-6 w-[94vw] sm:w-[460px] h-[640px] max-h-[82vh] z-50 glass-panel rounded-2xl flex flex-col overflow-hidden border border-zinc-800 shadow-2xl animate-in fade-in slide-in-from-bottom-6 duration-200"
+          style={{ overscrollBehavior: "contain" }}
+          className="fixed inset-0 w-full h-[100dvh] max-h-[100dvh] z-50 flex flex-col overflow-hidden bg-white/98 dark:bg-zinc-950/98 backdrop-blur-2xl sm:inset-auto sm:bottom-24 sm:right-6 sm:w-[460px] sm:h-[640px] sm:max-h-[82vh] sm:rounded-2xl sm:border sm:border-zinc-200 sm:dark:border-zinc-800 sm:shadow-2xl sm:glass-panel animate-in fade-in slide-in-from-bottom-4 duration-200 overscroll-contain"
         >
           {/* Header */}
-          <div className="p-3.5 border-b border-zinc-800/80 bg-zinc-950/90 flex items-center justify-between">
+          <div
+            onTouchMove={(e) => e.stopPropagation()}
+            className="p-3.5 sm:p-3.5 border-b border-zinc-200 dark:border-zinc-800/80 bg-zinc-50/95 dark:bg-zinc-950/90 flex items-center justify-between shrink-0"
+          >
             <div className="flex items-center gap-2.5">
-              <div className="w-8 h-8 rounded-lg bg-emerald-950/80 border border-emerald-800/50 flex items-center justify-center text-emerald-400 shadow-inner">
+              <div className="w-8 h-8 rounded-lg bg-emerald-100 dark:bg-emerald-950/80 border border-emerald-300 dark:border-emerald-800/50 flex items-center justify-center text-emerald-600 dark:text-emerald-400 shadow-inner">
                 <Bot className="w-4 h-4" />
               </div>
               <div>
                 <div className="flex items-center gap-2">
-                  <h3 className="font-bold text-xs text-zinc-100">AI Navigator & WebMCP</h3>
+                  <h3 className="font-bold text-xs text-zinc-900 dark:text-zinc-100">AI Navigator & WebMCP</h3>
                   <button
                     onClick={() => {
                       setShowConfig(!showConfig);
                       if (showGuide) setShowGuide(false);
                     }}
-                    className="text-[10px] font-mono px-2 py-0.5 rounded bg-zinc-800 hover:bg-zinc-700 text-zinc-300 border border-zinc-700 flex items-center gap-1 transition"
+                    className="text-[10px] font-mono px-2 py-0.5 rounded bg-zinc-200/80 hover:bg-zinc-300 dark:bg-zinc-800 dark:hover:bg-zinc-700 text-zinc-800 dark:text-zinc-300 border border-zinc-300 dark:border-zinc-700 flex items-center gap-1 transition"
                     title="Configurações de IA e Auto-Pilot"
                   >
                     <span>
@@ -181,22 +221,22 @@ export const ChatWidget: React.FC = () => {
                     }}
                     className={`text-[10px] font-medium px-2 py-0.5 rounded border flex items-center gap-1 transition ${
                       showGuide
-                        ? "bg-emerald-950/60 text-emerald-300 border-emerald-700/50"
-                        : "bg-zinc-900 hover:bg-zinc-800 text-zinc-400 border-zinc-800"
+                        ? "bg-emerald-100 text-emerald-800 border-emerald-300 dark:bg-emerald-950/60 dark:text-emerald-300 dark:border-emerald-700/50"
+                        : "bg-zinc-200/60 hover:bg-zinc-200 dark:bg-zinc-900 dark:hover:bg-zinc-800 text-zinc-700 dark:text-zinc-400 border-zinc-300 dark:border-zinc-800"
                     }`}
                     title="Guia WebMCP & Gemini Nano"
                   >
-                    <HelpCircle className="w-2.5 h-2.5 text-emerald-400" />
+                    <HelpCircle className="w-2.5 h-2.5 text-emerald-600 dark:text-emerald-400" />
                     <span>Guia</span>
                   </button>
                 </div>
-                <div className="flex items-center gap-2 text-[10px] font-mono text-zinc-400">
+                <div className="flex items-center gap-2 text-[10px] font-mono text-zinc-500 dark:text-zinc-400">
                   <span className="flex items-center gap-1">
-                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
+                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 dark:bg-emerald-400"></span>
                     <span>Guilherme Rodovalho</span>
                   </span>
                   <span>•</span>
-                  <span className={autoPilot ? "text-emerald-400" : "text-zinc-500"}>
+                  <span className={autoPilot ? "text-emerald-600 dark:text-emerald-400 font-semibold" : "text-zinc-500"}>
                     {autoPilot ? "🤖 Modo Autônomo" : "Modo Manual"}
                   </span>
                 </div>
@@ -206,45 +246,50 @@ export const ChatWidget: React.FC = () => {
             <div className="flex items-center gap-1">
               <button
                 onClick={clearHistory}
-                className="p-1.5 text-zinc-500 hover:text-zinc-300 hover:bg-zinc-800/60 rounded-md transition"
+                className="p-2 sm:p-1.5 text-zinc-500 hover:text-zinc-700 hover:bg-zinc-200 dark:text-zinc-500 dark:hover:text-zinc-300 dark:hover:bg-zinc-800/60 rounded-lg transition"
                 title="Limpar histórico"
+                aria-label="Limpar histórico"
               >
-                <Trash2 className="w-3.5 h-3.5" />
+                <Trash2 className="w-4 h-4 sm:w-3.5 sm:h-3.5" />
               </button>
               <button
+                id="btn-mcp-chat-close"
                 onClick={toggleChat}
-                className="p-1.5 text-zinc-400 hover:text-zinc-100 hover:bg-zinc-800 rounded-md transition"
+                className="p-2 sm:p-1.5 text-zinc-600 hover:text-zinc-950 hover:bg-zinc-200 dark:text-zinc-400 dark:hover:text-zinc-100 dark:hover:bg-zinc-800 rounded-xl transition min-w-[38px] min-h-[38px] sm:min-w-0 sm:min-h-0 flex items-center justify-center border border-zinc-200 dark:border-zinc-800 sm:border-0"
                 aria-label="Fechar chat"
               >
-                <X className="w-4 h-4" />
+                <X className="w-5 h-5 sm:w-4 sm:h-4 text-zinc-700 dark:text-zinc-200" />
               </button>
             </div>
           </div>
 
           {/* Model Configuration Dropdown Modal */}
           {showConfig && (
-            <div className="p-4 border-b border-zinc-800 bg-zinc-900/95 text-xs space-y-3 animate-in fade-in duration-150">
+            <div
+              onTouchMove={(e) => e.stopPropagation()}
+              className="p-4 border-b border-zinc-200 dark:border-zinc-800 bg-zinc-100/95 dark:bg-zinc-900/95 text-xs space-y-3 animate-in fade-in duration-150 max-h-[50vh] overflow-y-auto overscroll-contain shrink-0"
+            >
               <div className="flex items-center justify-between">
-                <span className="font-semibold text-zinc-200 flex items-center gap-1.5">
-                  <Cpu className="w-3.5 h-3.5 text-emerald-400" />
+                <span className="font-semibold text-zinc-900 dark:text-zinc-200 flex items-center gap-1.5">
+                  <Cpu className="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400" />
                   <span>Provedor de Inteligência Artificial</span>
                 </span>
                 <button
                   onClick={() => setShowConfig(false)}
-                  className="text-zinc-500 hover:text-zinc-300 text-[11px]"
+                  className="text-zinc-600 hover:text-zinc-900 dark:text-zinc-500 dark:hover:text-zinc-300 text-[11px]"
                 >
                   Fechar
                 </button>
               </div>
 
               {/* Provider Selector Tabs */}
-              <div className="grid grid-cols-3 gap-1.5 p-1 bg-zinc-950 rounded-lg border border-zinc-800">
+              <div className="grid grid-cols-3 gap-1.5 p-1 bg-zinc-200/80 dark:bg-zinc-950 rounded-lg border border-zinc-300 dark:border-zinc-800">
                 <button
                   onClick={() => setActiveModel("heuristic")}
                   className={`py-1.5 px-2 rounded-md font-medium text-center transition ${
                     activeModel === "heuristic"
-                      ? "bg-zinc-800 text-emerald-400 font-semibold shadow-sm"
-                      : "text-zinc-400 hover:text-zinc-200"
+                      ? "bg-white text-emerald-700 dark:bg-zinc-800 dark:text-emerald-400 font-semibold shadow-sm"
+                      : "text-zinc-700 hover:text-zinc-950 dark:text-zinc-400 dark:hover:text-zinc-200"
                   }`}
                 >
                   Heurístico
@@ -256,8 +301,8 @@ export const ChatWidget: React.FC = () => {
                   }}
                   className={`py-1.5 px-2 rounded-md font-medium text-center transition ${
                     activeModel === "nano"
-                      ? "bg-zinc-800 text-emerald-400 font-semibold shadow-sm"
-                      : "text-zinc-400 hover:text-zinc-200"
+                      ? "bg-white text-emerald-700 dark:bg-zinc-800 dark:text-emerald-400 font-semibold shadow-sm"
+                      : "text-zinc-700 hover:text-zinc-950 dark:text-zinc-400 dark:hover:text-zinc-200"
                   }`}
                 >
                   Gemini Nano
@@ -266,8 +311,8 @@ export const ChatWidget: React.FC = () => {
                   onClick={() => setActiveModel("gemini")}
                   className={`py-1.5 px-2 rounded-md font-medium text-center transition ${
                     activeModel === "gemini"
-                      ? "bg-zinc-800 text-emerald-400 font-semibold shadow-sm"
-                      : "text-zinc-400 hover:text-zinc-200"
+                      ? "bg-white text-emerald-700 dark:bg-zinc-800 dark:text-emerald-400 font-semibold shadow-sm"
+                      : "text-zinc-700 hover:text-zinc-950 dark:text-zinc-400 dark:hover:text-zinc-200"
                   }`}
                 >
                   Gemini Cloud
@@ -276,16 +321,16 @@ export const ChatWidget: React.FC = () => {
 
               {/* Nano Status Description */}
               {activeModel === "nano" && (
-                <div className="p-2.5 rounded-lg bg-zinc-950 border border-zinc-800 space-y-2">
+                <div className="p-2.5 rounded-lg bg-white dark:bg-zinc-950 border border-zinc-200 dark:border-zinc-800 space-y-2">
                   <div className="flex items-center justify-between">
-                    <span className="font-mono text-zinc-300">Status Chrome Built-in AI:</span>
+                    <span className="font-mono text-zinc-700 dark:text-zinc-300">Status Chrome Built-in AI:</span>
                     <span
                       className={`px-2 py-0.5 rounded text-[10px] font-mono ${
                         nanoStatus?.status === "available"
-                          ? "bg-emerald-950 text-emerald-400 border border-emerald-800"
+                          ? "bg-emerald-100 text-emerald-800 dark:bg-emerald-950 dark:text-emerald-400 border border-emerald-300 dark:border-emerald-800"
                           : nanoStatus?.status === "downloadable"
-                          ? "bg-amber-950 text-amber-400 border border-amber-800"
-                          : "bg-zinc-800 text-zinc-400"
+                          ? "bg-amber-100 text-amber-800 dark:bg-amber-950 dark:text-amber-400 border border-amber-300 dark:border-amber-800"
+                          : "bg-zinc-200 dark:bg-zinc-800 text-zinc-600 dark:text-zinc-400"
                       }`}
                     >
                       {nanoStatus?.status === "available"
@@ -295,12 +340,12 @@ export const ChatWidget: React.FC = () => {
                         : "Indisponível"}
                     </span>
                   </div>
-                  <p className="text-zinc-400 text-[11px] leading-relaxed">
+                  <p className="text-zinc-600 dark:text-zinc-400 text-[11px] leading-relaxed">
                     {nanoStatus?.message || "Verificando compatibilidade da API Prompt do Chrome..."}
                   </p>
                   <button
                     onClick={refreshNanoStatus}
-                    className="text-emerald-400 hover:underline text-[11px] font-mono"
+                    className="text-emerald-600 dark:text-emerald-400 hover:underline text-[11px] font-mono"
                   >
                     ↻ Re-verificar status
                   </button>
@@ -310,8 +355,8 @@ export const ChatWidget: React.FC = () => {
               {/* Gemini Cloud API Key Input */}
               {activeModel === "gemini" && (
                 <div className="space-y-2">
-                  <label className="text-[11px] font-medium text-zinc-300 flex items-center gap-1.5">
-                    <Key className="w-3 h-3 text-emerald-400" />
+                  <label className="text-[11px] font-medium text-zinc-700 dark:text-zinc-300 flex items-center gap-1.5">
+                    <Key className="w-3 h-3 text-emerald-600 dark:text-emerald-400" />
                     <span>Google Gemini API Key</span>
                   </label>
                   <div className="flex gap-2">
@@ -320,25 +365,25 @@ export const ChatWidget: React.FC = () => {
                       value={apiKey}
                       onChange={(e) => setApiKey(e.target.value)}
                       placeholder="AIzaSy... (ou deixe vazio se usar .env.local)"
-                      className="flex-1 px-2.5 py-1.5 bg-zinc-950 border border-zinc-800 rounded-md text-xs text-zinc-200 focus:outline-none focus:border-emerald-500 placeholder:text-zinc-600"
+                      className="flex-1 px-2.5 py-1.5 bg-white dark:bg-zinc-950 border border-zinc-300 dark:border-zinc-800 rounded-md text-xs text-zinc-900 dark:text-zinc-200 focus:outline-none focus:border-emerald-500 placeholder:text-zinc-400 dark:placeholder:text-zinc-600"
                     />
                     <button
                       onClick={handleTestKey}
                       disabled={isTesting}
-                      className="px-3 py-1.5 bg-zinc-800 hover:bg-zinc-700 text-zinc-200 rounded-md text-xs font-medium disabled:opacity-50 transition"
+                      className="px-3 py-1.5 bg-zinc-200 hover:bg-zinc-300 dark:bg-zinc-800 dark:hover:bg-zinc-700 text-zinc-800 dark:text-zinc-200 rounded-md text-xs font-medium disabled:opacity-50 transition"
                     >
                       {isTesting ? "Testando..." : "Validar"}
                     </button>
                   </div>
                   <p className="text-[10px] text-zinc-500">
-                    Dica: Você pode definir <code className="text-zinc-400 bg-zinc-900 px-1 py-0.5 rounded">GEMINI_API_KEY</code> no <code className="text-zinc-400 bg-zinc-900 px-1 py-0.5 rounded">.env.local</code> do servidor para não precisar digitar aqui.
+                    Dica: Você pode definir <code className="text-zinc-600 dark:text-zinc-400 bg-zinc-200 dark:bg-zinc-900 px-1 py-0.5 rounded">GEMINI_API_KEY</code> no <code className="text-zinc-600 dark:text-zinc-400 bg-zinc-200 dark:bg-zinc-900 px-1 py-0.5 rounded">.env.local</code> do servidor para não precisar digitar aqui.
                   </p>
                   {testResult && (
                     <div
                       className={`p-2 rounded text-[11px] flex items-center gap-1.5 ${
                         testResult.success
-                          ? "bg-emerald-950/60 text-emerald-300 border border-emerald-800"
-                          : "bg-red-950/60 text-red-300 border border-red-800"
+                          ? "bg-emerald-100 text-emerald-800 dark:bg-emerald-950/60 dark:text-emerald-300 border border-emerald-300 dark:border-emerald-800"
+                          : "bg-red-100 text-red-800 dark:bg-red-950/60 dark:text-red-300 border border-red-300 dark:border-red-800"
                       }`}
                     >
                       {testResult.success ? (
@@ -354,15 +399,15 @@ export const ChatWidget: React.FC = () => {
 
               {/* Heuristic Description */}
               {activeModel === "heuristic" && (
-                <p className="text-[11px] text-zinc-400 leading-relaxed bg-zinc-950 p-2.5 rounded-lg border border-zinc-800">
+                <p className="text-[11px] text-zinc-600 dark:text-zinc-400 leading-relaxed bg-white dark:bg-zinc-950 p-2.5 rounded-lg border border-zinc-200 dark:border-zinc-800">
                   O modo **Heurístico** opera 100% no cliente sem chaves de API. Ele responde estritamente com base nos dados verificados de arquitetura e dispara ações WebMCP reais no DOM.
                 </p>
               )}
 
               {/* AutoPilot Toggle */}
-              <div className="pt-2 border-t border-zinc-800 flex items-center justify-between">
+              <div className="pt-2 border-t border-zinc-200 dark:border-zinc-800 flex items-center justify-between">
                 <div>
-                  <div className="text-zinc-200 font-medium">Navegação Autônoma (Auto-Pilot)</div>
+                  <div className="text-zinc-800 dark:text-zinc-200 font-medium">Navegação Autônoma (Auto-Pilot)</div>
                   <div className="text-[10px] text-zinc-500">
                     Executa scroll, navegação e download automaticamente
                   </div>
@@ -370,7 +415,7 @@ export const ChatWidget: React.FC = () => {
                 <button
                   onClick={() => setAutoPilot(!autoPilot)}
                   className={`w-10 h-5 flex items-center rounded-full p-0.5 transition ${
-                    autoPilot ? "bg-emerald-600 justify-end" : "bg-zinc-700 justify-start"
+                    autoPilot ? "bg-emerald-600 justify-end" : "bg-zinc-300 dark:bg-zinc-700 justify-start"
                   }`}
                 >
                   <span className="w-4 h-4 rounded-full bg-white shadow-sm" />
@@ -381,26 +426,29 @@ export const ChatWidget: React.FC = () => {
 
           {/* Guide Modal */}
           {showGuide && (
-            <div className="p-4 border-b border-zinc-800 bg-zinc-900/95 text-xs space-y-3 animate-in fade-in duration-150">
+            <div
+              onTouchMove={(e) => e.stopPropagation()}
+              className="p-4 border-b border-zinc-200 dark:border-zinc-800 bg-zinc-100/95 dark:bg-zinc-900/95 text-xs space-y-3 animate-in fade-in duration-150 max-h-[50vh] overflow-y-auto overscroll-contain shrink-0"
+            >
               <div className="flex items-center justify-between">
-                <span className="font-semibold text-zinc-200 flex items-center gap-1.5">
-                  <Compass className="w-3.5 h-3.5 text-emerald-400" />
+                <span className="font-semibold text-zinc-900 dark:text-zinc-200 flex items-center gap-1.5">
+                  <Compass className="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400" />
                   <span>Como Habilitar e Usar o WebMCP</span>
                 </span>
                 <button
                   onClick={() => setShowGuide(false)}
-                  className="text-zinc-500 hover:text-zinc-300 text-[11px]"
+                  className="text-zinc-600 hover:text-zinc-900 dark:text-zinc-500 dark:hover:text-zinc-300 text-[11px]"
                 >
                   Fechar
                 </button>
               </div>
 
               {/* Tabs */}
-              <div className="flex gap-2 border-b border-zinc-800 pb-2">
+              <div className="flex gap-2 border-b border-zinc-200 dark:border-zinc-800 pb-2">
                 <button
                   onClick={() => setGuideTab("nano")}
                   className={`pb-1 text-xs transition ${
-                    guideTab === "nano" ? "text-emerald-400 border-b-2 border-emerald-400 font-semibold" : "text-zinc-400"
+                    guideTab === "nano" ? "text-emerald-600 dark:text-emerald-400 border-b-2 border-emerald-500 font-semibold" : "text-zinc-500 hover:text-zinc-800 dark:text-zinc-400"
                   }`}
                 >
                   Gemini Nano (Chrome)
@@ -408,7 +456,7 @@ export const ChatWidget: React.FC = () => {
                 <button
                   onClick={() => setGuideTab("webmcp")}
                   className={`pb-1 text-xs transition ${
-                    guideTab === "webmcp" ? "text-emerald-400 border-b-2 border-emerald-400 font-semibold" : "text-zinc-400"
+                    guideTab === "webmcp" ? "text-emerald-600 dark:text-emerald-400 border-b-2 border-emerald-500 font-semibold" : "text-zinc-500 hover:text-zinc-800 dark:text-zinc-400"
                   }`}
                 >
                   WebMCP Protocol
@@ -416,30 +464,30 @@ export const ChatWidget: React.FC = () => {
               </div>
 
               {guideTab === "nano" ? (
-                <div className="space-y-2 text-[11px] text-zinc-300 leading-relaxed">
+                <div className="space-y-2 text-[11px] text-zinc-700 dark:text-zinc-300 leading-relaxed">
                   <p>
                     O <strong>Gemini Nano</strong> roda nativamente no navegador através da <strong>Chrome Prompt API</strong> (sem chaves de API, com zero custo e 100% de privacidade).
                   </p>
-                  <div className="p-2 rounded bg-zinc-950 border border-zinc-800 space-y-1">
-                    <div className="font-mono text-zinc-400">1. Abra no Chrome 131+:</div>
-                    <div className="flex items-center justify-between bg-zinc-900 px-2 py-1 rounded font-mono text-[10px] text-emerald-400">
-                      <span>chrome://flags/#prompt-api-for-gemini-nano</span>
+                  <div className="p-2 rounded bg-white dark:bg-zinc-950 border border-zinc-200 dark:border-zinc-800 space-y-1">
+                    <div className="font-mono text-zinc-600 dark:text-zinc-400">1. Abra no Chrome 131+:</div>
+                    <div className="flex items-center justify-between bg-zinc-100 dark:bg-zinc-900 px-2 py-1 rounded font-mono text-[10px] text-emerald-600 dark:text-emerald-400">
+                      <span className="truncate mr-2">chrome://flags/#prompt-api-for-gemini-nano</span>
                       <button
                         onClick={() => handleCopy("chrome://flags/#prompt-api-for-gemini-nano")}
-                        className="text-zinc-400 hover:text-white"
+                        className="text-zinc-500 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-white"
                       >
-                        {copiedText ? <Check className="w-3 h-3 text-emerald-400" /> : <Copy className="w-3 h-3" />}
+                        {copiedText ? <Check className="w-3 h-3 text-emerald-600 dark:text-emerald-400" /> : <Copy className="w-3 h-3" />}
                       </button>
                     </div>
-                    <div className="font-mono text-zinc-400 pt-1">2. Marque como <strong>Enabled</strong> e reinicie o Chrome.</div>
+                    <div className="font-mono text-zinc-600 dark:text-zinc-400 pt-1">2. Marque como <strong>Enabled</strong> e reinicie o Chrome.</div>
                   </div>
                 </div>
               ) : (
-                <div className="space-y-2 text-[11px] text-zinc-300 leading-relaxed">
+                <div className="space-y-2 text-[11px] text-zinc-700 dark:text-zinc-300 leading-relaxed">
                   <p>
                     O <strong>WebMCP (Web Model Context Protocol)</strong> transforma a aplicação em um ambiente navegável por agentes de IA.
                   </p>
-                  <ul className="list-disc pl-4 space-y-1 text-zinc-400">
+                  <ul className="list-disc pl-4 space-y-1 text-zinc-600 dark:text-zinc-400">
                     <li>Componentes do DOM expõem <code>data-mcp-*</code> declarativos.</li>
                     <li>O servidor WebMCP expõe ferramentas tipadas com validação Zod.</li>
                     <li>A IA pesquisa rotas, rola a tela e destaca recursos com pulsos visuais.</li>
@@ -449,8 +497,11 @@ export const ChatWidget: React.FC = () => {
             </div>
           )}
 
-          {/* Messages Area */}
-          <div className="flex-1 p-4 overflow-y-auto space-y-3.5 text-xs">
+          {/* Messages Area - strictly scrollable within full modal, no background scroll leak */}
+          <div
+            style={{ overscrollBehavior: "contain", WebkitOverflowScrolling: "touch" }}
+            className="flex-1 p-4 overflow-y-auto space-y-3.5 text-xs overscroll-contain touch-pan-y"
+          >
             {messages.map((m) => (
               <div
                 key={m.id}
@@ -507,7 +558,11 @@ export const ChatWidget: React.FC = () => {
           </div>
 
           {/* Quick Prompts Chips */}
-          <div className="px-3 py-2 border-t border-zinc-200 dark:border-zinc-800/60 bg-zinc-50 dark:bg-zinc-950/60 flex items-center gap-1.5 overflow-x-auto no-scrollbar">
+          <div
+            onTouchMove={(e) => e.stopPropagation()}
+            style={{ overscrollBehavior: "contain" }}
+            className="px-3 py-2 sm:py-2 border-t border-zinc-200 dark:border-zinc-800/60 bg-zinc-50/90 dark:bg-zinc-950/60 flex items-center gap-1.5 overflow-x-auto no-scrollbar overscroll-contain touch-pan-x shrink-0"
+          >
             {quickPrompts.map((prompt, idx) => (
               <button
                 key={idx}
@@ -523,7 +578,8 @@ export const ChatWidget: React.FC = () => {
           {/* Input Form */}
           <form
             onSubmit={handleSubmit}
-            className="p-3 border-t border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-950 flex items-center gap-2"
+            onTouchMove={(e) => e.stopPropagation()}
+            className="p-3 sm:p-3 pb-safe border-t border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-950 flex items-center gap-2 shrink-0"
           >
             <input
               type="text"
@@ -531,12 +587,12 @@ export const ChatWidget: React.FC = () => {
               onChange={(e) => setInput(e.target.value)}
               placeholder="Pergunte sobre arquitetura ou peça para navegar..."
               disabled={isLoading}
-              className="flex-1 bg-zinc-50 dark:bg-zinc-900 border border-zinc-300 dark:border-zinc-800 rounded-xl px-3.5 py-2 text-xs text-zinc-900 dark:text-zinc-100 placeholder:text-zinc-400 dark:placeholder:text-zinc-500 focus:outline-none focus:border-emerald-500 transition disabled:opacity-50"
+              className="flex-1 bg-zinc-50 dark:bg-zinc-900 border border-zinc-300 dark:border-zinc-800 rounded-xl px-3.5 py-2.5 sm:py-2 text-xs text-zinc-900 dark:text-zinc-100 placeholder:text-zinc-400 dark:placeholder:text-zinc-500 focus:outline-none focus:border-emerald-500 transition disabled:opacity-50"
             />
             <button
               type="submit"
               disabled={!input.trim() || isLoading}
-              className="p-2 bg-emerald-600 hover:bg-emerald-500 text-white rounded-xl disabled:opacity-40 disabled:hover:bg-emerald-600 transition shadow-sm"
+              className="p-2.5 sm:p-2 bg-emerald-600 hover:bg-emerald-500 text-white rounded-xl disabled:opacity-40 disabled:hover:bg-emerald-600 transition shadow-sm shrink-0 flex items-center justify-center min-w-[38px] min-h-[38px]"
               aria-label="Enviar mensagem"
             >
               <Send className="w-4 h-4" />
