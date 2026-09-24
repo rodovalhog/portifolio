@@ -22,8 +22,8 @@ export async function prepareJobApplication(
       phone: "+55 (34) 99161-9467",
     },
     links: {
-      github: "https://github.com/guilhermerodovalho",
-      linkedin: "https://linkedin.com/in/guilhermerodovalho",
+      github: "https://github.com/rodovalhog",
+      linkedin: "https://www.linkedin.com/in/guilherme-rodovalho/",
     },
   };
 
@@ -32,8 +32,8 @@ export async function prepareJobApplication(
   const lastName = nameParts.slice(1).join(" ") || "Rodovalho";
   const email = profile.personal?.email || "rodovalhogdeveloper@gmail.com";
   const phone = profile.personal?.phone || "+55 (34) 99161-9467";
-  const linkedin = profile.links?.linkedin || "https://linkedin.com/in/guilhermerodovalho";
-  const github = profile.links?.github || "https://github.com/guilhermerodovalho";
+  const linkedin = profile.links?.linkedin || "https://www.linkedin.com/in/guilherme-rodovalho/";
+  const github = profile.links?.github || "https://github.com/rodovalhog";
 
   // 1. Generate Grounded Cover Letter
   const coverLetter = await generateTailoredCoverLetter(job, selectedResume.locale);

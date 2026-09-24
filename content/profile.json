@@ -16,7 +16,7 @@
       "en-US": "São Paulo, SP — Brazil"
     },
     "email": "rodovalhogdeveloper@gmail.com",
-    "phone": "+55 (34) 99173-9878",
+    "phone": "+55 (34) 99161-9467",
     "avatarUrl": "/images/avatar.jpg",
     "availability": {
       "pt-BR": "Aberto a conversas estratégicas e liderança técnica",
@@ -504,6 +504,109 @@
   ],
   "projects": [
     {
+      "id": "performance-microfrontend-ssr",
+      "slug": "performance-microfrontend-ssr",
+      "title": {
+        "pt-BR": "Diagnóstico de Performance e SSR em Micro-frontends (E-commerce)",
+        "en-US": "Evidence-Based SSR Performance Optimization in E-Commerce Micro-frontends"
+      },
+      "tagline": {
+        "pt-BR": "Diagnóstico profundo e otimização de performance orientada a evidências em Next.js/React: -53% de recálculo de estilo, -96.6KB de payload e eliminação de vazamentos de SSR.",
+        "en-US": "Deep evidence-based performance diagnostic in Next.js/React: -53% style recalculation, -96.6KB payload and server-side memory leak resolution."
+      },
+      "featured": true,
+      "order": 1,
+      "period": "2024",
+      "context": {
+        "pt-BR": "Aplicação Next.js 14 (Pages Router) com React 18 e TypeScript, responsável pelas páginas de busca, categoria, departamento e coleção de três bandeiras de varejo, com ~800 KB por resposta e latência p99 próxima de 1,8 s.",
+        "en-US": "Next.js 14 (Pages Router) application with React 18 and TypeScript powering search, category, department, and collection pages for three retail brands, with ~800 KB responses and p99 latency near 1.8s."
+      },
+      "problem": {
+        "pt-BR": "Event loop com aparentes travamentos de até 6,6 s sob carga, recálculo excessivo de estilo no cliente sob CPU throttled, 809 KB de resposta com SVGs e CSS duplicados, além de vazamentos silenciosos de temporizadores no SSR.",
+        "en-US": "Apparent event loop stalls up to 6.6s under load, heavy client-side style recalculation on mobile CPUs, 809 KB responses with duplicate SVGs and CSS, plus silent timer leaks during SSR."
+      },
+      "constraints": {
+        "pt-BR": "Operação em produção crítica de três bandeiras sem interrupções; obrigação de refutar ou comprovar toda hipótese com telemetria bruta e experimentos isolados antes de codificar.",
+        "en-US": "Production work across three major retail brands; strict mandate to prove or refute every hypothesis with raw telemetry and isolated experiments before coding."
+      },
+      "optionsConsidered": {
+        "pt-BR": "1. Suposição de gargalo na renderização React SSR (refutada: consumia apenas 2,1% da CPU). 2. PurgeCSS para limpar CSS (refutada: CDP mediu 0% de CSS não utilizado). 3. Profiling orientado a dados brutos com Clinic.js, autocannon, CDP via Playwright e scripts próprios de agregação (adotado).",
+        "en-US": "1. React SSR bottleneck assumption (refuted: consumed only 2.1% CPU). 2. PurgeCSS for styling cleanup (refuted: CDP measured 0% unused CSS). 3. Raw-data profiling with Clinic.js, autocannon, CDP via Playwright, and custom aggregation scripts (chosen)."
+      },
+      "decision": {
+        "pt-BR": "Desativação de ETag (recuperando 4,9% de CPU por requisição), extração SSR de CSS do Emotion com CacheProvider explícito por requisição (295 tags style no body reduzidas a 0), correção de 5 vazamentos de temporizadores e remoção de camada obsoleta de Redis.",
+        "en-US": "Disabled ETag generation (recovering 4.9% CPU per request), explicit per-request Emotion SSR CacheProvider (reducing 295 body style tags to 0), corrected 5 timer leaks, and purged obsolete Redis layer."
+      },
+      "tradeoffs": {
+        "pt-BR": "O tempo investido no desenvolvimento de scripts próprios para analisar 5.276 amostras brutas de flame graph evitou meses de refatoração equivocada no código da aplicação.",
+        "en-US": "Time invested in building custom scripts to parse 5,276 raw flame graph samples prevented months of misguided refactoring in application components."
+      },
+      "solution": {
+        "pt-BR": "Abordagem sistemática em 7 frentes: diagnóstico de event loop no alvo correto de produção, atribuição de CPU por função, decomposição do payload (SVGs duplicados mapeados), unificação SSR de CSS-in-JS, sanitização de timers, expurgo de código morto e correção de tree-shaking.",
+        "en-US": "Systematic 7-front execution: production event loop diagnosis on the true target, CPU function attribution, HTML payload decomposition, unified CSS-in-JS SSR extraction, timer sanitation, dead code elimination, and tree-shaking fixes."
+      },
+      "implementation": {
+        "pt-BR": "Clinic.js (Doctor, Flame, Bubbleprof), autocannon, Chrome DevTools Protocol, @emotion/server no _document, Next.js 14, React 18, TypeScript estrito e 1.940 testes automatizados.",
+        "en-US": "Clinic.js (Doctor, Flame, Bubbleprof), autocannon, Chrome DevTools Protocol, @emotion/server in _document, Next.js 14, React 18, strict TypeScript, and 1,940 automated tests."
+      },
+      "impact": {
+        "pt-BR": "Redução de -53,1% no tempo de recálculo de estilo sob CPU 4x reduzida, economia de -96,6 KB por resposta HTML, erradicação de recursão infinita a cada 750 ms no servidor e cinco hipóteses falsas desmistificadas com dados.",
+        "en-US": "-53.1% style recalculation time under 4x CPU throttling, -96.6 KB saved per HTML response, eradication of critical 750 ms server recursion, and five false hypotheses empirically refuted."
+      },
+      "metrics": [
+        {
+          "label": {
+            "pt-BR": "Recálculo de Estilo",
+            "en-US": "Style Recalculation"
+          },
+          "value": "-53.1%",
+          "change": "53.9ms → 25.3ms (CPU 4x)"
+        },
+        {
+          "label": {
+            "pt-BR": "Payload do Documento",
+            "en-US": "Document Payload"
+          },
+          "value": "-96.6 KB",
+          "change": "811.4KB → 714.8KB"
+        },
+        {
+          "label": {
+            "pt-BR": "Economia de CPU",
+            "en-US": "CPU Reduction"
+          },
+          "value": "-4.9%",
+          "change": "ETag desativado"
+        },
+        {
+          "label": {
+            "pt-BR": "Tags Style no Body",
+            "en-US": "Body Style Tags"
+          },
+          "value": "0",
+          "change": "295 tags → 0"
+        }
+      ],
+      "technologies": [
+        "Next.js",
+        "React 18",
+        "Clinic.js",
+        "autocannon",
+        "Chrome DevTools Protocol",
+        "Emotion SSR",
+        "Flame Graphs",
+        "Node.js Profiling",
+        "TypeScript"
+      ],
+      "skills": [
+        "performance",
+        "architecture",
+        "frontend",
+        "testing"
+      ],
+      "visibility": "PUBLIC"
+    },
+    {
       "id": "ecommerce-search-engine",
       "slug": "high-scale-search-architecture",
       "title": {
@@ -515,7 +618,7 @@
         "en-US": "Frontend reengineering, SSR/SSG & technical SEO for a platform with 19M+ users and major organic growth."
       },
       "featured": true,
-      "order": 1,
+      "order": 2,
       "period": "2024 - Presente",
       "context": {
         "pt-BR": "Modernização da arquitetura de busca e navegação de um dos maiores e-commerces da América Latina, atendendo mais de 19 milhões de usuários e 1 milhão de acessos diários.",
@@ -598,6 +701,191 @@
       "visibility": "PUBLIC"
     },
     {
+      "id": "module-federation-microfrontends",
+      "slug": "module-federation-microfrontends",
+      "title": {
+        "pt-BR": "Arquitetura Modular com Module Federation (35M+ Usuários)",
+        "en-US": "Modular Micro Frontend Architecture with Module Federation (35M+ Users)"
+      },
+      "tagline": {
+        "pt-BR": "Arquitetura de micro frontends com Webpack Module Federation, esteiras de qualidade e observabilidade de MTTR.",
+        "en-US": "Scalable micro frontend ecosystem with Webpack Module Federation, automated quality gates, and MTTR observability."
+      },
+      "featured": true,
+      "order": 3,
+      "period": "2022 - 2024",
+      "context": {
+        "pt-BR": "Modernização de dashboard unificado e produtos financeiros em escala crítica para mais de 35 milhões de usuários, exigindo autonomia de múltiplos squads de engenharia.",
+        "en-US": "Modernizing a unified financial dashboard for 35M+ active users, enabling independent release cycles for dozens of cross-functional engineering squads."
+      },
+      "problem": {
+        "pt-BR": "Necessidade de permitir deploys independentes em larga escala sem criar inconsistências visuais, vazamento de memória ou lentidão no onboarding de novos produtos.",
+        "en-US": "Enabling independent squad releases at high scale without visual degradation, memory leaks, or latency during customer onboarding."
+      },
+      "constraints": {
+        "pt-BR": "Conformidade total com acessibilidade (WCAG / a11y), tolerância zero a falhas em cascata entre micro-apps e suporte a navegadores legados.",
+        "en-US": "Full WCAG/a11y compliance, zero cascade failure between federated apps, and backwards compatibility for legacy browser engines."
+      },
+      "optionsConsidered": {
+        "pt-BR": "1. Iframes isolados (descartado por alto overhead de memória e quebra de a11y). 2. Monorepo com build monolítico único (descartado por gargalos de CI). 3. Webpack Module Federation com barramento tipado e casca compartilhada (escolhido).",
+        "en-US": "1. Isolated iframes (rejected due to memory bloat and accessibility issues). 2. Single monolithic build (rejected due to deploy queue bottlenecks). 3. Webpack Module Federation with typed event bus and shared container shell (chosen)."
+      },
+      "decision": {
+        "pt-BR": "Implementação de Module Federation no Webpack com isolamento estrito de dependências, observabilidade completa com Sentry/Web Vitals e suíte de testes ponta a ponta.",
+        "en-US": "Implemented Webpack Module Federation with dependency isolation, end-to-end Sentry/Web Vitals observability, and automated testing."
+      },
+      "tradeoffs": {
+        "pt-BR": "Complexidade adicional na orquestração de versões em runtime em troca de velocidade de deploy 10x mais rápida para os times.",
+        "en-US": "Added orchestration complexity for runtime versioning in exchange for 10x faster deployment autonomy for product squads."
+      },
+      "solution": {
+        "pt-BR": "Container shell compartilhado, micro-aplicações federadas sob demanda, Design System corporativo e monitoramento em tempo real de MTTR.",
+        "en-US": "Shared container shell, on-demand federated micro-apps, corporate Design System, and real-time MTTR telemetry."
+      },
+      "implementation": {
+        "pt-BR": "React, TypeScript, Webpack 5 Module Federation, Sentry, GA4, Jest e SonarCloud Quality Gates.",
+        "en-US": "React, TypeScript, Webpack 5 Module Federation, Sentry, GA4, Jest, and SonarCloud Quality Gates."
+      },
+      "impact": {
+        "pt-BR": "Redução mensurável no tempo médio de recuperação (MTTR), autonomia plena para squads e aumento na taxa de conclusão de onboarding via testes A/B.",
+        "en-US": "Measurable reduction in MTTR, full autonomous releases for product squads, and elevated onboarding conversion through data-driven A/B testing."
+      },
+      "metrics": [
+        {
+          "label": {
+            "pt-BR": "Usuários Ativos",
+            "en-US": "Active Users"
+          },
+          "value": "35M+",
+          "change": "Escala FinTech"
+        },
+        {
+          "label": {
+            "pt-BR": "Autonomia de Squads",
+            "en-US": "Squad Autonomy"
+          },
+          "value": "100%",
+          "change": "Deploys independentes"
+        },
+        {
+          "label": {
+            "pt-BR": "Redução no MTTR",
+            "en-US": "MTTR Reduction"
+          },
+          "value": "-40%",
+          "change": "Observabilidade Sentry"
+        }
+      ],
+      "technologies": [
+        "React",
+        "TypeScript",
+        "Webpack 5",
+        "Module Federation",
+        "Sentry",
+        "Web Vitals",
+        "SonarCloud",
+        "Jest"
+      ],
+      "skills": [
+        "architecture",
+        "frontend",
+        "testing"
+      ],
+      "visibility": "PUBLIC"
+    },
+    {
+      "id": "mobile-hybrid-cards-bradesco",
+      "slug": "mobile-hybrid-cards-bradesco",
+      "title": {
+        "pt-BR": "Integração Híbrida Web/Mobile de Missão Crítica (Bradesco Cartões)",
+        "en-US": "Mission-Critical Hybrid Web/Mobile Integration (Bradesco Cards)"
+      },
+      "tagline": {
+        "pt-BR": "Engenharia de frontend híbrido com WebView, ponte de comunicação nativa (JS Bridge) e zero perda de sessão bancária.",
+        "en-US": "Hybrid frontend engineering with WebView, native JS Bridge, and zero session loss across banking operations."
+      },
+      "featured": true,
+      "order": 4,
+      "period": "2020 - 2021",
+      "context": {
+        "pt-BR": "Modernização do aplicativo de cartões do Banco Bradesco para milhões de clientes ativos, integrando camadas web e mobile via WebView de alto impacto.",
+        "en-US": "Modernizing Banco Bradesco's cards mobile experience for millions of active cardholders, integrating web and mobile layers via high-impact WebView."
+      },
+      "problem": {
+        "pt-BR": "Divergências de renderização e perda de sessão entre WebView e app nativo (iOS/Android) que impactavam negativamente transações de cartões.",
+        "en-US": "Rendering discrepancies and session drops between WebView and native iOS/Android hosts disrupting critical card transactions."
+      },
+      "constraints": {
+        "pt-BR": "Altos padrões de segurança bancária, autenticação biométrica rigorosa e compatibilidade com parque heterogêneo de smartphones Android e iOS.",
+        "en-US": "Strict banking security guidelines, biometric auth integrity, and smooth support across highly fragmented Android and iOS device tiers."
+      },
+      "optionsConsidered": {
+        "pt-BR": "1. Reescrita 100% nativa (inviável no prazo de negócio). 2. Polling HTTP para sincronizar sessão (descartado por latência e consumo de bateria). 3. JS Bridge nativa com tokenização SSO e atomic state sync (adotado).",
+        "en-US": "1. 100% native rewrite (cost and timeline prohibitive). 2. HTTP polling for session state (rejected due to latency and battery drain). 3. Native JS Bridge with SSO tokenization and atomic state sync (chosen)."
+      },
+      "decision": {
+        "pt-BR": "Padronização de ponte de comunicação nativa (JS Bridge), SSO biométrico integrado e otimização profunda da thread principal de JavaScript no WebView.",
+        "en-US": "Standardized native JS Bridge, biometrics-backed SSO token sharing, and rigorous JavaScript main-thread profiling."
+      },
+      "tradeoffs": {
+        "pt-BR": "Necessidade de testes rigorosos em dispositivos legados em troca de experiência 100% fluida e estável.",
+        "en-US": "Demanded extensive testing on legacy mobile hardware in exchange for a fluid, rock-solid user experience."
+      },
+      "solution": {
+        "pt-BR": "Arquitetura com React, TypeScript e backend BFF em Node.js, tratamento de ciclo de vida mobile e sincronização de tokens sem expor credenciais.",
+        "en-US": "React and TypeScript frontend coupled with Node.js BFF, mobile lifecycle handlers, and tamper-proof SSO token handshakes."
+      },
+      "implementation": {
+        "pt-BR": "React, JavaScript, TypeScript, Node.js, WebView iOS/Android, Biometria/SSO e Chrome/Safari Remote Debugging.",
+        "en-US": "React, JavaScript, TypeScript, Node.js, iOS/Android WebView, SSO Biometrics, and remote profiling."
+      },
+      "impact": {
+        "pt-BR": "Zero perda de sessão em transações financeiras, experiência fluida e nativa para milhões de correntistas e elevação na estabilidade do app.",
+        "en-US": "Zero session drops during transactional card flows, native-like fluidity across millions of accounts, and heightened application stability."
+      },
+      "metrics": [
+        {
+          "label": {
+            "pt-BR": "Base de Clientes",
+            "en-US": "Customer Base"
+          },
+          "value": "Milhões",
+          "change": "Escala nacional"
+        },
+        {
+          "label": {
+            "pt-BR": "Perda de Sessão",
+            "en-US": "Session Loss"
+          },
+          "value": "0%",
+          "change": "SSO biométrico robusto"
+        },
+        {
+          "label": {
+            "pt-BR": "Fluidez",
+            "en-US": "Responsiveness"
+          },
+          "value": "60 FPS",
+          "change": "Thread JS otimizada"
+        }
+      ],
+      "technologies": [
+        "React",
+        "TypeScript",
+        "JavaScript",
+        "Node.js",
+        "WebView",
+        "Mobile Hybrid",
+        "SSO"
+      ],
+      "skills": [
+        "frontend",
+        "backend",
+        "architecture"
+      ],
+      "visibility": "PUBLIC"
+    },
+    {
       "id": "ai-career-platform",
       "slug": "ai-career-platform",
       "title": {
@@ -609,7 +897,7 @@
         "en-US": "End-to-end engineering blending Clean Architecture, structured LLMs, and Human-in-the-Loop automation."
       },
       "featured": true,
-      "order": 2,
+      "order": 5,
       "period": "2024",
       "context": {
         "pt-BR": "Criação de um sistema capaz de atuar como agente de carreira do engenheiro, analisar vagas de emprego, extrair requisitos e redigir documentos personalizados com comprovação estrita de dados.",

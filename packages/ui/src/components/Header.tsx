@@ -7,7 +7,7 @@ import { Container } from "./Container";
 import { LanguageSwitcher } from "./LanguageSwitcher";
 import { FontSizeController } from "./FontSizeController";
 import { ThemeToggle } from "./ThemeToggle";
-import { Terminal, Sparkles, Menu, X, ArrowRight } from "lucide-react";
+import { Terminal, Sparkles, Menu, X, ArrowRight, Command } from "lucide-react";
 
 export function Header({
   locale,
@@ -21,6 +21,7 @@ export function Header({
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const navLinks = [
+    { href: `/${locale}/cases`, label: t.navigation.cases },
     { href: `/${locale}/about`, label: t.navigation.about },
     { href: `/${locale}/experience`, label: t.navigation.experience },
     { href: `/${locale}/skills`, label: t.navigation.skills },
@@ -66,7 +67,7 @@ export function Header({
               <div className="w-7 h-7 rounded-lg bg-zinc-100 dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 flex items-center justify-center text-zinc-700 dark:text-zinc-300">
                 <Terminal className="w-4 h-4" />
               </div>
-              <span>guilherme.dev</span>
+              <span>Guilherme.R</span>
             </a>
 
             {/* Desktop Navigation */}
@@ -85,11 +86,10 @@ export function Header({
                     data-mcp-action="navigate"
                     data-mcp-target={link.href}
                     data-mcp-description={`Navegar para ${link.label}`}
-                    className={`text-xs font-medium uppercase tracking-wider font-mono transition-colors ${
-                      isActive
-                        ? "text-emerald-600 dark:text-emerald-400 font-semibold"
-                        : "text-zinc-600 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-100"
-                    }`}
+                    className={`text-xs font-medium uppercase tracking-wider font-mono transition-colors ${isActive
+                      ? "text-emerald-600 dark:text-emerald-400 font-semibold"
+                      : "text-zinc-600 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-100"
+                      }`}
                   >
                     {link.label}
                   </a>
@@ -105,17 +105,28 @@ export function Header({
                 <ThemeToggle locale={locale} />
               </div>
 
-              <a
-                href={`/${locale}/career`}
-                className={`hidden lg:inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium transition-colors ${
-                  cleanPath === `/${locale}/career`
-                    ? "text-emerald-700 bg-emerald-100 border border-emerald-300 dark:text-emerald-300 dark:bg-emerald-950/80 dark:border-emerald-600 shadow-sm"
-                    : "text-emerald-700 bg-emerald-50 hover:bg-emerald-100 border border-emerald-200 dark:text-emerald-400 dark:bg-emerald-950/40 dark:hover:bg-emerald-950/70 dark:border-emerald-800/50"
-                }`}
+              {/* Command Palette Trigger */}
+              <button
+                type="button"
+                onClick={() => window.dispatchEvent(new CustomEvent("open-command-palette"))}
+                className="hidden lg:inline-flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg text-xs font-mono text-zinc-600 hover:text-zinc-950 bg-zinc-100 hover:bg-zinc-200/80 border border-zinc-200 dark:text-zinc-400 dark:hover:text-zinc-200 dark:bg-zinc-900 dark:hover:bg-zinc-800 dark:border-zinc-800 transition-colors shadow-2xs"
+                title={locale === "pt-BR" ? "Abrir Paleta de Comandos (⌘K)" : "Open Command Palette (⌘K)"}
+                aria-label="Command Palette"
               >
-                <Sparkles className="w-3.5 h-3.5" />
-                <span>{t.navigation.careerAI}</span>
-              </a>
+                <Command className="w-3.5 h-3.5" />
+                <span className="text-[11px] font-semibold">⌘K</span>
+              </button>
+
+              {/* Recruiter Job Matcher Trigger */}
+              <button
+                type="button"
+                onClick={() => window.dispatchEvent(new CustomEvent("open-job-matcher"))}
+                className="hidden sm:inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold text-emerald-700 bg-emerald-50 hover:bg-emerald-100 border border-emerald-200 dark:text-emerald-400 dark:bg-emerald-950/40 dark:hover:bg-emerald-950/70 dark:border-emerald-800/50 transition-colors shadow-2xs"
+                title={locale === "pt-BR" ? "Testar compatibilidade com sua vaga de emprego" : "Test candidate fit with your job description"}
+              >
+                <Sparkles className="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400" />
+                <span>{locale === "pt-BR" ? "Match de Vaga" : "Match Job"}</span>
+              </button>
 
               {/* Mobile Controls & Hamburger */}
               <div className="flex items-center gap-1.5 sm:hidden">
@@ -168,11 +179,10 @@ export function Header({
                       key={link.href}
                       href={link.href}
                       onClick={() => setIsMobileMenuOpen(false)}
-                      className={`flex items-center justify-between px-3.5 py-3 rounded-xl text-sm font-medium transition-colors ${
-                        isActive
-                          ? "bg-emerald-50 text-emerald-800 font-semibold dark:bg-emerald-950/60 dark:text-emerald-300 border border-emerald-200 dark:border-emerald-800/60"
-                          : "text-zinc-700 hover:text-zinc-950 hover:bg-zinc-100 dark:text-zinc-300 dark:hover:text-white dark:hover:bg-zinc-900"
-                      }`}
+                      className={`flex items-center justify-between px-3.5 py-3 rounded-xl text-sm font-medium transition-colors ${isActive
+                        ? "bg-emerald-50 text-emerald-800 font-semibold dark:bg-emerald-950/60 dark:text-emerald-300 border border-emerald-200 dark:border-emerald-800/60"
+                        : "text-zinc-700 hover:text-zinc-950 hover:bg-zinc-100 dark:text-zinc-300 dark:hover:text-white dark:hover:bg-zinc-900"
+                        }`}
                     >
                       <span className="font-mono">{link.label}</span>
                       {isActive ? (
@@ -185,16 +195,31 @@ export function Header({
                 })}
               </nav>
 
-              {/* Career AI Mobile CTA */}
-              <div className="pt-1">
-                <a
-                  href={`/${locale}/career`}
-                  onClick={() => setIsMobileMenuOpen(false)}
-                  className="flex items-center justify-center gap-2 w-full py-3 px-4 rounded-xl text-sm font-semibold text-emerald-800 dark:text-emerald-300 bg-emerald-100 hover:bg-emerald-200 dark:bg-emerald-950/80 dark:hover:bg-emerald-900 border border-emerald-300 dark:border-emerald-700/80 shadow-sm transition-all"
+              {/* Mobile Actions: Match Vaga & Career AI */}
+              <div className="pt-1 space-y-2">
+                <button
+                  type="button"
+                  onClick={() => {
+                    setIsMobileMenuOpen(false);
+                    window.dispatchEvent(new CustomEvent("open-job-matcher"));
+                  }}
+                  className="flex items-center justify-center gap-2 w-full py-2.5 px-4 rounded-xl text-xs font-semibold text-emerald-800 dark:text-emerald-300 bg-emerald-50 hover:bg-emerald-100 dark:bg-emerald-950/40 dark:hover:bg-emerald-950/70 border border-emerald-200 dark:border-emerald-800/60 shadow-xs transition-all"
                 >
                   <Sparkles className="w-4 h-4 text-emerald-600 dark:text-emerald-400" />
-                  <span>{t.navigation.careerAI}</span>
-                </a>
+                  <span>{locale === "pt-BR" ? "Testar Match com Minha Vaga (IA)" : "Test Job Match with AI"}</span>
+                </button>
+
+                <button
+                  type="button"
+                  onClick={() => {
+                    setIsMobileMenuOpen(false);
+                    window.dispatchEvent(new CustomEvent("open-command-palette"));
+                  }}
+                  className="flex items-center justify-center gap-2 w-full py-2.5 px-4 rounded-xl text-xs font-mono font-medium text-zinc-700 dark:text-zinc-300 bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 transition-colors"
+                >
+                  <Command className="w-3.5 h-3.5" />
+                  <span>{locale === "pt-BR" ? "Buscar ou Comandos (⌘K)" : "Search or Commands (⌘K)"}</span>
+                </button>
               </div>
 
               {/* Mobile Preferences Bar: Language, Theme, Font Size */}

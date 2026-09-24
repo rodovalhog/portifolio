@@ -45,6 +45,25 @@ export default async function ProjectsPage({
           <Text variant="lead">
             {t.projects.subtitle}
           </Text>
+
+          <div className="mt-6 p-4 rounded-xl bg-emerald-50 dark:bg-emerald-950/40 border border-emerald-200 dark:border-emerald-800/60 flex items-center justify-between gap-4 flex-wrap">
+            <div>
+              <div className="text-xs font-mono font-bold text-emerald-800 dark:text-emerald-300">
+                {lang === "pt-BR" ? "⚡ Hub de Cases com Diagnóstico Aprofundado" : "⚡ Interactive Cases Hub with Deep-Dive"}
+              </div>
+              <div className="text-xs text-emerald-700/80 dark:text-emerald-400/80 mt-0.5">
+                {lang === "pt-BR"
+                  ? "Explore o case completo de performance SSR, as 7 frentes técnicas e hipóteses refutadas."
+                  : "Explore the full SSR performance case study, 7 technical fronts, and empirical telemetry."}
+              </div>
+            </div>
+            <a
+              href={`/${lang}/cases`}
+              className="px-3.5 py-1.5 rounded-lg text-xs font-mono font-semibold bg-emerald-600 text-white hover:bg-emerald-700 transition-colors shadow-2xs"
+            >
+              {lang === "pt-BR" ? "Ver Página de Cases →" : "View Cases Page →"}
+            </a>
+          </div>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">

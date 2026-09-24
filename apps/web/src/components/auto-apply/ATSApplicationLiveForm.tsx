@@ -68,7 +68,7 @@ export const ATSApplicationLiveForm: React.FC<ATSApplicationLiveFormProps> = ({
   const phone = (answers["phone"] as string) || "(34) 99161-9467";
   const personalUrl =
     (answers["personal_url"] as string) ||
-    "https://linkedin.com/in/guilhermerodovalho";
+    "https://www.linkedin.com/in/guilherme-rodovalho/";
 
   return (
     <div className="rounded-2xl border border-zinc-700 bg-zinc-950 overflow-hidden shadow-2xl space-y-0">

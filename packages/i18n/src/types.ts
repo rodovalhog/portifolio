@@ -42,6 +42,7 @@ export interface TranslationSchema {
     contact: string;
     careerAI: string;
     performance: string;
+    cases: string;
   };
   home: {
     heroTitlePrefix: string;
@@ -135,5 +136,26 @@ export interface TranslationSchema {
     poorBadge: string;
     executiveSummary: string;
     architectureNotes: string;
+  };
+  casesPage: {
+    badge: string;
+    title: string;
+    subtitle: string;
+    featuredBadge: string;
+    evidenceBasedBadge: string;
+    allCases: string;
+    filterPerformance: string;
+    filterScale: string;
+    filterArchitecture: string;
+    filterFintech: string;
+    filterAI: string;
+    readDeepDive: string;
+    viewCase: string;
+    frentesTitle: string;
+    resultsTitle: string;
+    hypothesesTitle: string;
+    transparencyTitle: string;
+    competenciesTitle: string;
+    resumeSnippetTitle: string;
   };
 }

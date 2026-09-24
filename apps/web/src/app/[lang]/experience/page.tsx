@@ -10,6 +10,7 @@ import {
   Timeline,
 } from "@portfolio/ui";
 import { Code2, Users, FileText, Download } from "lucide-react";
+import { LeadershipTestimonials } from "@/components/social/LeadershipTestimonials";
 
 export async function generateMetadata({
   params,
@@ -151,6 +152,9 @@ export default async function ExperiencePage({
         </div>
 
         <Timeline experiences={experiences} locale={lang} />
+
+        {/* Leadership & Peer Endorsements with Sample ADR */}
+        <LeadershipTestimonials locale={lang} />
 
         {/* Bottom Resume Callout */}
         <div className="mt-16 p-6 sm:p-8 rounded-2xl bg-zinc-50 dark:bg-zinc-900/60 border border-zinc-200 dark:border-zinc-800/80 flex flex-col sm:flex-row items-center justify-between gap-6">

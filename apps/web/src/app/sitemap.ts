@@ -8,7 +8,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const repo = new FileProfileRepository();
   const projects = await repo.getProjects();
 
-  const routes = ["", "/about", "/experience", "/projects", "/skills", "/performance", "/resume", "/contact", "/career"];
+  const routes = ["", "/cases", "/about", "/experience", "/projects", "/skills", "/performance", "/resume", "/contact", "/career"];
   const sitemapEntries: MetadataRoute.Sitemap = [];
 
   for (const locale of SUPPORTED_LOCALES) {
@@ -24,6 +24,12 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     for (const project of projects) {
       sitemapEntries.push({
         url: `${baseUrl}/${locale}/projects/${project.slug}`,
+        lastModified: new Date(),
+        changeFrequency: "monthly",
+        priority: 0.9,
+      });
+      sitemapEntries.push({
+        url: `${baseUrl}/${locale}/cases/${project.slug}`,
         lastModified: new Date(),
         changeFrequency: "monthly",
         priority: 0.9,

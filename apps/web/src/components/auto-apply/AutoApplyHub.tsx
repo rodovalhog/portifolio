@@ -44,6 +44,7 @@ export const AutoApplyHub: React.FC<AutoApplyHubProps> = ({ lang }) => {
     "https://xfarm.factorialhr.com/apply/brazil-senior-front-end-developer-309222?utm_source=linkedin.com"
   );
   const [selectedResume, setSelectedResume] = useState<"pt-BR" | "en-US">("en-US");
+  const [preferredMode, setPreferredMode] = useState<"iframe" | "assisted" | "bookmarklet">("iframe");
 
   // State
   const [isAnalyzing, setIsAnalyzing] = useState<boolean>(false);
@@ -414,6 +415,61 @@ export const AutoApplyHub: React.FC<AutoApplyHubProps> = ({ lang }) => {
                 </div>
               </div>
 
+              {/* Mode Selector (Iframe vs Modo Assistido) */}
+              <div className="space-y-2 pt-2 border-t border-zinc-800/80">
+                <label className="text-xs font-medium text-zinc-300">
+                  Modo de Aplicação Inicial:
+                </label>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                  <button
+                    type="button"
+                    onClick={() => setPreferredMode("iframe")}
+                    className={`p-3.5 rounded-xl border text-left transition flex items-start gap-3 ${
+                      preferredMode === "iframe"
+                        ? "bg-emerald-500/10 border-emerald-500/50 text-zinc-100"
+                        : "bg-zinc-950/60 border-zinc-800 text-zinc-400 hover:text-zinc-200"
+                    }`}
+                  >
+                    <div className="p-2 rounded-lg bg-zinc-900 text-emerald-400 shrink-0 mt-0.5">
+                      <Globe className="w-4 h-4" />
+                    </div>
+                    <div className="space-y-0.5">
+                      <div className="text-xs font-semibold flex items-center gap-1.5 text-zinc-200">
+                        Iframe Integrado (WebMCP)
+                      </div>
+                      <p className="text-[11px] text-zinc-400 leading-relaxed">
+                        Renderiza a página dentro da plataforma e injeta dados no DOM ao vivo.
+                      </p>
+                    </div>
+                  </button>
+
+                  <button
+                    type="button"
+                    onClick={() => setPreferredMode("assisted")}
+                    className={`p-3.5 rounded-xl border text-left transition flex items-start gap-3 ${
+                      preferredMode === "assisted"
+                        ? "bg-emerald-500/10 border-emerald-500/50 text-zinc-100"
+                        : "bg-zinc-950/60 border-zinc-800 text-zinc-400 hover:text-zinc-200"
+                    }`}
+                  >
+                    <div className="p-2 rounded-lg bg-zinc-900 text-emerald-400 shrink-0 mt-0.5">
+                      <Bot className="w-4 h-4" />
+                    </div>
+                    <div className="space-y-0.5">
+                      <div className="text-xs font-semibold flex items-center gap-1.5 text-zinc-200">
+                        Modo Assistido (Nova Aba + Cópia Rápida)
+                        <span className="text-[10px] bg-emerald-500/20 text-emerald-400 px-1.5 py-0.2 rounded font-mono">
+                          Anti-Bloqueio
+                        </span>
+                      </div>
+                      <p className="text-[11px] text-zinc-400 leading-relaxed">
+                        Recomendado para sites que bloqueiam iframes (Greenhouse, Ashby, Factorial, Workday).
+                      </p>
+                    </div>
+                  </button>
+                </div>
+              </div>
+
               <div className="pt-2 flex justify-end">
                 <button
                   onClick={handleLaunchLiveWorkspace}
@@ -428,7 +484,12 @@ export const AutoApplyHub: React.FC<AutoApplyHubProps> = ({ lang }) => {
                   {isAnalyzing ? (
                     <>
                       <div className="w-4 h-4 rounded-full border-2 border-zinc-500 border-t-zinc-200 animate-spin" />
-                      Analisando Vaga & Carregando Iframe...
+                      Analisando Vaga & Preparando Dados...
+                    </>
+                  ) : preferredMode === "assisted" ? (
+                    <>
+                      <Sparkles className="w-4 h-4" />
+                      Analisar Vaga & Abrir Copilot Assistido
                     </>
                   ) : (
                     <>
@@ -448,6 +509,7 @@ export const AutoApplyHub: React.FC<AutoApplyHubProps> = ({ lang }) => {
               preparedApp={preparedApp}
               answers={editedAnswers}
               coverLetter={editedCoverLetter}
+              initialViewMode={preferredMode}
               onUpdateCoverLetter={(newLetter) => setEditedCoverLetter(newLetter)}
               onSubmitSuccess={handleSubmissionSuccess}
               onBackToInput={resetFlow}

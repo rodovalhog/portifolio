@@ -22,6 +22,7 @@ import {
   GitBranch,
   Flame,
 } from "lucide-react";
+import { PerformanceMicrofrontendCaseStudy } from "@/components/cases/PerformanceMicrofrontendCaseStudy";
 
 export async function generateStaticParams() {
   const repo = new FileProfileRepository();
@@ -66,9 +67,11 @@ export default async function ProjectDetailPage({
     notFound();
   }
 
+  const isPerformanceCase = slug === "performance-microfrontend-ssr";
+
   return (
     <Section spacing="lg">
-      <Container size="narrow">
+      <Container size={isPerformanceCase ? "default" : "narrow"}>
         {/* Back Link */}
         <div className="mb-8">
           <a
@@ -80,7 +83,13 @@ export default async function ProjectDetailPage({
           </a>
         </div>
 
-        {/* Case Header */}
+        {isPerformanceCase ? (
+          <div className="space-y-8">
+            <PerformanceMicrofrontendCaseStudy locale={lang} />
+          </div>
+        ) : (
+          <>
+            {/* Case Header */}
         <div className="mb-12 border-b border-zinc-200 dark:border-zinc-900 pb-10">
           <div className="flex items-center gap-3 mb-4">
             <Badge variant="accent">Case Study</Badge>
@@ -227,6 +236,8 @@ export default async function ProjectDetailPage({
             </Text>
           </div>
         </div>
+          </>
+        )}
       </Container>
     </Section>
   );

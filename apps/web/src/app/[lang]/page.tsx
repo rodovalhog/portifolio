@@ -24,6 +24,8 @@ import {
   Layers,
   Gauge,
 } from "lucide-react";
+// import { InteractiveArchitecture } from "@/components/architecture/InteractiveArchitecture";
+import { JobMatcherTriggerButton } from "@/components/buttons/JobMatcherTriggerButton";
 
 export default async function HomePage({
   params,
@@ -70,10 +72,12 @@ export default async function HomePage({
               {getLocalized(profile.personal.bio, lang)}
             </Text>
 
-            <div className="flex flex-wrap items-center gap-4">
-              <a href={`/${lang}/projects`}>
+            <div className="flex flex-wrap items-center gap-3 sm:gap-4">
+              <JobMatcherTriggerButton locale={lang} />
+
+              <a href={`/${lang}/experience`}>
                 <Button variant="primary" size="lg" className="group">
-                  <span>{t.common.exploreWork}</span>
+                  <span>{t.navigation.experience}</span>
                   <ArrowRight className="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" />
                 </Button>
               </a>
@@ -99,16 +103,16 @@ export default async function HomePage({
                 <Button
                   variant="outline"
                   size="lg"
-                  className="border-emerald-800/50 text-emerald-400 hover:bg-emerald-950/40 hover:text-emerald-300"
+                  className="border-emerald-800/50 text-emerald-600 dark:text-emerald-400 hover:bg-emerald-950/40 hover:text-emerald-700 dark:hover:text-emerald-300"
                 >
-                  <Download className="w-4 h-4 mr-1 text-emerald-400" />
+                  <Download className="w-4 h-4 mr-1 text-emerald-500" />
                   <span>{t.common.downloadResume}</span>
                 </Button>
               </a>
 
               <a href={`/${lang}/career`}>
-                <Button variant="secondary" size="lg" className="border-zinc-800 text-zinc-300 hover:text-zinc-100">
-                  <Sparkles className="w-4 h-4 mr-1 text-emerald-400" />
+                <Button variant="secondary" size="lg" className="border-zinc-300 dark:border-zinc-800 text-zinc-700 dark:text-zinc-300 hover:text-zinc-950 dark:hover:text-zinc-100">
+                  <Sparkles className="w-4 h-4 mr-1 text-emerald-500" />
                   <span>{t.common.talkToAI}</span>
                 </Button>
               </a>
@@ -166,6 +170,15 @@ export default async function HomePage({
         </Container>
       </section>
 
+      {/* Interactive System Architecture Lab (Código preservado, seção ocultada da visualização) */}
+      {/*
+      <section className="py-4">
+        <Container>
+          <InteractiveArchitecture locale={lang} />
+        </Container>
+      </section>
+      */}
+
       {/* Featured Engineering Case Studies */}
       <Section
         id="projects-section"
@@ -186,9 +199,9 @@ export default async function HomePage({
                 {t.home.featuredProjectsSubtitle}
               </Text>
             </div>
-            <a href={`/${lang}/projects`}>
+            <a href={`/${lang}/cases`}>
               <Button variant="outline" size="sm" className="self-start md:self-auto">
-                <span>{t.projects.filterAll}</span>
+                <span>{lang === "pt-BR" ? "Ver Todos os Cases" : "View All Cases"}</span>
                 <ArrowRight className="w-3.5 h-3.5 ml-1" />
               </Button>
             </a>
@@ -200,7 +213,7 @@ export default async function HomePage({
                 key={project.id}
                 project={project}
                 locale={lang}
-                href={`/${lang}/projects/${project.slug}`}
+                href={`/${lang}/cases/${project.slug}`}
               />
             ))}
           </div>

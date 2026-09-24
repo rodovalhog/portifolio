@@ -8,6 +8,7 @@ import { Footer } from "@portfolio/ui";
 import { AppHeader } from "@/components/AppHeader";
 import { AIProvider } from "@/context/AIContext";
 import { ChatWidget } from "@/components/ai/ChatWidget";
+import { InteractivePlatformAddons } from "@/components/layout/InteractivePlatformAddons";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -171,6 +172,7 @@ export default async function RootLayout({
             <main className="flex-1">{children}</main>
             <Footer locale={params.lang} links={profile.links} />
             <ChatWidget />
+            <InteractivePlatformAddons locale={params.lang} />
           </div>
         </AIProvider>
       </body>
