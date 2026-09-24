@@ -5,7 +5,6 @@ import { enUS } from "./messages/en-US.js";
 export * from "./types.js";
 export { ptBR } from "./messages/pt-BR.js";
 export { enUS } from "./messages/en-US.js";
-export { validateParity } from "./scripts/check-parity.js";
 
 const dictionaries: Record<SupportedLocale, TranslationSchema> = {
   "pt-BR": ptBR,

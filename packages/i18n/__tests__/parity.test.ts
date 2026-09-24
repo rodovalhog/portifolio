@@ -1,5 +1,6 @@
 import { describe, it, expect } from "vitest";
-import { validateParity, getTranslations } from "../src/index";
+import { getTranslations } from "../src/index";
+import { validateParity } from "../src/scripts/check-parity";
 
 describe("i18n: Dictionary parity and translation lookup", () => {
   it("should have 100% key parity between pt-BR and en-US", () => {
