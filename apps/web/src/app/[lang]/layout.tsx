@@ -85,6 +85,14 @@ export async function generateMetadata({
       index: true,
       follow: true,
     },
+    icons: {
+      icon: [
+        { url: "/favicon.ico", sizes: "any" },
+        { url: "/icon.svg", type: "image/svg+xml" },
+      ],
+      shortcut: "/favicon.ico",
+      apple: "/icon.svg",
+    },
   };
 }
 
