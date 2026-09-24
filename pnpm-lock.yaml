@@ -72,6 +72,9 @@ importers:
       autoprefixer:
         specifier: ^10.4.20
         version: 10.6.1(postcss@8.5.28)
+      pdf-lib:
+        specifier: ^1.17.1
+        version: 1.17.1
       postcss:
         specifier: ^8.4.47
         version: 8.5.28
