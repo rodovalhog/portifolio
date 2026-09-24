@@ -22,6 +22,11 @@ export const ptBR: TranslationSchema = {
     decreaseFontSize: "Diminuir tamanho da fonte",
     resetFontSize: "Voltar ao tamanho normal",
     fontSize: "Tamanho da fonte",
+    themeToggle: "Alternar modo claro / escuro",
+    lightMode: "Modo Claro",
+    darkMode: "Modo Escuro",
+    openMenu: "Abrir menu",
+    closeMenu: "Fechar menu",
   },
   navigation: {
     home: "Início",

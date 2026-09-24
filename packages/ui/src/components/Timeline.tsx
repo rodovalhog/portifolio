@@ -13,7 +13,7 @@ export function Timeline({
   locale: SupportedLocale;
 }) {
   return (
-    <div className="relative border-l border-zinc-800 ml-4 pl-6 space-y-12">
+    <div className="relative border-l border-zinc-200 dark:border-zinc-800 ml-4 pl-6 space-y-12">
       {experiences.map((exp) => (
         <div
           key={exp.id}
@@ -25,10 +25,10 @@ export function Timeline({
           className="relative group p-3 -m-3 rounded-xl transition"
         >
           {/* Node marker */}
-          <div className="absolute -left-[19px] top-4 w-3.5 h-3.5 rounded-full bg-zinc-950 border-2 border-zinc-600 group-hover:border-zinc-300 transition-colors" />
+          <div className="absolute -left-[19px] top-4 w-3.5 h-3.5 rounded-full bg-white dark:bg-zinc-950 border-2 border-zinc-400 dark:border-zinc-600 group-hover:border-zinc-900 dark:group-hover:border-zinc-300 transition-colors" />
 
           <div className="mb-2 flex flex-wrap items-center gap-3">
-            <span className="flex items-center gap-1.5 text-xs font-mono text-zinc-400">
+            <span className="flex items-center gap-1.5 text-xs font-mono text-zinc-500 dark:text-zinc-400">
               <Calendar className="w-3.5 h-3.5" />
               {exp.period.startDate} — {exp.period.isCurrent ? (locale === "pt-BR" ? "Presente" : "Present") : exp.period.endDate}
             </span>
@@ -39,23 +39,23 @@ export function Timeline({
             <Badge variant="neutral">{exp.type}</Badge>
           </div>
 
-          <Heading as="h3" className="text-xl sm:text-2xl text-zinc-100 mb-1">
+          <Heading as="h3" className="text-xl sm:text-2xl text-zinc-900 dark:text-zinc-100 mb-1">
             {getLocalized(exp.role, locale)}
           </Heading>
-          <div className="text-base font-medium text-zinc-400 mb-4 flex items-center gap-2">
+          <div className="text-base font-medium text-zinc-600 dark:text-zinc-400 mb-4 flex items-center gap-2">
             <Briefcase className="w-4 h-4 text-zinc-500" />
             {exp.company}
           </div>
 
-          <Text variant="body" className="text-zinc-300 mb-4">
+          <Text variant="body" className="text-zinc-700 dark:text-zinc-300 mb-4">
             {getLocalized(exp.summary, locale)}
           </Text>
 
           {exp.highlights && exp.highlights.length > 0 && (
             <ul className="mb-6 space-y-2 pl-1">
               {exp.highlights.map((hl, hIdx) => (
-                <li key={hIdx} className="text-sm text-zinc-300 leading-relaxed flex items-start gap-2.5">
-                  <span className="text-emerald-400 font-bold shrink-0 mt-1">•</span>
+                <li key={hIdx} className="text-sm text-zinc-700 dark:text-zinc-300 leading-relaxed flex items-start gap-2.5">
+                  <span className="text-emerald-600 dark:text-emerald-400 font-bold shrink-0 mt-1">•</span>
                   <span>{getLocalized(hl, locale)}</span>
                 </li>
               ))}
@@ -66,9 +66,9 @@ export function Timeline({
           {exp.engineeringCases && exp.engineeringCases.length > 0 && (
             <div className="space-y-4 mb-6">
               {exp.engineeringCases.map((ec, idx) => (
-                <Card key={idx} className="bg-zinc-950/60 border-zinc-800/80 p-5">
-                  <div className="flex items-center gap-2 text-zinc-200 font-semibold mb-3">
-                    <CheckCircle2 className="w-4 h-4 text-emerald-400" />
+                <Card key={idx} className="bg-zinc-50 dark:bg-zinc-950/60 border-zinc-200 dark:border-zinc-800/80 p-5">
+                  <div className="flex items-center gap-2 text-zinc-900 dark:text-zinc-200 font-semibold mb-3">
+                    <CheckCircle2 className="w-4 h-4 text-emerald-600 dark:text-emerald-400" />
                     <span>{getLocalized(ec.title, locale)}</span>
                   </div>
 
@@ -77,28 +77,28 @@ export function Timeline({
                       <div className="text-xs font-mono uppercase text-zinc-500 mb-1">
                         {locale === "pt-BR" ? "Problema / Gargalo" : "Problem & Bottleneck"}
                       </div>
-                      <div className="text-zinc-400">{getLocalized(ec.problem, locale)}</div>
+                      <div className="text-zinc-600 dark:text-zinc-400">{getLocalized(ec.problem, locale)}</div>
                     </div>
                     <div>
                       <div className="text-xs font-mono uppercase text-zinc-500 mb-1">
                         {locale === "pt-BR" ? "Decisão Arquitetural" : "Architectural Decision"}
                       </div>
-                      <div className="text-zinc-400">{getLocalized(ec.decision, locale)}</div>
+                      <div className="text-zinc-600 dark:text-zinc-400">{getLocalized(ec.decision, locale)}</div>
                     </div>
-                    <div className="md:col-span-2 pt-2 border-t border-zinc-800/60">
-                      <div className="text-xs font-mono uppercase text-emerald-400 mb-1">
+                    <div className="md:col-span-2 pt-2 border-t border-zinc-200 dark:border-zinc-800/60">
+                      <div className="text-xs font-mono uppercase text-emerald-600 dark:text-emerald-400 mb-1">
                         {locale === "pt-BR" ? "Impacto & Resultados" : "Impact & Results"}
                       </div>
-                      <div className="text-zinc-300 font-medium">{getLocalized(ec.impact, locale)}</div>
+                      <div className="text-zinc-800 dark:text-zinc-300 font-medium">{getLocalized(ec.impact, locale)}</div>
                     </div>
                   </div>
 
                   {ec.metrics && ec.metrics.length > 0 && (
-                    <div className="flex flex-wrap gap-2 mt-4 pt-3 border-t border-zinc-800/60">
+                    <div className="flex flex-wrap gap-2 mt-4 pt-3 border-t border-zinc-200 dark:border-zinc-800/60">
                       {ec.metrics.map((m, mi) => (
                         <span
                           key={mi}
-                          className="text-xs font-mono font-bold text-emerald-400 bg-emerald-950/30 px-2 py-0.5 rounded border border-emerald-800/40"
+                          className="text-xs font-mono font-bold text-emerald-700 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-950/30 px-2 py-0.5 rounded border border-emerald-200 dark:border-emerald-800/40"
                         >
                           {m}
                         </span>
@@ -114,7 +114,7 @@ export function Timeline({
             {exp.technologies.map((t) => (
               <span
                 key={t}
-                className="text-xs font-mono text-zinc-400 bg-zinc-900 px-2 py-0.5 rounded border border-zinc-800"
+                className="text-xs font-mono text-zinc-600 dark:text-zinc-400 bg-zinc-100 dark:bg-zinc-900 px-2 py-0.5 rounded border border-zinc-200 dark:border-zinc-800"
               >
                 {t}
               </span>

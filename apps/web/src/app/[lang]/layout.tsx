@@ -118,7 +118,11 @@ export default async function RootLayout({
   };
 
   return (
-    <html lang={params.lang} className={`${inter.variable} ${jetbrainsMono.variable} dark`}>
+    <html
+      lang={params.lang}
+      className={`${inter.variable} ${jetbrainsMono.variable} dark`}
+      suppressHydrationWarning
+    >
       <head>
         <script
           type="application/ld+json"
@@ -132,13 +136,25 @@ export default async function RootLayout({
                 if (fs === 'lg' || fs === 'xl') {
                   document.documentElement.setAttribute('data-font-size', fs);
                 }
+                var theme = localStorage.getItem('portfolio_theme');
+                var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+                if (theme === 'light') {
+                  document.documentElement.classList.remove('dark');
+                  document.documentElement.classList.add('light');
+                } else if (theme === 'dark' || prefersDark || !theme) {
+                  document.documentElement.classList.add('dark');
+                  document.documentElement.classList.remove('light');
+                } else {
+                  document.documentElement.classList.remove('dark');
+                  document.documentElement.classList.add('light');
+                }
               } catch (e) {}
             `,
           }}
         />
       </head>
-      <body className="min-h-screen bg-zinc-950 text-zinc-100 flex flex-col antialiased selection:bg-emerald-500/20 selection:text-emerald-300">
-        <div className="fixed inset-0 bg-grid pointer-events-none z-0 opacity-40" />
+      <body className="min-h-screen bg-zinc-50 text-zinc-900 dark:bg-zinc-950 dark:text-zinc-100 flex flex-col antialiased transition-colors duration-200 selection:bg-emerald-500/20 selection:text-emerald-700 dark:selection:text-emerald-300">
+        <div className="fixed inset-0 bg-grid pointer-events-none z-0 opacity-40 dark:opacity-40" />
         <div className="fixed inset-0 radial-glow pointer-events-none z-0" />
         
         <AIProvider>

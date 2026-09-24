@@ -39,6 +39,10 @@ export class WebMCPClient {
     return await webMcpServer.adjustFontSize({ action });
   }
 
+  public async setTheme(theme?: "dark" | "light" | "toggle"): Promise<{ success: boolean; theme: string; message: string }> {
+    return await webMcpServer.setTheme({ theme });
+  }
+
   public async prepareApplication(params: PrepareApplicationParams): Promise<PreparedApplication> {
     return await webMcpServer.prepareApplication(params);
   }
@@ -78,6 +82,9 @@ export class WebMCPClient {
         return await this.adjustFontSize(
           (args.action as "increase" | "decrease" | "reset" | "set_normal" | "set_lg" | "set_xl") || "increase"
         );
+      case "set_theme":
+      case "toggle_theme":
+        return await this.setTheme(args.theme as "dark" | "light" | "toggle" | undefined);
       case "prepare_application":
         return await this.prepareApplication({
           jobUrl: args.jobUrl as string,

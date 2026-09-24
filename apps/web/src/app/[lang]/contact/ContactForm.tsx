@@ -100,52 +100,52 @@ export function ContactForm({ locale }: { locale: SupportedLocale }) {
       )}
 
       <div>
-        <label className="block text-xs font-mono uppercase tracking-wider text-zinc-400 mb-2">
+        <label className="block text-xs font-mono uppercase tracking-wider text-zinc-600 dark:text-zinc-400 mb-2 font-medium">
           {t.contact.nameLabel} *
         </label>
         <input
           type="text"
           name="name"
           required
-          className="w-full rounded-lg bg-zinc-900 border border-zinc-800 px-4 py-2.5 text-zinc-100 placeholder-zinc-500 focus:outline-none focus:border-zinc-500 focus:ring-1 focus:ring-zinc-500 text-sm transition-colors"
+          className="w-full rounded-lg bg-zinc-50 border border-zinc-300 dark:bg-zinc-900 dark:border-zinc-800 px-4 py-2.5 text-zinc-900 dark:text-zinc-100 placeholder-zinc-400 dark:placeholder-zinc-500 focus:outline-none focus:border-zinc-500 dark:focus:border-zinc-500 focus:ring-1 focus:ring-zinc-500 text-sm transition-colors"
           placeholder={locale === "pt-BR" ? "Seu nome ou empresa" : "Your name or company"}
         />
       </div>
 
       <div>
-        <label className="block text-xs font-mono uppercase tracking-wider text-zinc-400 mb-2">
+        <label className="block text-xs font-mono uppercase tracking-wider text-zinc-600 dark:text-zinc-400 mb-2 font-medium">
           {t.contact.emailLabel} *
         </label>
         <input
           type="email"
           name="email"
           required
-          className="w-full rounded-lg bg-zinc-900 border border-zinc-800 px-4 py-2.5 text-zinc-100 placeholder-zinc-500 focus:outline-none focus:border-zinc-500 focus:ring-1 focus:ring-zinc-500 text-sm transition-colors"
+          className="w-full rounded-lg bg-zinc-50 border border-zinc-300 dark:bg-zinc-900 dark:border-zinc-800 px-4 py-2.5 text-zinc-900 dark:text-zinc-100 placeholder-zinc-400 dark:placeholder-zinc-500 focus:outline-none focus:border-zinc-500 dark:focus:border-zinc-500 focus:ring-1 focus:ring-zinc-500 text-sm transition-colors"
           placeholder="email@example.com"
         />
       </div>
 
       <div>
-        <label className="block text-xs font-mono uppercase tracking-wider text-zinc-400 mb-2">
+        <label className="block text-xs font-mono uppercase tracking-wider text-zinc-600 dark:text-zinc-400 mb-2 font-medium">
           {t.contact.subjectLabel}
         </label>
         <input
           type="text"
           name="subject"
-          className="w-full rounded-lg bg-zinc-900 border border-zinc-800 px-4 py-2.5 text-zinc-100 placeholder-zinc-500 focus:outline-none focus:border-zinc-500 focus:ring-1 focus:ring-zinc-500 text-sm transition-colors"
+          className="w-full rounded-lg bg-zinc-50 border border-zinc-300 dark:bg-zinc-900 dark:border-zinc-800 px-4 py-2.5 text-zinc-900 dark:text-zinc-100 placeholder-zinc-400 dark:placeholder-zinc-500 focus:outline-none focus:border-zinc-500 dark:focus:border-zinc-500 focus:ring-1 focus:ring-zinc-500 text-sm transition-colors"
           placeholder={locale === "pt-BR" ? "Oportunidade, consultoria ou arquitetura" : "Opportunity, consulting, or architecture"}
         />
       </div>
 
       <div>
-        <label className="block text-xs font-mono uppercase tracking-wider text-zinc-400 mb-2">
+        <label className="block text-xs font-mono uppercase tracking-wider text-zinc-600 dark:text-zinc-400 mb-2 font-medium">
           {t.contact.messageLabel} *
         </label>
         <textarea
           name="message"
           rows={5}
           required
-          className="w-full rounded-lg bg-zinc-900 border border-zinc-800 px-4 py-2.5 text-zinc-100 placeholder-zinc-500 focus:outline-none focus:border-zinc-500 focus:ring-1 focus:ring-zinc-500 text-sm transition-colors resize-none"
+          className="w-full rounded-lg bg-zinc-50 border border-zinc-300 dark:bg-zinc-900 dark:border-zinc-800 px-4 py-2.5 text-zinc-900 dark:text-zinc-100 placeholder-zinc-400 dark:placeholder-zinc-500 focus:outline-none focus:border-zinc-500 dark:focus:border-zinc-500 focus:ring-1 focus:ring-zinc-500 text-sm transition-colors resize-none"
           placeholder={locale === "pt-BR" ? "Como posso ajudar no seu desafio de engenharia?" : "How can I help with your engineering challenge?"}
         />
       </div>

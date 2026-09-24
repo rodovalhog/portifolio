@@ -10,5 +10,6 @@ export * from "./components/ProjectCard";
 export * from "./components/Timeline";
 export * from "./components/LanguageSwitcher";
 export * from "./components/FontSizeController";
+export * from "./components/ThemeToggle";
 export * from "./components/Header";
 export * from "./components/Footer";

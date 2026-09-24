@@ -22,6 +22,11 @@ export const enUS: TranslationSchema = {
     decreaseFontSize: "Decrease font size",
     resetFontSize: "Reset to normal font size",
     fontSize: "Font size",
+    themeToggle: "Toggle light / dark mode",
+    lightMode: "Light Mode",
+    darkMode: "Dark Mode",
+    openMenu: "Open menu",
+    closeMenu: "Close menu",
   },
   navigation: {
     home: "Home",

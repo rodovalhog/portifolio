@@ -46,7 +46,7 @@ export function SkillCard({
       <div>
         <div className="flex items-center justify-between gap-4 mb-4">
           <div className="flex items-center gap-3">
-            <div className="p-2 rounded-lg bg-zinc-800/80 text-zinc-200 border border-zinc-700/60">
+            <div className="p-2 rounded-lg bg-zinc-100 text-zinc-800 border border-zinc-200 dark:bg-zinc-800/80 dark:text-zinc-200 dark:border-zinc-700/60">
               <Icon className="w-5 h-5" />
             </div>
             <div>
@@ -57,17 +57,17 @@ export function SkillCard({
           <Badge variant={currentLevel.variant}>{currentLevel.label}</Badge>
         </div>
 
-        <Text variant="body" className="text-zinc-400 mb-6 text-sm">
+        <Text variant="body" className="text-zinc-600 dark:text-zinc-400 mb-6 text-sm">
           {getLocalized(skill.description, locale)}
         </Text>
       </div>
 
       <div>
-        <div className="flex flex-wrap gap-1.5 pt-4 border-t border-zinc-800/60">
+        <div className="flex flex-wrap gap-1.5 pt-4 border-t border-zinc-200 dark:border-zinc-800/60">
           {skill.tags.map((tag) => (
             <span
               key={tag}
-              className="text-xs font-mono text-zinc-400 bg-zinc-800/50 px-2 py-0.5 rounded border border-zinc-800"
+              className="text-xs font-mono text-zinc-600 dark:text-zinc-400 bg-zinc-100 dark:bg-zinc-800/50 px-2 py-0.5 rounded border border-zinc-200 dark:border-zinc-800"
             >
               {tag}
             </span>

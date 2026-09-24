@@ -14,7 +14,9 @@ export type MCPActionType =
   | "download"
   | "filter"
   | "switch_language"
-  | "adjust_font_size";
+  | "adjust_font_size"
+  | "set_theme"
+  | "toggle_theme";
 
 /**
  * Semantic Resource representation extracted from DOM or catalogue
@@ -76,6 +78,10 @@ export interface SwitchLanguageParams {
 
 export interface AdjustFontSizeParams {
   action: "increase" | "decrease" | "reset" | "set_normal" | "set_lg" | "set_xl";
+}
+
+export interface SetThemeParams {
+  theme?: "dark" | "light" | "toggle";
 }
 
 export interface FilterProjectsParams {

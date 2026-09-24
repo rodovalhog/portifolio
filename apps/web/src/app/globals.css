@@ -3,6 +3,12 @@
 @tailwind utilities;
 
 :root {
+  --background: #f8fafc;
+  --foreground: #09090b;
+  color-scheme: light dark;
+}
+
+.dark {
   --background: #09090b;
   --foreground: #fafafa;
 }
@@ -33,12 +39,22 @@ body {
 .bg-grid {
   background-size: 32px 32px;
   background-image: 
+    linear-gradient(to right, rgba(0, 0, 0, 0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(0, 0, 0, 0.04) 1px, transparent 1px);
+}
+
+.dark .bg-grid {
+  background-image: 
     linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
     linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
 }
 
 /* Subtle glow effects */
 .radial-glow {
+  background: radial-gradient(circle at 50% 0%, rgba(16, 185, 129, 0.05) 0%, transparent 60%);
+}
+
+.dark .radial-glow {
   background: radial-gradient(circle at 50% 0%, rgba(16, 185, 129, 0.08) 0%, transparent 60%);
 }
 
@@ -115,8 +131,12 @@ body {
 
 /* Glassmorphism Panel */
 .glass-panel {
-  background: rgba(9, 9, 11, 0.88);
+  background: rgba(255, 255, 255, 0.94);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
+}
+
+.dark .glass-panel {
+  background: rgba(9, 9, 11, 0.88);
 }
 

@@ -73,7 +73,7 @@ export default async function ProjectDetailPage({
         <div className="mb-8">
           <a
             href={`/${lang}/projects`}
-            className="inline-flex items-center gap-2 text-xs font-mono text-zinc-400 hover:text-zinc-100 transition-colors"
+            className="inline-flex items-center gap-2 text-xs font-mono text-zinc-600 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-100 transition-colors"
           >
             <ArrowLeft className="w-3.5 h-3.5" />
             <span>{t.common.backToProjects}</span>
@@ -81,7 +81,7 @@ export default async function ProjectDetailPage({
         </div>
 
         {/* Case Header */}
-        <div className="mb-12 border-b border-zinc-900 pb-10">
+        <div className="mb-12 border-b border-zinc-200 dark:border-zinc-900 pb-10">
           <div className="flex items-center gap-3 mb-4">
             <Badge variant="accent">Case Study</Badge>
             <span className="text-xs font-mono text-zinc-500">{project.period}</span>
@@ -99,7 +99,7 @@ export default async function ProjectDetailPage({
             {project.technologies.map((tech) => (
               <span
                 key={tech}
-                className="text-xs font-mono text-zinc-300 bg-zinc-900 px-2.5 py-1 rounded border border-zinc-800"
+                className="text-xs font-mono text-zinc-700 bg-zinc-100 border border-zinc-200 dark:text-zinc-300 dark:bg-zinc-900 dark:border-zinc-800 px-2.5 py-1 rounded"
               >
                 {tech}
               </span>
@@ -149,20 +149,20 @@ export default async function ProjectDetailPage({
 
           {/* Problem & Constraints */}
           <div className="space-y-3">
-            <Heading as="h3" className="flex items-center gap-2 text-zinc-200">
-              <span className="text-emerald-400 font-mono text-sm">02.</span>
+            <Heading as="h3" className="flex items-center gap-2 text-zinc-900 dark:text-zinc-200">
+              <span className="text-emerald-600 dark:text-emerald-400 font-mono text-sm">02.</span>
               <span>{t.projects.problemTitle}</span>
             </Heading>
-            <Text variant="body" className="text-zinc-300 leading-relaxed">
+            <Text variant="body" className="text-zinc-700 dark:text-zinc-300 leading-relaxed">
               {getLocalized(project.problem, lang)}
             </Text>
             {project.constraints && (
-              <Card className="mt-4 p-4 bg-zinc-950/70 border-zinc-800/80">
-                <div className="text-xs font-mono uppercase text-amber-400 mb-1 flex items-center gap-1.5">
+              <Card className="mt-4 p-4">
+                <div className="text-xs font-mono uppercase text-amber-600 dark:text-amber-400 mb-1 flex items-center gap-1.5 font-bold">
                   <ShieldAlert className="w-3.5 h-3.5" />
                   <span>{t.projects.constraintsTitle}</span>
                 </div>
-                <div className="text-sm text-zinc-400">
+                <div className="text-sm text-zinc-600 dark:text-zinc-400">
                   {getLocalized(project.constraints, lang)}
                 </div>
               </Card>
@@ -171,28 +171,28 @@ export default async function ProjectDetailPage({
 
           {/* Options & Decision */}
           <div className="space-y-3">
-            <Heading as="h3" className="flex items-center gap-2 text-zinc-200">
-              <span className="text-emerald-400 font-mono text-sm">03.</span>
+            <Heading as="h3" className="flex items-center gap-2 text-zinc-900 dark:text-zinc-200">
+              <span className="text-emerald-600 dark:text-emerald-400 font-mono text-sm">03.</span>
               <span>{t.projects.decisionTitle}</span>
             </Heading>
             {project.optionsConsidered && (
-              <div className="mb-4 text-sm text-zinc-400 bg-zinc-900/30 p-4 rounded-lg border border-zinc-800">
-                <span className="text-xs font-mono uppercase text-zinc-500 block mb-1">
+              <div className="mb-4 text-sm text-zinc-600 dark:text-zinc-400 bg-zinc-50 border border-zinc-200 dark:bg-zinc-900/30 dark:border-zinc-800 p-4 rounded-lg">
+                <span className="text-xs font-mono uppercase text-zinc-500 block mb-1 font-bold">
                   {t.projects.optionsTitle}
                 </span>
                 {getLocalized(project.optionsConsidered, lang)}
               </div>
             )}
-            <Text variant="body" className="text-zinc-300 leading-relaxed">
+            <Text variant="body" className="text-zinc-700 dark:text-zinc-300 leading-relaxed">
               {getLocalized(project.decision, lang)}
             </Text>
             {project.tradeoffs && (
-              <Card className="mt-4 p-4 bg-zinc-950/70 border-zinc-800/80">
-                <div className="text-xs font-mono uppercase text-indigo-400 mb-1 flex items-center gap-1.5">
+              <Card className="mt-4 p-4">
+                <div className="text-xs font-mono uppercase text-indigo-600 dark:text-indigo-400 mb-1 flex items-center gap-1.5 font-bold">
                   <GitBranch className="w-3.5 h-3.5" />
                   <span>Trade-offs & Consequências</span>
                 </div>
-                <div className="text-sm text-zinc-400">
+                <div className="text-sm text-zinc-600 dark:text-zinc-400">
                   {getLocalized(project.tradeoffs, lang)}
                 </div>
               </Card>
@@ -201,15 +201,15 @@ export default async function ProjectDetailPage({
 
           {/* Solution & Implementation */}
           <div className="space-y-3">
-            <Heading as="h3" className="flex items-center gap-2 text-zinc-200">
-              <span className="text-emerald-400 font-mono text-sm">04.</span>
+            <Heading as="h3" className="flex items-center gap-2 text-zinc-900 dark:text-zinc-200">
+              <span className="text-emerald-600 dark:text-emerald-400 font-mono text-sm">04.</span>
               <span>{t.projects.solutionTitle}</span>
             </Heading>
-            <Text variant="body" className="text-zinc-300 leading-relaxed">
+            <Text variant="body" className="text-zinc-700 dark:text-zinc-300 leading-relaxed">
               {getLocalized(project.solution, lang)}
             </Text>
-            <div className="p-4 rounded-lg bg-zinc-900/40 border border-zinc-800 text-sm text-zinc-400 mt-2">
-              <div className="text-xs font-mono uppercase text-zinc-500 mb-1">
+            <div className="p-4 rounded-lg bg-zinc-50 border border-zinc-200 dark:bg-zinc-900/40 dark:border-zinc-800 text-sm text-zinc-600 dark:text-zinc-400 mt-2">
+              <div className="text-xs font-mono uppercase text-zinc-500 mb-1 font-bold">
                 Implementação Técnica
               </div>
               {getLocalized(project.implementation, lang)}
@@ -217,12 +217,12 @@ export default async function ProjectDetailPage({
           </div>
 
           {/* Impact */}
-          <div className="space-y-3 pt-6 border-t border-zinc-900">
-            <Heading as="h3" className="flex items-center gap-2 text-zinc-100">
-              <span className="text-emerald-400 font-mono text-sm">05.</span>
+          <div className="space-y-3 pt-6 border-t border-zinc-200 dark:border-zinc-900">
+            <Heading as="h3" className="flex items-center gap-2 text-zinc-900 dark:text-zinc-100">
+              <span className="text-emerald-600 dark:text-emerald-400 font-mono text-sm">05.</span>
               <span>{t.projects.impactTitle}</span>
             </Heading>
-            <Text variant="body" className="text-zinc-200 leading-relaxed font-medium">
+            <Text variant="body" className="text-zinc-800 dark:text-zinc-200 leading-relaxed font-medium">
               {getLocalized(project.impact, lang)}
             </Text>
           </div>

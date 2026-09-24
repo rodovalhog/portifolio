@@ -112,6 +112,41 @@ export class HeuristicPortfolioProvider implements AIProvider {
       return { message, toolCalls };
     }
 
+    // 2.1b Theme intent (Dark Mode / Light Mode)
+    if (
+      q.includes("dark mode") ||
+      q.includes("light mode") ||
+      q.includes("modo escuro") ||
+      q.includes("modo claro") ||
+      q.includes("tema escuro") ||
+      q.includes("tema claro") ||
+      q.includes("mudar tema") ||
+      q.includes("alternar tema") ||
+      q.includes("toggle theme") ||
+      q.includes("switch theme")
+    ) {
+      let targetTheme: "dark" | "light" | "toggle" = "toggle";
+      if (q.includes("claro") || q.includes("light")) {
+        targetTheme = "light";
+      } else if (q.includes("escuro") || q.includes("dark")) {
+        targetTheme = "dark";
+      }
+
+      const result = await webMcpClient.setTheme(targetTheme);
+      toolCalls.push({
+        name: "set_theme",
+        input: { theme: targetTheme },
+        output: result,
+      });
+
+      if (result.theme === "dark") {
+        message = `🌙 **Modo Escuro Ativado!**\n\nA aplicação foi alternada para o tema escuro com alto contraste e estética premium. Você também pode alternar a qualquer momento pelo botão [🌙 / ☀️] no topo da página.`;
+      } else {
+        message = `☀️ **Modo Claro Ativado!**\n\nA aplicação foi alternada para o tema claro com estética limpa e legibilidade aprimorada. Você também pode alternar a qualquer momento pelo botão [🌙 / ☀️] no topo da página.`;
+      }
+      return { message, toolCalls };
+    }
+
     // 2.2 Performance Observatory intent
     if (
       q.includes("telemetria") ||

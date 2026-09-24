@@ -40,7 +40,7 @@ export default async function AboutPage({
         <div className="max-w-4xl mx-auto space-y-16">
           {/* Header */}
           <div>
-            <Text variant="caption" className="mb-2 text-emerald-400">
+            <Text variant="caption" className="mb-2 text-emerald-600 dark:text-emerald-400 font-semibold">
               ENGINEERING PHILOSOPHY
             </Text>
             <Heading as="h1" className="mb-4">
@@ -52,7 +52,7 @@ export default async function AboutPage({
           </div>
 
           {/* Bio Deep Dive */}
-          <div className="prose prose-invert max-w-none text-zinc-300 space-y-4 leading-relaxed">
+          <div className="prose max-w-none text-zinc-700 dark:text-zinc-300 space-y-4 leading-relaxed">
             <p className="text-lg">
               {getLocalized(profile.personal.bio, lang)}
             </p>
@@ -64,14 +64,14 @@ export default async function AboutPage({
           {/* Philosophy & Principles */}
           <div>
             <Heading as="h2" className="mb-6 flex items-center gap-3">
-              <Compass className="w-6 h-6 text-indigo-400" />
+              <Compass className="w-6 h-6 text-indigo-500 dark:text-indigo-400" />
               <span>{t.about.philosophyTitle}</span>
             </Heading>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               {profile.engineeringPhilosophy.map((phil, idx) => (
-                <Card key={idx} className="p-5 bg-zinc-900/40">
+                <Card key={idx} className="p-5">
                   <div className="text-xs font-mono text-zinc-500 mb-2">PRINCIPLE // 0{idx + 1}</div>
-                  <Text variant="body" className="text-zinc-200">
+                  <Text variant="body" className="text-zinc-800 dark:text-zinc-200">
                     {getLocalized(phil, lang)}
                   </Text>
                 </Card>
@@ -80,20 +80,20 @@ export default async function AboutPage({
           </div>
 
           {/* Education & Certifications */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 pt-8 border-t border-zinc-900">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 pt-8 border-t border-zinc-200 dark:border-zinc-900">
             <div>
-              <Heading as="h3" className="mb-4 flex items-center gap-2 text-zinc-200">
-                <GraduationCap className="w-5 h-5 text-emerald-400" />
+              <Heading as="h3" className="mb-4 flex items-center gap-2 text-zinc-900 dark:text-zinc-200">
+                <GraduationCap className="w-5 h-5 text-emerald-600 dark:text-emerald-400" />
                 <span>{t.about.educationTitle}</span>
               </Heading>
               <div className="space-y-4">
                 {profile.education.map((edu) => (
-                  <Card key={edu.id} className="p-4 bg-zinc-900/40">
-                    <div className="text-sm font-semibold text-zinc-100">{edu.institution}</div>
-                    <div className="text-xs font-mono text-emerald-400 mt-0.5">
+                  <Card key={edu.id} className="p-4">
+                    <div className="text-sm font-semibold text-zinc-900 dark:text-zinc-100">{edu.institution}</div>
+                    <div className="text-xs font-mono text-emerald-600 dark:text-emerald-400 mt-0.5">
                       {getLocalized(edu.degree, lang)}
                     </div>
-                    <div className="text-xs text-zinc-400 mt-1">
+                    <div className="text-xs text-zinc-600 dark:text-zinc-400 mt-1">
                       {getLocalized(edu.fieldOfStudy, lang)} • {edu.startDate} — {edu.endDate ?? "Atual"}
                     </div>
                   </Card>
@@ -102,15 +102,15 @@ export default async function AboutPage({
             </div>
 
             <div>
-              <Heading as="h3" className="mb-4 flex items-center gap-2 text-zinc-200">
-                <Award className="w-5 h-5 text-amber-400" />
+              <Heading as="h3" className="mb-4 flex items-center gap-2 text-zinc-900 dark:text-zinc-200">
+                <Award className="w-5 h-5 text-amber-500 dark:text-amber-400" />
                 <span>{t.about.certificationsTitle}</span>
               </Heading>
               <div className="space-y-4">
                 {profile.certifications.map((cert) => (
-                  <Card key={cert.id} className="p-4 bg-zinc-900/40">
-                    <div className="text-sm font-semibold text-zinc-100">{cert.name}</div>
-                    <div className="text-xs text-zinc-400 mt-1">
+                  <Card key={cert.id} className="p-4">
+                    <div className="text-sm font-semibold text-zinc-900 dark:text-zinc-100">{cert.name}</div>
+                    <div className="text-xs text-zinc-600 dark:text-zinc-400 mt-1">
                       {cert.issuer} • {cert.issueDate}
                     </div>
                   </Card>
@@ -120,16 +120,16 @@ export default async function AboutPage({
           </div>
 
           {/* Languages */}
-          <div className="pt-8 border-t border-zinc-900">
-            <Heading as="h3" className="mb-4 flex items-center gap-2 text-zinc-200">
-              <Languages className="w-5 h-5 text-blue-400" />
+          <div className="pt-8 border-t border-zinc-200 dark:border-zinc-900">
+            <Heading as="h3" className="mb-4 flex items-center gap-2 text-zinc-900 dark:text-zinc-200">
+              <Languages className="w-5 h-5 text-blue-500 dark:text-blue-400" />
               <span>Idiomas</span>
             </Heading>
             <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
               {profile.languages.map((l) => (
-                <Card key={l.code} className="p-4 bg-zinc-900/40 text-center">
-                  <div className="text-sm font-bold text-zinc-100">{getLocalized(l.name, lang)}</div>
-                  <div className="text-xs font-mono text-zinc-400 mt-1">
+                <Card key={l.code} className="p-4 text-center">
+                  <div className="text-sm font-bold text-zinc-900 dark:text-zinc-100">{getLocalized(l.name, lang)}</div>
+                  <div className="text-xs font-mono text-zinc-600 dark:text-zinc-400 mt-1">
                     {getLocalized(l.proficiency, lang)}
                   </div>
                 </Card>

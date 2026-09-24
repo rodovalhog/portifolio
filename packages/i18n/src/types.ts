@@ -25,6 +25,11 @@ export interface TranslationSchema {
     decreaseFontSize: string;
     resetFontSize: string;
     fontSize: string;
+    themeToggle: string;
+    lightMode: string;
+    darkMode: string;
+    openMenu: string;
+    closeMenu: string;
   };
   navigation: {
     home: string;

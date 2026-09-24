@@ -88,7 +88,7 @@ export function FontSizeController({
       data-mcp-id="font-size-controller"
       data-mcp-resource="accessibility"
       data-mcp-description="Ajuste de acessibilidade para aumentar ou restaurar tamanho da fonte"
-      className="inline-flex items-center rounded-lg border border-zinc-800 bg-zinc-900/90 p-0.5 text-xs font-mono select-none"
+      className="inline-flex items-center rounded-lg border border-zinc-200 dark:border-zinc-800 bg-zinc-100/90 dark:bg-zinc-900/90 p-0.5 text-xs font-mono select-none"
     >
       {/* Botão Diminuir Fonte (A-) */}
       <button
@@ -97,7 +97,7 @@ export function FontSizeController({
         disabled={level === "normal"}
         title={t.common.decreaseFontSize}
         aria-label={t.common.decreaseFontSize}
-        className="px-2 py-1 rounded text-zinc-400 hover:text-zinc-100 disabled:opacity-30 disabled:cursor-not-allowed transition-colors"
+        className="px-2 py-1 rounded text-zinc-600 hover:text-zinc-950 dark:text-zinc-400 dark:hover:text-zinc-100 disabled:opacity-30 disabled:cursor-not-allowed transition-colors font-medium"
       >
         A-
       </button>
@@ -110,13 +110,13 @@ export function FontSizeController({
         aria-label={level === "normal" ? `${t.common.fontSize}: 100%` : t.common.resetFontSize}
         className={`px-2 py-1 rounded transition-all flex items-center gap-1 font-semibold ${
           level !== "normal"
-            ? "text-emerald-400 bg-emerald-950/80 border border-emerald-700/60 shadow-sm shadow-emerald-950 hover:bg-emerald-900/80 cursor-pointer"
-            : "text-zinc-300 hover:text-white hover:bg-zinc-800/60 cursor-default"
+            ? "text-emerald-700 bg-emerald-100 border border-emerald-300 dark:text-emerald-400 dark:bg-emerald-950/80 dark:border-emerald-700/60 shadow-sm cursor-pointer"
+            : "text-zinc-700 hover:text-zinc-950 hover:bg-zinc-200/60 dark:text-zinc-300 dark:hover:text-white dark:hover:bg-zinc-800/60 cursor-default"
         }`}
       >
         <span>{level === "normal" ? "A" : level === "lg" ? "A+" : "A++"}</span>
         {level !== "normal" && (
-          <RotateCcw className="w-2.5 h-2.5 text-emerald-400/80 animate-in fade-in" />
+          <RotateCcw className="w-2.5 h-2.5 text-emerald-600 dark:text-emerald-400/80 animate-in fade-in" />
         )}
       </button>
 
@@ -127,7 +127,7 @@ export function FontSizeController({
         disabled={level === "xl"}
         title={t.common.increaseFontSize}
         aria-label={t.common.increaseFontSize}
-        className="px-2 py-1 rounded text-zinc-400 hover:text-zinc-100 disabled:opacity-30 disabled:cursor-not-allowed transition-colors font-medium"
+        className="px-2 py-1 rounded text-zinc-600 hover:text-zinc-950 dark:text-zinc-400 dark:hover:text-zinc-100 disabled:opacity-30 disabled:cursor-not-allowed transition-colors font-medium"
       >
         A+
       </button>

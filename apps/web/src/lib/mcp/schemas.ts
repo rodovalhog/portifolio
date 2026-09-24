@@ -16,6 +16,8 @@ export const MCPActionTypeSchema = z.enum([
   "filter",
   "switch_language",
   "adjust_font_size",
+  "set_theme",
+  "toggle_theme",
 ]);
 
 export const SemanticResourceSchema = z.object({
@@ -57,4 +59,8 @@ export const AdjustFontSizeSchema = z.object({
 
 export const FilterProjectsSchema = z.object({
   tag: z.string().optional(),
+});
+
+export const SetThemeSchema = z.object({
+  theme: z.enum(["dark", "light", "toggle"]).optional(),
 });

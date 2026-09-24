@@ -9,6 +9,7 @@ import {
   SubmitApplicationParams,
   SwitchLanguageParams,
   AdjustFontSizeParams,
+  SetThemeParams,
 } from "./types";
 import { scanSemanticDOM } from "./scanner";
 import { highlightMCPResource } from "./highlighter";
@@ -189,6 +190,42 @@ export class WebMCPServer {
     }
 
     return { success: true, newSize, message: `Tamanho da fonte ajustado para ${newSize}.` };
+  }
+
+  /**
+   * Tool: set_theme
+   * Switches or toggles theme between light and dark
+   */
+  public async setTheme(params?: SetThemeParams): Promise<{ success: boolean; theme: string; message: string }> {
+    let newTheme = "dark";
+    if (typeof window !== "undefined") {
+      const isCurrentlyDark = document.documentElement.classList.contains("dark");
+      if (params?.theme === "toggle" || !params?.theme) {
+        newTheme = isCurrentlyDark ? "light" : "dark";
+      } else {
+        newTheme = params.theme;
+      }
+
+      if (newTheme === "dark") {
+        document.documentElement.classList.add("dark");
+        localStorage.setItem("portfolio_theme", "dark");
+      } else {
+        document.documentElement.classList.remove("dark");
+        localStorage.setItem("portfolio_theme", "light");
+      }
+
+      window.dispatchEvent(
+        new CustomEvent("portfolio:theme-changed", {
+          detail: { theme: newTheme },
+        })
+      );
+    }
+
+    return {
+      success: true,
+      theme: newTheme,
+      message: `Tema alterado para ${newTheme === "dark" ? "Modo Escuro (Dark Mode)" : "Modo Claro (Light Mode)"}.`,
+    };
   }
 
   /**

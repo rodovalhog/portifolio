@@ -238,35 +238,35 @@ export function PerformanceObservatory({ locale }: { locale: SupportedLocale }) 
 
         <div className="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-8 relative z-10">
           <div className="space-y-3 max-w-2xl">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-mono font-medium text-emerald-400 bg-emerald-950/50 border border-emerald-800/60">
-              <Activity className="w-3.5 h-3.5 animate-pulse text-emerald-400" />
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-mono font-medium text-emerald-700 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-950/50 border border-emerald-200 dark:border-emerald-800/60">
+              <Activity className="w-3.5 h-3.5 animate-pulse text-emerald-600 dark:text-emerald-400" />
               <span>{t.performancePage.badge}</span>
             </div>
-            <h1 className="text-3xl sm:text-4xl font-bold tracking-tight text-white">
+            <h1 className="text-3xl sm:text-4xl font-bold tracking-tight text-zinc-900 dark:text-white">
               {t.performancePage.title}
             </h1>
-            <p className="text-sm sm:text-base text-zinc-400 leading-relaxed">
+            <p className="text-sm sm:text-base text-zinc-600 dark:text-zinc-400 leading-relaxed">
               {t.performancePage.subtitle}
             </p>
           </div>
 
           {/* Real-time Health Radial Score */}
-          <div className="flex items-center gap-6 p-5 rounded-2xl bg-zinc-950/80 border border-zinc-800/80 shadow-2xl shrink-0">
-            <div className="relative flex items-center justify-center w-24 h-24 rounded-full border-4 border-emerald-500/30 bg-emerald-950/20">
-              <span className="text-3xl font-extrabold font-mono text-emerald-400 tracking-tight">
+          <div className="flex items-center gap-6 p-5 rounded-2xl bg-white/90 dark:bg-zinc-950/80 border border-zinc-200 dark:border-zinc-800/80 shadow-md dark:shadow-2xl shrink-0">
+            <div className="relative flex items-center justify-center w-24 h-24 rounded-full border-4 border-emerald-500/30 bg-emerald-50 dark:bg-emerald-950/20">
+              <span className="text-3xl font-extrabold font-mono text-emerald-600 dark:text-emerald-400 tracking-tight">
                 {overallScore}
               </span>
-              <span className="absolute bottom-2 text-[10px] font-mono text-zinc-400">/ 100</span>
+              <span className="absolute bottom-2 text-[10px] font-mono text-zinc-500 dark:text-zinc-400">/ 100</span>
             </div>
             <div>
-              <div className="flex items-center gap-1.5 text-xs font-mono font-semibold uppercase tracking-wider text-emerald-400">
-                <ShieldCheck className="w-4 h-4" />
+              <div className="flex items-center gap-1.5 text-xs font-mono font-semibold uppercase tracking-wider text-emerald-700 dark:text-emerald-400">
+                <ShieldCheck className="w-4 h-4 text-emerald-600 dark:text-emerald-400" />
                 <span>Core Web Vitals Pass</span>
               </div>
-              <div className="text-base font-bold text-zinc-100 mt-1">
+              <div className="text-base font-bold text-zinc-900 dark:text-zinc-100 mt-1">
                 {isPt ? "Performance de Classe Mundial" : "World-Class Performance"}
               </div>
-              <div className="text-xs text-zinc-400 mt-0.5">
+              <div className="text-xs text-zinc-500 dark:text-zinc-400 mt-0.5">
                 {isPt ? "100% no padrão Verde do Google" : "100% within Google Green Thresholds"}
               </div>
             </div>
@@ -278,36 +278,36 @@ export function PerformanceObservatory({ locale }: { locale: SupportedLocale }) 
       <div className="space-y-4">
         <div className="flex items-center justify-between">
           <div>
-            <h2 className="text-lg font-bold text-zinc-100 font-mono flex items-center gap-2">
-              <Zap className="w-4 h-4 text-emerald-400" />
+            <h2 className="text-lg font-bold text-zinc-900 dark:text-zinc-100 font-mono flex items-center gap-2">
+              <Zap className="w-4 h-4 text-emerald-600 dark:text-emerald-400" />
               <span>{t.performancePage.liveTelemetryTitle}</span>
             </h2>
-            <p className="text-xs text-zinc-400 mt-0.5">{t.performancePage.liveTelemetrySubtitle}</p>
+            <p className="text-xs text-zinc-500 dark:text-zinc-400 mt-0.5">{t.performancePage.liveTelemetrySubtitle}</p>
           </div>
           <button
             type="button"
             onClick={gatherMetrics}
-            className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-mono font-medium text-zinc-300 hover:text-white bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 transition-colors"
+            className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-mono font-medium text-zinc-700 hover:text-zinc-950 bg-zinc-100 hover:bg-zinc-200 border border-zinc-200 dark:text-zinc-300 dark:hover:text-white dark:bg-zinc-900 dark:hover:bg-zinc-800 dark:border-zinc-800 transition-colors"
           >
-            <RefreshCw className="w-3.5 h-3.5 text-zinc-400" />
+            <RefreshCw className="w-3.5 h-3.5 text-zinc-500 dark:text-zinc-400" />
             <span>{isPt ? "Atualizar Telemetria" : "Refresh Telemetry"}</span>
           </button>
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
           {/* LCP Gauge */}
-          <div className="p-5 rounded-xl border border-zinc-800/90 bg-zinc-900/60 space-y-3">
+          <div className="p-5 rounded-xl border border-zinc-200 dark:border-zinc-800/90 bg-white/90 dark:bg-zinc-900/60 shadow-sm dark:shadow-none space-y-3">
             <div className="flex items-center justify-between">
-              <span className="text-xs font-mono uppercase tracking-wider text-zinc-400">LCP (Largest Paint)</span>
-              <span className="px-2 py-0.5 rounded text-[10px] font-mono font-semibold text-emerald-400 bg-emerald-950/60 border border-emerald-800/60">
+              <span className="text-xs font-mono uppercase tracking-wider text-zinc-600 dark:text-zinc-400">LCP (Largest Paint)</span>
+              <span className="px-2 py-0.5 rounded text-[10px] font-mono font-semibold text-emerald-700 bg-emerald-50 border border-emerald-200 dark:text-emerald-400 dark:bg-emerald-950/60 dark:border-emerald-800/60">
                 {t.performancePage.goodBadge} (&lt; 2.5s)
               </span>
             </div>
             <div className="flex items-baseline gap-1.5">
-              <span className="text-3xl font-extrabold font-mono text-zinc-100">{lcpValue}</span>
+              <span className="text-3xl font-extrabold font-mono text-zinc-900 dark:text-zinc-100">{lcpValue}</span>
               <span className="text-xs font-mono text-zinc-500">ms</span>
             </div>
-            <p className="text-xs text-zinc-400 leading-snug">
+            <p className="text-xs text-zinc-600 dark:text-zinc-400 leading-snug">
               {isPt
                 ? "Momento em que o maior bloco de conteúdo visual terminou de renderizar na sua tela."
                 : "Point in time when the largest visual content block finished rendering on your screen."}
@@ -315,18 +315,18 @@ export function PerformanceObservatory({ locale }: { locale: SupportedLocale }) 
           </div>
 
           {/* FCP Gauge */}
-          <div className="p-5 rounded-xl border border-zinc-800/90 bg-zinc-900/60 space-y-3">
+          <div className="p-5 rounded-xl border border-zinc-200 dark:border-zinc-800/90 bg-white/90 dark:bg-zinc-900/60 shadow-sm dark:shadow-none space-y-3">
             <div className="flex items-center justify-between">
-              <span className="text-xs font-mono uppercase tracking-wider text-zinc-400">FCP (First Paint)</span>
-              <span className="px-2 py-0.5 rounded text-[10px] font-mono font-semibold text-emerald-400 bg-emerald-950/60 border border-emerald-800/60">
+              <span className="text-xs font-mono uppercase tracking-wider text-zinc-600 dark:text-zinc-400">FCP (First Paint)</span>
+              <span className="px-2 py-0.5 rounded text-[10px] font-mono font-semibold text-emerald-700 bg-emerald-50 border border-emerald-200 dark:text-emerald-400 dark:bg-emerald-950/60 dark:border-emerald-800/60">
                 {t.performancePage.goodBadge} (&lt; 1.8s)
               </span>
             </div>
             <div className="flex items-baseline gap-1.5">
-              <span className="text-3xl font-extrabold font-mono text-zinc-100">{fcpValue}</span>
+              <span className="text-3xl font-extrabold font-mono text-zinc-900 dark:text-zinc-100">{fcpValue}</span>
               <span className="text-xs font-mono text-zinc-500">ms</span>
             </div>
-            <p className="text-xs text-zinc-400 leading-snug">
+            <p className="text-xs text-zinc-600 dark:text-zinc-400 leading-snug">
               {isPt
                 ? "Tempo decorrido até o navegador renderizar o primeiro caractere ou elemento DOM."
                 : "Time elapsed until the browser rendered the very first character or visual element."}
@@ -334,18 +334,18 @@ export function PerformanceObservatory({ locale }: { locale: SupportedLocale }) 
           </div>
 
           {/* TTFB Gauge */}
-          <div className="p-5 rounded-xl border border-zinc-800/90 bg-zinc-900/60 space-y-3">
+          <div className="p-5 rounded-xl border border-zinc-200 dark:border-zinc-800/90 bg-white/90 dark:bg-zinc-900/60 shadow-sm dark:shadow-none space-y-3">
             <div className="flex items-center justify-between">
-              <span className="text-xs font-mono uppercase tracking-wider text-zinc-400">TTFB (Server Response)</span>
-              <span className="px-2 py-0.5 rounded text-[10px] font-mono font-semibold text-emerald-400 bg-emerald-950/60 border border-emerald-800/60">
+              <span className="text-xs font-mono uppercase tracking-wider text-zinc-600 dark:text-zinc-400">TTFB (Server Response)</span>
+              <span className="px-2 py-0.5 rounded text-[10px] font-mono font-semibold text-emerald-700 bg-emerald-50 border border-emerald-200 dark:text-emerald-400 dark:bg-emerald-950/60 dark:border-emerald-800/60">
                 {t.performancePage.goodBadge} (&lt; 800ms)
               </span>
             </div>
             <div className="flex items-baseline gap-1.5">
-              <span className="text-3xl font-extrabold font-mono text-zinc-100">{ttfbValue}</span>
+              <span className="text-3xl font-extrabold font-mono text-zinc-900 dark:text-zinc-100">{ttfbValue}</span>
               <span className="text-xs font-mono text-zinc-500">ms</span>
             </div>
-            <p className="text-xs text-zinc-400 leading-snug">
+            <p className="text-xs text-zinc-600 dark:text-zinc-400 leading-snug">
               {isPt
                 ? "Latência até receber o primeiro byte do servidor via Edge Streaming e RSC."
                 : "Latency until receiving the first byte from the server via Edge Streaming and RSC."}
@@ -353,18 +353,18 @@ export function PerformanceObservatory({ locale }: { locale: SupportedLocale }) 
           </div>
 
           {/* CLS Gauge */}
-          <div className="p-5 rounded-xl border border-zinc-800/90 bg-zinc-900/60 space-y-3">
+          <div className="p-5 rounded-xl border border-zinc-200 dark:border-zinc-800/90 bg-white/90 dark:bg-zinc-900/60 shadow-sm dark:shadow-none space-y-3">
             <div className="flex items-center justify-between">
-              <span className="text-xs font-mono uppercase tracking-wider text-zinc-400">CLS (Layout Shift)</span>
-              <span className="px-2 py-0.5 rounded text-[10px] font-mono font-semibold text-emerald-400 bg-emerald-950/60 border border-emerald-800/60">
+              <span className="text-xs font-mono uppercase tracking-wider text-zinc-600 dark:text-zinc-400">CLS (Layout Shift)</span>
+              <span className="px-2 py-0.5 rounded text-[10px] font-mono font-semibold text-emerald-700 bg-emerald-50 border border-emerald-200 dark:text-emerald-400 dark:bg-emerald-950/60 dark:border-emerald-800/60">
                 {t.performancePage.goodBadge} (&lt; 0.1)
               </span>
             </div>
             <div className="flex items-baseline gap-1.5">
-              <span className="text-3xl font-extrabold font-mono text-zinc-100">{clsValue}</span>
+              <span className="text-3xl font-extrabold font-mono text-zinc-900 dark:text-zinc-100">{clsValue}</span>
               <span className="text-xs font-mono text-zinc-500">score</span>
             </div>
-            <p className="text-xs text-zinc-400 leading-snug">
+            <p className="text-xs text-zinc-600 dark:text-zinc-400 leading-snug">
               {isPt
                 ? "Estabilidade visual total: zero saltos inesperados de layout durante o carregamento."
                 : "Total visual stability: zero unexpected layout shifts while assets stream in."}
@@ -376,95 +376,95 @@ export function PerformanceObservatory({ locale }: { locale: SupportedLocale }) 
       {/* Device & Navigation Timing Breakdown */}
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         {/* Device & Hardware Specs */}
-        <div className="p-6 rounded-xl border border-zinc-800 bg-zinc-900/40 space-y-4">
-          <div className="flex items-center gap-2 text-sm font-semibold text-zinc-200 font-mono">
-            <Cpu className="w-4 h-4 text-emerald-400" />
+        <div className="p-6 rounded-xl border border-zinc-200 dark:border-zinc-800 bg-white/90 dark:bg-zinc-900/40 shadow-sm dark:shadow-none space-y-4">
+          <div className="flex items-center gap-2 text-sm font-semibold text-zinc-900 dark:text-zinc-200 font-mono">
+            <Cpu className="w-4 h-4 text-emerald-600 dark:text-emerald-400" />
             <span>{isPt ? "Hardware & Ambiente do Visitante" : "Visitor Hardware & Client"}</span>
           </div>
 
           <div className="space-y-3 text-xs">
-            <div className="flex items-center justify-between py-1.5 border-b border-zinc-800/60">
+            <div className="flex items-center justify-between py-1.5 border-b border-zinc-200/80 dark:border-zinc-800/60">
               <span className="text-zinc-500">Dispositivo / Categoria:</span>
-              <span className="font-mono text-zinc-200">{metrics.deviceType}</span>
+              <span className="font-mono text-zinc-800 dark:text-zinc-200">{metrics.deviceType}</span>
             </div>
-            <div className="flex items-center justify-between py-1.5 border-b border-zinc-800/60">
+            <div className="flex items-center justify-between py-1.5 border-b border-zinc-200/80 dark:border-zinc-800/60">
               <span className="text-zinc-500">Cores de CPU (Hardware Concurrency):</span>
-              <span className="font-mono text-emerald-400 font-semibold">{metrics.cores} núcleos</span>
+              <span className="font-mono text-emerald-600 dark:text-emerald-400 font-semibold">{metrics.cores} núcleos</span>
             </div>
-            <div className="flex items-center justify-between py-1.5 border-b border-zinc-800/60">
+            <div className="flex items-center justify-between py-1.5 border-b border-zinc-200/80 dark:border-zinc-800/60">
               <span className="text-zinc-500">Memória RAM estimada:</span>
-              <span className="font-mono text-zinc-200">{metrics.memory ? `≥ ${metrics.memory} GB` : "Disponível"}</span>
+              <span className="font-mono text-zinc-800 dark:text-zinc-200">{metrics.memory ? `≥ ${metrics.memory} GB` : "Disponível"}</span>
             </div>
             <div className="flex items-center justify-between py-1.5">
               <span className="text-zinc-500">Perfil de Rede:</span>
-              <span className="font-mono text-emerald-400 font-semibold">{metrics.effectiveType.toUpperCase()} (RTT ~{metrics.rtt}ms)</span>
+              <span className="font-mono text-emerald-600 dark:text-emerald-400 font-semibold">{metrics.effectiveType.toUpperCase()} (RTT ~{metrics.rtt}ms)</span>
             </div>
           </div>
         </div>
 
         {/* Network Waterfall & Payload Compression */}
-        <div className="p-6 rounded-xl border border-zinc-800 bg-zinc-900/40 space-y-4">
-          <div className="flex items-center gap-2 text-sm font-semibold text-zinc-200 font-mono">
-            <Wifi className="w-4 h-4 text-emerald-400" />
+        <div className="p-6 rounded-xl border border-zinc-200 dark:border-zinc-800 bg-white/90 dark:bg-zinc-900/40 shadow-sm dark:shadow-none space-y-4">
+          <div className="flex items-center gap-2 text-sm font-semibold text-zinc-900 dark:text-zinc-200 font-mono">
+            <Wifi className="w-4 h-4 text-emerald-600 dark:text-emerald-400" />
             <span>{isPt ? "Pipeline de Rede & Compressão" : "Network Waterfall & Compression"}</span>
           </div>
 
           <div className="space-y-3 text-xs">
-            <div className="flex items-center justify-between py-1.5 border-b border-zinc-800/60">
+            <div className="flex items-center justify-between py-1.5 border-b border-zinc-200/80 dark:border-zinc-800/60">
               <span className="text-zinc-500">Resolução DNS:</span>
-              <span className="font-mono text-zinc-200">{metrics.dnsTime} ms</span>
+              <span className="font-mono text-zinc-800 dark:text-zinc-200">{metrics.dnsTime} ms</span>
             </div>
-            <div className="flex items-center justify-between py-1.5 border-b border-zinc-800/60">
+            <div className="flex items-center justify-between py-1.5 border-b border-zinc-200/80 dark:border-zinc-800/60">
               <span className="text-zinc-500">Handshake TCP / TLS:</span>
-              <span className="font-mono text-zinc-200">{metrics.tcpTime} ms</span>
+              <span className="font-mono text-zinc-800 dark:text-zinc-200">{metrics.tcpTime} ms</span>
             </div>
-            <div className="flex items-center justify-between py-1.5 border-b border-zinc-800/60">
+            <div className="flex items-center justify-between py-1.5 border-b border-zinc-200/80 dark:border-zinc-800/60">
               <span className="text-zinc-500">Bytes Transferidos na Rede:</span>
-              <span className="font-mono text-emerald-400 font-semibold">{metrics.transferSize} KB (Brotli/Gzip)</span>
+              <span className="font-mono text-emerald-600 dark:text-emerald-400 font-semibold">{metrics.transferSize} KB (Brotli/Gzip)</span>
             </div>
             <div className="flex items-center justify-between py-1.5">
               <span className="text-zinc-500">Tamanho Total Decodificado:</span>
-              <span className="font-mono text-zinc-200">{metrics.decodedBodySize} KB</span>
+              <span className="font-mono text-zinc-800 dark:text-zinc-200">{metrics.decodedBodySize} KB</span>
             </div>
           </div>
         </div>
 
         {/* DOM Lifecycle Timing */}
-        <div className="p-6 rounded-xl border border-zinc-800 bg-zinc-900/40 space-y-4">
-          <div className="flex items-center gap-2 text-sm font-semibold text-zinc-200 font-mono">
-            <Clock className="w-4 h-4 text-emerald-400" />
+        <div className="p-6 rounded-xl border border-zinc-200 dark:border-zinc-800 bg-white/90 dark:bg-zinc-900/40 shadow-sm dark:shadow-none space-y-4">
+          <div className="flex items-center gap-2 text-sm font-semibold text-zinc-900 dark:text-zinc-200 font-mono">
+            <Clock className="w-4 h-4 text-emerald-600 dark:text-emerald-400" />
             <span>{isPt ? "Ciclo de Vida do DOM" : "DOM Lifecycle Timers"}</span>
           </div>
 
           <div className="space-y-3 text-xs">
-            <div className="flex items-center justify-between py-1.5 border-b border-zinc-800/60">
+            <div className="flex items-center justify-between py-1.5 border-b border-zinc-200/80 dark:border-zinc-800/60">
               <span className="text-zinc-500">DOM Interactive:</span>
-              <span className="font-mono text-emerald-400 font-semibold">{metrics.domInteractive} ms</span>
+              <span className="font-mono text-emerald-600 dark:text-emerald-400 font-semibold">{metrics.domInteractive} ms</span>
             </div>
-            <div className="flex items-center justify-between py-1.5 border-b border-zinc-800/60">
+            <div className="flex items-center justify-between py-1.5 border-b border-zinc-200/80 dark:border-zinc-800/60">
               <span className="text-zinc-500">DOMContentLoaded Event:</span>
-              <span className="font-mono text-zinc-200">{metrics.domReady} ms</span>
+              <span className="font-mono text-zinc-800 dark:text-zinc-200">{metrics.domReady} ms</span>
             </div>
-            <div className="flex items-center justify-between py-1.5 border-b border-zinc-800/60">
+            <div className="flex items-center justify-between py-1.5 border-b border-zinc-200/80 dark:border-zinc-800/60">
               <span className="text-zinc-500">Tempo Total do Evento Load:</span>
-              <span className="font-mono text-zinc-200">{metrics.loadDuration} ms</span>
+              <span className="font-mono text-zinc-800 dark:text-zinc-200">{metrics.loadDuration} ms</span>
             </div>
             <div className="flex items-center justify-between py-1.5">
               <span className="text-zinc-500">Taxa de Hidratação React:</span>
-              <span className="font-mono text-emerald-400 font-semibold">Instantânea (RSC)</span>
+              <span className="font-mono text-emerald-600 dark:text-emerald-400 font-semibold">Instantânea (RSC)</span>
             </div>
           </div>
         </div>
       </div>
 
       {/* AI Performance Diagnostic Commentary (Staff Engineer Analysis) */}
-      <div className="p-6 sm:p-8 rounded-2xl border border-emerald-900/40 bg-emerald-950/15 space-y-4 relative overflow-hidden">
-        <div className="flex items-center gap-2.5 text-emerald-400 font-mono text-sm font-semibold">
-          <Sparkles className="w-4 h-4" />
+      <div className="p-6 sm:p-8 rounded-2xl border border-emerald-300/60 bg-emerald-50/70 dark:border-emerald-900/40 dark:bg-emerald-950/15 space-y-4 relative overflow-hidden shadow-sm dark:shadow-none">
+        <div className="flex items-center gap-2.5 text-emerald-700 dark:text-emerald-400 font-mono text-sm font-semibold">
+          <Sparkles className="w-4 h-4 text-emerald-600 dark:text-emerald-400" />
           <span>{t.performancePage.aiDiagnosticTitle}</span>
         </div>
 
-        <div className="text-zinc-300 text-sm sm:text-base leading-relaxed space-y-3">
+        <div className="text-zinc-700 dark:text-zinc-300 text-sm sm:text-base leading-relaxed space-y-3">
           <p>
             {isPt ? (
               <>
@@ -483,7 +483,7 @@ export function PerformanceObservatory({ locale }: { locale: SupportedLocale }) 
             )}
           </p>
 
-          <p className="text-zinc-400 text-xs sm:text-sm">
+          <p className="text-zinc-600 dark:text-zinc-400 text-xs sm:text-sm">
             {isPt ? (
               <>
                 💡 <strong>Por que a aplicação carrega tão rápido?</strong> Diferente de SPAs tradicionais com bundles gigantes de JavaScript, esta aplicação utiliza{" "}
@@ -502,14 +502,14 @@ export function PerformanceObservatory({ locale }: { locale: SupportedLocale }) 
       </div>
 
       {/* Interactive Micro-Benchmark Section */}
-      <div className="p-6 sm:p-8 rounded-2xl border border-zinc-800 bg-zinc-900/60 space-y-6">
+      <div className="p-6 sm:p-8 rounded-2xl border border-zinc-200 dark:border-zinc-800 bg-white/90 dark:bg-zinc-900/60 shadow-sm dark:shadow-none space-y-6">
         <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
           <div>
-            <h3 className="text-lg font-bold text-zinc-100 font-mono flex items-center gap-2">
-              <Gauge className="w-4 h-4 text-emerald-400" />
+            <h3 className="text-lg font-bold text-zinc-900 dark:text-zinc-100 font-mono flex items-center gap-2">
+              <Gauge className="w-4 h-4 text-emerald-600 dark:text-emerald-400" />
               <span>{t.performancePage.benchmarkTitle}</span>
             </h3>
-            <p className="text-xs text-zinc-400 mt-1">{t.performancePage.benchmarkSubtitle}</p>
+            <p className="text-xs text-zinc-500 dark:text-zinc-400 mt-1">{t.performancePage.benchmarkSubtitle}</p>
           </div>
 
           <button
@@ -533,22 +533,22 @@ export function PerformanceObservatory({ locale }: { locale: SupportedLocale }) 
         </div>
 
         {benchmarkResult && (
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-4 border-t border-zinc-800 animate-in fade-in duration-300">
-            <div className="p-4 rounded-xl bg-zinc-950/80 border border-zinc-800 text-center">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-4 border-t border-zinc-200 dark:border-zinc-800 animate-in fade-in duration-300">
+            <div className="p-4 rounded-xl bg-zinc-50 dark:bg-zinc-950/80 border border-zinc-200 dark:border-zinc-800 text-center">
               <span className="text-xs font-mono text-zinc-500 uppercase">{isPt ? "Tempo de Execução" : "Execution Time"}</span>
-              <div className="text-2xl font-bold font-mono text-emerald-400 mt-1">{benchmarkResult.executionTimeMs} ms</div>
+              <div className="text-2xl font-bold font-mono text-emerald-600 dark:text-emerald-400 mt-1">{benchmarkResult.executionTimeMs} ms</div>
               <span className="text-[10px] text-zinc-500">500.000 iterações</span>
             </div>
 
-            <div className="p-4 rounded-xl bg-zinc-950/80 border border-zinc-800 text-center">
+            <div className="p-4 rounded-xl bg-zinc-50 dark:bg-zinc-950/80 border border-zinc-200 dark:border-zinc-800 text-center">
               <span className="text-xs font-mono text-zinc-500 uppercase">{isPt ? "Throughput Estimado" : "Ops / Second"}</span>
-              <div className="text-2xl font-bold font-mono text-zinc-100 mt-1">{benchmarkResult.opsPerSec.toLocaleString()}</div>
+              <div className="text-2xl font-bold font-mono text-zinc-900 dark:text-zinc-100 mt-1">{benchmarkResult.opsPerSec.toLocaleString()}</div>
               <span className="text-[10px] text-zinc-500">operações matemáticas / seg</span>
             </div>
 
-            <div className="p-4 rounded-xl bg-zinc-950/80 border border-zinc-800 text-center">
+            <div className="p-4 rounded-xl bg-zinc-50 dark:bg-zinc-950/80 border border-zinc-200 dark:border-zinc-800 text-center">
               <span className="text-xs font-mono text-zinc-500 uppercase">{isPt ? "Classificação do Cliente" : "Client Rating"}</span>
-              <div className="text-2xl font-bold font-mono text-emerald-400 mt-1">{benchmarkResult.rating}</div>
+              <div className="text-2xl font-bold font-mono text-emerald-600 dark:text-emerald-400 mt-1">{benchmarkResult.rating}</div>
               <span className="text-[10px] text-zinc-500">Fluidez ~{benchmarkResult.fpsEstimate} FPS</span>
             </div>
           </div>
@@ -556,13 +556,13 @@ export function PerformanceObservatory({ locale }: { locale: SupportedLocale }) 
       </div>
 
       {/* Architecture Comparative Matrix */}
-      <div className="p-6 sm:p-8 rounded-2xl border border-zinc-800 bg-zinc-900/40 space-y-6">
+      <div className="p-6 sm:p-8 rounded-2xl border border-zinc-200 dark:border-zinc-800 bg-white/90 dark:bg-zinc-900/40 shadow-sm dark:shadow-none space-y-6">
         <div>
-          <h3 className="text-lg font-bold text-zinc-100 font-mono flex items-center gap-2">
-            <BarChart3 className="w-4 h-4 text-emerald-400" />
+          <h3 className="text-lg font-bold text-zinc-900 dark:text-zinc-100 font-mono flex items-center gap-2">
+            <BarChart3 className="w-4 h-4 text-emerald-600 dark:text-emerald-400" />
             <span>{isPt ? "Comparativo de Engenharia & Arquiteturas" : "Architecture & Engineering Comparison"}</span>
           </h3>
-          <p className="text-xs text-zinc-400 mt-1">
+          <p className="text-xs text-zinc-500 dark:text-zinc-400 mt-1">
             {isPt
               ? "Como diferentes padrões de arquitetura de frontend respondem à escala e métricas de Core Web Vitals."
               : "How different frontend architecture patterns respond to scale and Core Web Vitals metrics."}
@@ -572,7 +572,7 @@ export function PerformanceObservatory({ locale }: { locale: SupportedLocale }) 
         <div className="overflow-x-auto no-scrollbar">
           <table className="w-full text-left text-xs font-mono border-collapse">
             <thead>
-              <tr className="border-b border-zinc-800 text-zinc-400">
+              <tr className="border-b border-zinc-200 dark:border-zinc-800 text-zinc-600 dark:text-zinc-400">
                 <th className="py-3 px-4">Arquitetura</th>
                 <th className="py-3 px-4">FCP Médio</th>
                 <th className="py-3 px-4">LCP Alvo</th>
@@ -580,10 +580,10 @@ export function PerformanceObservatory({ locale }: { locale: SupportedLocale }) 
                 <th className="py-3 px-4">Throughput Sustentado</th>
               </tr>
             </thead>
-            <tbody className="divide-y divide-zinc-800/60 text-zinc-300">
-              <tr className="bg-emerald-950/20 text-emerald-300 font-semibold">
+            <tbody className="divide-y divide-zinc-200/80 dark:divide-zinc-800/60 text-zinc-700 dark:text-zinc-300">
+              <tr className="bg-emerald-50 dark:bg-emerald-950/20 text-emerald-800 dark:text-emerald-300 font-semibold">
                 <td className="py-3 px-4 flex items-center gap-2">
-                  <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400" />
+                  <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400" />
                   <span>Este Portfólio (Modular Monolith + RSC)</span>
                 </td>
                 <td className="py-3 px-4">~120ms</td>
@@ -592,7 +592,7 @@ export function PerformanceObservatory({ locale }: { locale: SupportedLocale }) 
                 <td className="py-3 px-4">Edge CDN Global</td>
               </tr>
               <tr>
-                <td className="py-3 px-4 font-medium text-zinc-200">Casas Bahia (Otimizado por Guilherme)</td>
+                <td className="py-3 px-4 font-medium text-zinc-900 dark:text-zinc-200">Casas Bahia (Otimizado por Guilherme)</td>
                 <td className="py-3 px-4">~800ms</td>
                 <td className="py-3 px-4">1.4s (era 4.2s)</td>
                 <td className="py-3 px-4">&lt; 80ms</td>

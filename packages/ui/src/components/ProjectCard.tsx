@@ -33,25 +33,25 @@ export function ProjectCard({
           <span className="text-xs font-mono text-zinc-500">{project.period}</span>
         </div>
 
-        <Heading as="h3" className="mb-2 group-hover:text-zinc-100 transition-colors">
+        <Heading as="h3" className="mb-2 group-hover:text-zinc-900 dark:group-hover:text-zinc-100 transition-colors">
           <a href={href} className="inline-flex items-center gap-2">
             <span>{getLocalized(project.title, locale)}</span>
-            <ArrowUpRight className="w-4 h-4 text-zinc-500 group-hover:text-zinc-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all" />
+            <ArrowUpRight className="w-4 h-4 text-zinc-400 group-hover:text-zinc-700 dark:text-zinc-500 dark:group-hover:text-zinc-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all" />
           </a>
         </Heading>
 
-        <Text variant="body" className="text-zinc-400 mb-6 text-sm line-clamp-3">
+        <Text variant="body" className="text-zinc-600 dark:text-zinc-400 mb-6 text-sm line-clamp-3">
           {getLocalized(project.tagline, locale)}
         </Text>
 
         {project.metrics && project.metrics.length > 0 && (
-          <div className="grid grid-cols-2 gap-3 p-3 mb-6 rounded-lg bg-zinc-950/40 border border-zinc-800/80">
+          <div className="grid grid-cols-2 gap-3 p-3 mb-6 rounded-lg bg-zinc-50 dark:bg-zinc-950/40 border border-zinc-200 dark:border-zinc-800/80">
             {project.metrics.slice(0, 2).map((m, i) => (
               <div key={i}>
                 <div className="text-xs text-zinc-500 font-mono">
                   {getLocalized(m.label, locale)}
                 </div>
-                <div className="text-lg font-bold text-emerald-400 flex items-center gap-1.5 font-mono">
+                <div className="text-lg font-bold text-emerald-600 dark:text-emerald-400 flex items-center gap-1.5 font-mono">
                   <TrendingUp className="w-3.5 h-3.5" />
                   {m.value}
                 </div>
@@ -62,11 +62,11 @@ export function ProjectCard({
       </div>
 
       <div>
-        <div className="flex flex-wrap gap-1.5 pt-4 border-t border-zinc-800/60">
+        <div className="flex flex-wrap gap-1.5 pt-4 border-t border-zinc-200 dark:border-zinc-800/60">
           {project.technologies.slice(0, 5).map((tech) => (
             <span
               key={tech}
-              className="text-xs font-mono text-zinc-400 bg-zinc-800/40 px-2 py-0.5 rounded border border-zinc-800"
+              className="text-xs font-mono text-zinc-600 dark:text-zinc-400 bg-zinc-100 dark:bg-zinc-800/40 px-2 py-0.5 rounded border border-zinc-200 dark:border-zinc-800"
             >
               {tech}
             </span>

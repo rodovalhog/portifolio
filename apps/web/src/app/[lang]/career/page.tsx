@@ -88,8 +88,8 @@ export default function CareerHubPage({
     <Section spacing="lg">
       <Container>
         <div className="mb-12 max-w-3xl">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-mono text-emerald-400 bg-emerald-950/40 border border-emerald-800/50 mb-4">
-            <Sparkles className="w-3.5 h-3.5" />
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-mono text-emerald-700 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-950/40 border border-emerald-200 dark:border-emerald-800/50 mb-4">
+            <Sparkles className="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400" />
             <span>AI PLATFORM SUITE</span>
           </div>
           <Heading as="h1" className="mb-3">
@@ -106,25 +106,25 @@ export default function CareerHubPage({
           {modules.map((m, idx) => {
             const Icon = m.icon;
             return (
-              <Card key={idx} hoverable className="p-6 bg-zinc-950/60 border-zinc-800 flex flex-col justify-between">
+              <Card key={idx} hoverable className="p-6 flex flex-col justify-between">
                 <div>
                   <div className="flex items-center justify-between gap-4 mb-4">
-                    <div className="p-2.5 rounded-lg bg-zinc-900 border border-zinc-800 text-emerald-400">
+                    <div className="p-2.5 rounded-lg bg-zinc-100 border border-zinc-200 text-emerald-600 dark:bg-zinc-900 dark:border-zinc-800 dark:text-emerald-400">
                       <Icon className="w-5 h-5" />
                     </div>
                     <Badge variant={m.highlight ? "accent" : "neutral"}>{m.status}</Badge>
                   </div>
-                  <Heading as="h3" className="mb-2 text-zinc-100">
+                  <Heading as="h3" className="mb-2 text-zinc-900 dark:text-zinc-100">
                     {m.title}
                   </Heading>
-                  <Text variant="body" className="text-zinc-400 text-sm leading-relaxed mb-4">
+                  <Text variant="body" className="text-zinc-600 dark:text-zinc-400 text-sm leading-relaxed mb-4">
                     {m.description}
                   </Text>
                 </div>
 
-                <div className="pt-4 border-t border-zinc-900 flex items-center justify-between text-xs font-mono text-zinc-500">
+                <div className="pt-4 border-t border-zinc-200 dark:border-zinc-900 flex items-center justify-between text-xs font-mono text-zinc-500">
                   <span className="flex items-center gap-1.5">
-                    <ShieldCheck className="w-3.5 h-3.5 text-emerald-400" />
+                    <ShieldCheck className="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400" />
                     <span>Human-in-the-Loop</span>
                   </span>
                   <span>TypeScript + Zod</span>

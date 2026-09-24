@@ -52,6 +52,7 @@ export const ChatWidget: React.FC = () => {
 
   const quickPrompts = [
     "Ver performance em tempo real",
+    "Alternar tema claro / escuro",
     "Aumentar tamanho da fonte",
     "Como reduziu o LCP nas Casas Bahia?",
     "Mostre os projetos de IA e WebMCP",
@@ -461,24 +462,24 @@ export const ChatWidget: React.FC = () => {
                   className={`max-w-[85%] rounded-2xl px-3.5 py-2.5 leading-relaxed ${
                     m.sender === "user"
                       ? "bg-emerald-600 text-white font-medium rounded-tr-none shadow-md"
-                      : "bg-zinc-900/90 text-zinc-200 border border-zinc-800 rounded-tl-none shadow-sm"
+                      : "bg-white text-zinc-800 border border-zinc-200 dark:bg-zinc-900/90 dark:text-zinc-200 dark:border-zinc-800 rounded-tl-none shadow-sm"
                   }`}
                 >
                   <div className="whitespace-pre-line text-[11.5px]">{m.content}</div>
 
                   {/* Render Tool Calls if present */}
                   {m.toolCalls && m.toolCalls.length > 0 && (
-                    <div className="mt-2.5 pt-2 border-t border-zinc-800/80 space-y-1.5">
-                      <div className="text-[10px] font-mono text-emerald-400 flex items-center gap-1 font-semibold">
+                    <div className="mt-2.5 pt-2 border-t border-zinc-200 dark:border-zinc-800/80 space-y-1.5">
+                      <div className="text-[10px] font-mono text-emerald-600 dark:text-emerald-400 flex items-center gap-1 font-semibold">
                         <Layers className="w-3 h-3" />
                         <span>Ações WebMCP Executadas:</span>
                       </div>
                       {m.toolCalls.map((tc, idx) => (
                         <div
                           key={idx}
-                          className="px-2 py-1 rounded bg-zinc-950/80 border border-zinc-800 text-[10px] font-mono text-zinc-300 flex items-center justify-between"
+                          className="px-2 py-1 rounded bg-zinc-50 dark:bg-zinc-950/80 border border-zinc-200 dark:border-zinc-800 text-[10px] font-mono text-zinc-700 dark:text-zinc-300 flex items-center justify-between"
                         >
-                          <span className="text-emerald-400">{tc.name}</span>
+                          <span className="text-emerald-600 dark:text-emerald-400 font-bold">{tc.name}</span>
                           <span className="text-zinc-500 truncate max-w-[180px]">
                             {JSON.stringify(tc.input)}
                           </span>
@@ -487,7 +488,7 @@ export const ChatWidget: React.FC = () => {
                     </div>
                   )}
                 </div>
-                <span className="text-[9px] font-mono text-zinc-600 mt-1 px-1">
+                <span className="text-[9px] font-mono text-zinc-500 mt-1 px-1">
                   {new Date(m.timestamp).toLocaleTimeString([], {
                     hour: "2-digit",
                     minute: "2-digit",
@@ -497,8 +498,8 @@ export const ChatWidget: React.FC = () => {
             ))}
 
             {isLoading && (
-              <div className="flex items-center gap-2 text-zinc-400 text-xs py-2">
-                <Bot className="w-4 h-4 text-emerald-400 animate-spin" />
+              <div className="flex items-center gap-2 text-zinc-500 dark:text-zinc-400 text-xs py-2">
+                <Bot className="w-4 h-4 text-emerald-600 dark:text-emerald-400 animate-spin" />
                 <span>Processando comando e consultando WebMCP...</span>
               </div>
             )}
@@ -506,13 +507,13 @@ export const ChatWidget: React.FC = () => {
           </div>
 
           {/* Quick Prompts Chips */}
-          <div className="px-3 py-2 border-t border-zinc-800/60 bg-zinc-950/60 flex items-center gap-1.5 overflow-x-auto no-scrollbar">
+          <div className="px-3 py-2 border-t border-zinc-200 dark:border-zinc-800/60 bg-zinc-50 dark:bg-zinc-950/60 flex items-center gap-1.5 overflow-x-auto no-scrollbar">
             {quickPrompts.map((prompt, idx) => (
               <button
                 key={idx}
                 onClick={() => sendMessage(prompt)}
                 disabled={isLoading}
-                className="shrink-0 px-2.5 py-1 rounded-full text-[10.5px] font-medium bg-zinc-900 hover:bg-zinc-800 text-zinc-300 border border-zinc-800 hover:border-emerald-500/50 hover:text-emerald-300 transition whitespace-nowrap disabled:opacity-50"
+                className="shrink-0 px-2.5 py-1 rounded-full text-[10.5px] font-medium bg-white hover:bg-zinc-100 text-zinc-700 border border-zinc-200 hover:border-emerald-500/50 hover:text-emerald-700 dark:bg-zinc-900 dark:hover:bg-zinc-800 dark:text-zinc-300 dark:border-zinc-800 dark:hover:text-emerald-300 transition whitespace-nowrap disabled:opacity-50"
               >
                 {prompt}
               </button>
@@ -522,7 +523,7 @@ export const ChatWidget: React.FC = () => {
           {/* Input Form */}
           <form
             onSubmit={handleSubmit}
-            className="p-3 border-t border-zinc-800 bg-zinc-950 flex items-center gap-2"
+            className="p-3 border-t border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-950 flex items-center gap-2"
           >
             <input
               type="text"
@@ -530,7 +531,7 @@ export const ChatWidget: React.FC = () => {
               onChange={(e) => setInput(e.target.value)}
               placeholder="Pergunte sobre arquitetura ou peça para navegar..."
               disabled={isLoading}
-              className="flex-1 bg-zinc-900 border border-zinc-800 rounded-xl px-3.5 py-2 text-xs text-zinc-100 placeholder:text-zinc-500 focus:outline-none focus:border-emerald-500 transition disabled:opacity-50"
+              className="flex-1 bg-zinc-50 dark:bg-zinc-900 border border-zinc-300 dark:border-zinc-800 rounded-xl px-3.5 py-2 text-xs text-zinc-900 dark:text-zinc-100 placeholder:text-zinc-400 dark:placeholder:text-zinc-500 focus:outline-none focus:border-emerald-500 transition disabled:opacity-50"
             />
             <button
               type="submit"
