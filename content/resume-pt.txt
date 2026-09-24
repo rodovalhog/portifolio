@@ -6,7 +6,7 @@ rodovalhogdeveloper@gmail.com 📞 +55 34 99173-9878
 Resumo
 Engenheiro de Software Full Stack com mais de 6 anos de experiência no desenvolvimento de aplicações escaláveis
 e de alta performance. Atuação sólida com JavaScript e TypeScript em toda a stack, desde arquiteturas de frontend
-performáticas até serviços backend com Node.js. Experiência comprovada em ambientes de grande volume (19M+
+performáticas é serviços backend com Node.js. Experiência comprovada em ambientes de grande volume (19M+
 usuários), tomada de decisão arquitetural, aumento de confiabilidade de sistemas e impacto direto em métricas de
 negócio como aquisição orgânica, SEO e conversão. Referência técnica em times de produto, atuando como ponto
 de liderança em decisões arquiteturais e mentoria de desenvolvedores.

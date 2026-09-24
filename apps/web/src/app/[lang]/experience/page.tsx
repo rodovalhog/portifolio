@@ -9,7 +9,7 @@ import {
   Text,
   Timeline,
 } from "@portfolio/ui";
-import { Code2, Users } from "lucide-react";
+import { Code2, Users, FileText, Download } from "lucide-react";
 
 export async function generateMetadata({
   params,
@@ -46,6 +46,48 @@ export default async function ExperiencePage({
           <Text variant="lead">
             {t.experience.subtitle}
           </Text>
+        </div>
+
+        {/* Resume Actions Card: View Resume or Download PDF */}
+        <div className="mb-8 p-4 sm:p-5 rounded-2xl bg-zinc-50 dark:bg-zinc-900/60 border border-zinc-200/80 dark:border-zinc-800/80 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+          <div className="flex items-center gap-3">
+            <div className="w-10 h-10 rounded-xl bg-emerald-500/10 dark:bg-emerald-500/15 border border-emerald-500/20 flex items-center justify-center text-emerald-600 dark:text-emerald-400 shrink-0">
+              <FileText className="w-5 h-5" />
+            </div>
+            <div>
+              <div className="text-sm font-semibold text-zinc-900 dark:text-zinc-100">
+                {lang === "pt-BR" ? "Currículo Completo & Documentação" : "Official Resume & Credentials"}
+              </div>
+              <div className="text-xs text-zinc-500 dark:text-zinc-400">
+                {lang === "pt-BR"
+                  ? "Consulte a versão detalhada para recrutadores ou faça o download direto em PDF."
+                  : "Explore the full recruiter-ready version or download the official PDF directly."}
+              </div>
+            </div>
+          </div>
+
+          <div className="flex items-center gap-2.5 w-full sm:w-auto shrink-0">
+            <a
+              href={`/${lang}/resume`}
+              id="btn-view-resume-hero"
+              className="flex-1 sm:flex-initial inline-flex items-center justify-center gap-1.5 px-3.5 py-2 rounded-xl text-xs font-medium text-zinc-800 hover:text-zinc-950 bg-white hover:bg-zinc-100 border border-zinc-300 dark:text-zinc-200 dark:hover:text-white dark:bg-zinc-800 dark:hover:bg-zinc-700/80 dark:border-zinc-700 transition-colors shadow-sm"
+            >
+              <FileText className="w-3.5 h-3.5 text-zinc-500 dark:text-zinc-400" />
+              <span>{t.common.viewResume}</span>
+            </a>
+
+            <a
+              href={`/resumes/guilherme-rodovalho-cv-${lang === "pt-BR" ? "pt" : "en"}.pdf`}
+              download={`guilherme-rodovalho-cv-${lang === "pt-BR" ? "pt" : "en"}.pdf`}
+              id="btn-download-resume-hero"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex-1 sm:flex-initial inline-flex items-center justify-center gap-1.5 px-3.5 py-2 rounded-xl text-xs font-semibold text-emerald-700 bg-emerald-50 hover:bg-emerald-100 border border-emerald-300/80 dark:text-emerald-400 dark:bg-emerald-950/50 dark:hover:bg-emerald-950/80 dark:border-emerald-700/70 transition-colors shadow-sm"
+            >
+              <Download className="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400" />
+              <span>{t.common.downloadResume}</span>
+            </a>
+          </div>
         </div>
 
         {/* Executive Overview: Hard & Soft Skills Architecture */}
@@ -109,7 +151,45 @@ export default async function ExperiencePage({
         </div>
 
         <Timeline experiences={experiences} locale={lang} />
+
+        {/* Bottom Resume Callout */}
+        <div className="mt-16 p-6 sm:p-8 rounded-2xl bg-zinc-50 dark:bg-zinc-900/60 border border-zinc-200 dark:border-zinc-800/80 flex flex-col sm:flex-row items-center justify-between gap-6">
+          <div className="space-y-1 text-center sm:text-left">
+            <h3 className="text-base sm:text-lg font-bold text-zinc-900 dark:text-zinc-100">
+              {lang === "pt-BR" ? "Deseja salvar ou analisar o currículo formal?" : "Need a formal copy of my resume?"}
+            </h3>
+            <p className="text-xs sm:text-sm text-zinc-600 dark:text-zinc-400">
+              {lang === "pt-BR"
+                ? "Acesse a versão formatada para recrutadores ou baixe o PDF oficial com um clique."
+                : "View the recruiter-friendly layout or download the official PDF directly."}
+            </p>
+          </div>
+
+          <div className="flex flex-wrap items-center justify-center sm:justify-end gap-3 shrink-0 w-full sm:w-auto">
+            <a
+              href={`/${lang}/resume`}
+              id="btn-view-resume-footer"
+              className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl text-xs sm:text-sm font-medium text-zinc-800 hover:text-zinc-950 bg-white hover:bg-zinc-100 border border-zinc-300 dark:text-zinc-200 dark:hover:text-white dark:bg-zinc-800 dark:hover:bg-zinc-700/80 dark:border-zinc-700 transition-colors shadow-sm"
+            >
+              <FileText className="w-4 h-4 text-zinc-500 dark:text-zinc-400" />
+              <span>{t.common.viewResume}</span>
+            </a>
+
+            <a
+              href={`/resumes/guilherme-rodovalho-cv-${lang === "pt-BR" ? "pt" : "en"}.pdf`}
+              download={`guilherme-rodovalho-cv-${lang === "pt-BR" ? "pt" : "en"}.pdf`}
+              id="btn-download-resume-footer"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold text-emerald-700 bg-emerald-50 hover:bg-emerald-100 border border-emerald-300 dark:text-emerald-400 dark:bg-emerald-950/60 dark:hover:bg-emerald-900/60 dark:border-emerald-700/60 transition-colors shadow-sm"
+            >
+              <Download className="w-4 h-4 text-emerald-600 dark:text-emerald-400" />
+              <span>{t.common.downloadResume}</span>
+            </a>
+          </div>
+        </div>
       </Container>
     </Section>
   );
 }
+

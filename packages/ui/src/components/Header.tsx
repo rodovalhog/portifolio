@@ -23,10 +23,7 @@ export function Header({
   const navLinks = [
     { href: `/${locale}/about`, label: t.navigation.about },
     { href: `/${locale}/experience`, label: t.navigation.experience },
-    { href: `/${locale}/projects`, label: t.navigation.projects },
     { href: `/${locale}/skills`, label: t.navigation.skills },
-    { href: `/${locale}/performance`, label: t.navigation.performance },
-    { href: `/${locale}/resume`, label: t.navigation.resume },
     { href: `/${locale}/contact`, label: t.navigation.contact },
   ];
 
