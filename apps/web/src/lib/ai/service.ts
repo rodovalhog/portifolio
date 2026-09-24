@@ -1,11 +1,12 @@
 import { AIProvider, AIProviderResponse } from "./types";
 import { HeuristicPortfolioProvider } from "./heuristic-provider";
+import { LiveLLMProvider } from "./llm-provider";
 
 export class AIService {
   private provider: AIProvider;
 
   constructor() {
-    this.provider = new HeuristicPortfolioProvider();
+    this.provider = new LiveLLMProvider("");
   }
 
   public setProvider(provider: AIProvider): void {

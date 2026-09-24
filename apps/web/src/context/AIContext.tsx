@@ -46,7 +46,7 @@ const INITIAL_MESSAGES: AIChatMessage[] = [
     id: "welcome-portfolio",
     sender: "assistant",
     content:
-      "Olá! Eu sou o **AI Navigator** do portfólio de Guilherme Rodovalho com suporte a **Ações Autônomas via WebMCP** e **Chrome Built-in AI (Gemini Nano on-device)**.\n\nVocê pode me perguntar: *'Como reduziu o LCP nas Casas Bahia?'*, *'Mostre os projetos de IA'*, *'Baixar currículo em PDF'* ou *'Mudar idioma para inglês'*. Eu respondo e **executo ações no site por você**!",
+      "Olá! Eu sou o **AI Navigator** do portfólio de Guilherme Rodovalho conectado ao **Google Gemini Cloud** com suporte a **Ações Autônomas via WebMCP** e **Gemini Nano**.\n\nVocê pode me perguntar: *'Como reduziu o LCP nas Casas Bahia?'*, *'Mostre os projetos de IA'*, *'Baixar currículo em PDF'* ou *'Mudar idioma para inglês'*. Eu respondo com raciocínio avançado e **executo ações no site por você**!",
     timestamp: Date.now() - 5000,
   },
 ];
@@ -57,9 +57,9 @@ export const AIProvider: React.FC<{ children: React.ReactNode }> = ({ children }
   const [isOpen, setIsOpen] = useState(false);
   const [messages, setMessages] = useState<AIChatMessage[]>(INITIAL_MESSAGES);
   const [isLoading, setIsLoading] = useState(false);
-  const [activeModel, setActiveModelState] = useState<ModelType>("heuristic");
+  const [activeModel, setActiveModelState] = useState<ModelType>("gemini");
   const [apiKey, setApiKeyState] = useState<string>("");
-  const [providerName, setProviderName] = useState<string>("Portfolio Agent (WebMCP Heurístico)");
+  const [providerName, setProviderName] = useState<string>("Google Gemini Cloud (MCP Tool Calling)");
   const [autoPilot, setAutoPilotState] = useState<boolean>(true);
   const [actionNotification, setActionNotification] = useState<string | null>(null);
   const [nanoStatus, setNanoStatus] = useState<GeminiNanoAvailabilityResult | null>(null);
@@ -78,7 +78,11 @@ export const AIProvider: React.FC<{ children: React.ReactNode }> = ({ children }
       const savedKey = localStorage.getItem("portfolio_ai_key") || "";
       const savedAutoPilot = localStorage.getItem("portfolio_ai_autopilot");
 
-      if (savedModel) setActiveModelState(savedModel);
+      if (savedModel) {
+        setActiveModelState(savedModel);
+      } else {
+        setActiveModelState("gemini");
+      }
       if (savedKey) setApiKeyState(savedKey);
       if (savedAutoPilot !== null) setAutoPilotState(savedAutoPilot === "true");
 
