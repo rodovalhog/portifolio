@@ -171,6 +171,7 @@ export const ProfessionalProfileSchema = z.object({
   version: z.string(),
   personal: PersonalInformationSchema,
   summary: LocalizedTextSchema,
+  personalStatement: LocalizedTextSchema.optional(),
   engineeringPhilosophy: z.array(LocalizedTextSchema),
   experiences: z.array(ExperienceSchema),
   projects: z.array(ProjectSchema),

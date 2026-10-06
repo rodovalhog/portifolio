@@ -59,10 +59,16 @@ export interface TranslationSchema {
   about: {
     title: string;
     subtitle: string;
+    technicalProfileTitle: string;
+    technicalProfileBadge: string;
+    personalProfileTitle: string;
+    personalProfileBadge: string;
+    mindsetPrinciplesTitle: string;
     philosophyTitle: string;
     engineeringValuesTitle: string;
     educationTitle: string;
     certificationsTitle: string;
+    languagesTitle: string;
   };
   experience: {
     title: string;

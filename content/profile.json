@@ -4,12 +4,12 @@
   "personal": {
     "name": "Guilherme Rodovalho",
     "headline": {
-      "pt-BR": "Senior Software Engineer | Especialista Frontend | Web Performance | AI Engineer",
-      "en-US": "Senior Software Engineer | Frontend Architect | Web Performance | AI Engineer"
+      "pt-BR": "Arquiteto de Software Full Stack | Especialista Front-end & Performance | AI Engineer",
+      "en-US": "Full Stack Software Architect | Frontend & Performance Specialist | AI Engineer"
     },
     "bio": {
-      "pt-BR": "Engenheiro de Software com mais de 7 anos de experiência no desenvolvimento de aplicações web complexas, escaláveis e de alta performance utilizando React, Next.js, TypeScript e JavaScript. Forte atuação em arquitetura de frontend, Core Web Vitals, SEO técnico, observabilidade e AI Engineering (Agentic AI, LLMs e WebMCP).",
-      "en-US": "Senior Frontend Engineer with 7+ years of experience building and evolving complex, scalable web applications using React, Next.js, TypeScript, and JavaScript. Deep expertise in frontend architecture, Core Web Vitals, technical SEO, observability, and AI Engineering (Agentic AI, LLMs, and WebMCP)."
+      "pt-BR": "Arquiteto de Software Full Stack e Especialista Front-end com mais de 7 anos de experiência na construção de aplicações escaláveis, responsivas e de alta performance. Atuação estratégica em decisões de arquitetura, modernização de legados, otimização de performance e AI Engineering.",
+      "en-US": "Full Stack Software Architect and Frontend Specialist with 7+ years of experience building scalable, responsive, and high-performance applications. Strategic focus on architectural decisions, legacy modernization, performance optimization, and AI Engineering."
     },
     "location": {
       "pt-BR": "São Paulo, SP — Brasil",
@@ -25,25 +25,29 @@
     "visibility": "PUBLIC"
   },
   "summary": {
-    "pt-BR": "Engenheiro de Software Full Stack com mais de 7 anos de experiência no desenvolvimento de aplicações escaláveis e de alta performance. Atuação sólida com JavaScript e TypeScript em toda a stack, desde arquiteturas de frontend performáticas com React e Next.js é serviços backend com Node.js. Experiência comprovada em ambientes de grande volume (19M+ usuários), tomada de decisão arquitetural, aumento de confiabilidade de sistemas e impacto direto em métricas de negócio como aquisição orgânica, SEO técnico e conversão. Referência técnica em times de produto, liderança arquitetural e mentoria de desenvolvedores. Atualmente expandindo em AI Engineering (Agentic AI, LLMs, MCP e engenharia de contexto aplicada ao desenvolvimento de software).",
-    "en-US": "Senior Frontend Engineer with 7+ years of experience building and evolving complex web applications using React, Next.js, TypeScript, and JavaScript, with strong expertise in frontend architecture, web performance, technical SEO, observability, testing, and scalable application design. Experienced in designing frontend architectures for high-traffic applications, improving Core Web Vitals, SSR/SSG rendering, caching strategies, JavaScript bundles, and resource loading. Strong track record of leading technical initiatives, defining architecture standards, mentoring developers, and solving complex bottlenecks involving performance, rendering, caching, SEO, scalability, and application reliability. Expanding into AI Engineering, building AI Agents, LLM applications, Agentic AI, Compound AI, MCP, and context engineering."
+    "pt-BR": "Arquiteto de Software Full Stack, especialista em Front-end, com mais de 7 anos de experiência na construção de aplicações responsivas escaláveis e de alta performance, atuando na definição e tomada de decisões de arquitetura. Especialista em performance e evolução de aplicações, modernização de projetos legados, buscando melhorar a experiência do usuário, reduzir custos e tornar os sistemas mais eficientes e sustentáveis. Tenho forte experiência com React e Next.js, Node.js, além de auditoria e otimização de aplicações para identificar e eliminar gargalos de CPU, memória, rede e renderização. Utilizo IA como multiplicador de produtividade, combinando tecnologia com meu conhecimento para pesquisar, analisar e executar mais rápido, sem terceirizar decisões técnicas ou abrir mão da qualidade. Meu foco é transformar problemas complexos em soluções simples, escaláveis e com impacto real no produto.",
+    "en-US": "Full Stack Software Architect and Front-end Specialist with over 7 years of experience building responsive, scalable, high-performance applications, actively defining technical standards and steering architectural decisions. Specialist in web performance and application evolution, modernizing legacy systems to elevate user experience, reduce infrastructure costs, and engineer sustainable, highly efficient systems. Deep experience with React, Next.js, and Node.js, alongside hands-on application audits to isolate and eliminate CPU, memory, network, and rendering bottlenecks. Leverages AI as an engineering productivity multiplier—combining technology with deep domain expertise to research, analyze, and execute faster without outsourcing technical judgment or compromising quality. Dedicated to transforming complex technical challenges into simple, scalable solutions with tangible product and business impact."
+  },
+  "personalStatement": {
+    "pt-BR": "Sou um profissional orientado a resultados, com forte senso de ownership sobre as entregas que realizo e sobre o impacto que gero no sistema e no time. Meu perfil é proativo e questionador, e busco formas mais eficientes, escaláveis e sustentáveis de resolver problemas, mantendo uma postura ativa de melhoria contínua. Não me limito à execução. Atuo na identificação de oportunidades de melhoria, antecipo riscos antes que se tornem gargalos e proponho soluções com visão sistêmica. Encaro problemas como sinais de evolução e oportunidades para refinar processos, fortalecer arquiteturas e elevar o padrão das soluções entregues. Minha abordagem é analítica e orientada a trade-offs: avalio diferentes alternativas com critério técnico e as conecto aos objetivos estratégicos do negócio, garantindo que cada decisão gere valor real e sustentável. Tenho compromisso contínuo com minha própria evolução e com o desenvolvimento das pessoas ao meu redor. Contribuo não apenas com entregas consistentes, mas também elevando o nível técnico do time, a qualidade das decisões e a maturidade das soluções construídas em conjunto, porque acredito que times fortes entregam resultados.",
+    "en-US": "I am a results-oriented professional with a strong sense of ownership over the deliverables I produce and the impact I create across the system and the team. My profile is proactive and inquiring, consistently seeking more efficient, scalable, and sustainable ways to solve problems while maintaining an active mindset of continuous improvement. I do not limit myself to execution: I actively identify improvement opportunities, anticipate risks before they become bottlenecks, and propose solutions with a systemic vision. I view challenges as signals for evolution and opportunities to refine processes, strengthen architectures, and raise the bar for delivered solutions. My approach is analytical and trade-off-driven: I evaluate alternatives with rigorous technical criteria and connect them directly to strategic business goals, ensuring every decision generates real and sustainable value. I maintain a continuous commitment to my own growth and the development of those around me—contributing not only consistent deliveries, but also elevating the team's technical standard, the quality of decision-making, and the maturity of solutions built together, because I believe strong teams deliver exceptional results."
   },
   "engineeringPhilosophy": [
     {
-      "pt-BR": "Ownership e inconformismo com a mediocridade: questionar constantemente o status quo e buscar formas mais eficientes, escaláveis e sustentáveis de resolver problemas como postura ativa de melhoria contínua.",
-      "en-US": "Ownership & bias for continuous improvement: actively pursuing more efficient, scalable, and sustainable solutions rather than settling for average execution."
+      "pt-BR": "Ownership e Melhoria Contínua: Orientação a resultados com forte senso de ownership sobre as entregas e seu impacto no sistema e no time. Perfil proativo e questionador que busca formas mais eficientes, escaláveis e sustentáveis de resolver problemas com postura ativa de melhoria contínua.",
+      "en-US": "Ownership & Continuous Improvement: Results-driven mindset with deep ownership of deliverables and systemic impact. Proactive and inquiring approach relentlessly pursuing efficient, scalable, and sustainable solutions through active continuous improvement."
     },
     {
-      "pt-BR": "Visão sistêmica e antecipação de riscos: não me limitar à execução, atuando na identificação de oportunidades de melhoria e antecipando gargalos antes que impactem a operação.",
-      "en-US": "Systemic vision & proactive risk mitigation: identifying architectural improvements early and eliminating bottlenecks before they degrade operations."
+      "pt-BR": "Visão Sistêmica e Antecipação de Riscos: Atuação que vai além da execução: identificar oportunidades de melhoria, antecipar riscos antes que se tornem gargalos e transformar problemas em oportunidades para refinar processos, fortalecer arquiteturas e elevar o padrão das soluções.",
+      "en-US": "Systemic Vision & Risk Anticipation: Action that transcends execution: identifying improvement opportunities early, anticipating risks before bottlenecks emerge, and turning challenges into opportunities to fortify architecture and raise engineering standards."
     },
     {
-      "pt-BR": "Abordagem analítica orientada a trade-offs: avaliar diferentes alternativas com rigor técnico e conectá-las aos objetivos estratégicos do negócio para gerar valor real e sustentável.",
-      "en-US": "Analytical, trade-off-driven mindset: aligning deep technical decisions with strategic business outcomes to deliver sustainable value."
+      "pt-BR": "Abordagem Analítica e Trade-offs Estratégicos: Avaliação rigorosa de alternativas com critério técnico conectadas aos objetivos estratégicos do negócio, garantindo que cada decisão de engenharia gere valor real, mensurável e sustentável.",
+      "en-US": "Analytical Rigor & Strategic Trade-offs: Rigorous technical evaluation of alternatives aligned directly with strategic business goals, ensuring every engineering decision delivers real, measurable, and sustainable value."
     },
     {
-      "pt-BR": "Evolução coletiva e liderança técnica: contribuir não apenas com entregas consistentes, mas elevando o nível técnico do time e a maturidade das decisões, porque times fortes superam qualquer esforço isolado.",
-      "en-US": "Collective technical excellence: fostering team growth, rigorous standards, and mentorship because strong cohesive teams achieve what isolated individuals cannot."
+      "pt-BR": "Evolução Coletiva e Liderança de Times: Compromisso contínuo com a própria evolução e com o desenvolvimento das pessoas ao redor, elevando o nível técnico do time, a qualidade das decisões e a maturidade das soluções construídas em conjunto, porque times fortes entregam resultados.",
+      "en-US": "Collective Growth & Technical Mentorship: Continuous commitment to personal growth and mentoring those around me, elevating the team's technical standard, decision quality, and collective engineering maturity, because strong teams deliver extraordinary results."
     }
   ],
   "experiences": [
@@ -1180,8 +1184,8 @@
         "en-US": "Bachelor's Degree in Computer Science"
       },
       "fieldOfStudy": {
-        "pt-BR": "Ciência da Computação, Clean Code e Clean Architecture",
-        "en-US": "Computer Science, Clean Code & Software Architecture"
+        "pt-BR": "Ciência da Computação",
+        "en-US": "Computer Science"
       },
       "startDate": "2019",
       "endDate": "2026",
@@ -1190,9 +1194,37 @@
   ],
   "certifications": [
     {
+      "id": "cert-serverless-aws",
+      "name": "Desenvolvimento de Aplicação Serverless na AWS",
+      "issuer": "Amazon Web Services (AWS)",
+      "issueDate": "2023",
+      "visibility": "PUBLIC"
+    },
+    {
       "id": "cert-clean-architecture",
-      "name": "Clean Code & Clean Architecture Mastery",
-      "issuer": "Specialized Architecture Programs",
+      "name": "Clean Code e Clean Architecture",
+      "issuer": "Especialização em Arquitetura de Software",
+      "issueDate": "2023",
+      "visibility": "PUBLIC"
+    },
+    {
+      "id": "cert-arquitetura-aws",
+      "name": "Arquitetura AWS - Cloud Treinamentos",
+      "issuer": "Cloud Treinamentos",
+      "issueDate": "2023",
+      "visibility": "PUBLIC"
+    },
+    {
+      "id": "cert-js-advanced",
+      "name": "JS Advanced - EW Academy",
+      "issuer": "EW Academy",
+      "issueDate": "2022",
+      "visibility": "PUBLIC"
+    },
+    {
+      "id": "cert-devops-pro",
+      "name": "Devops Pro",
+      "issuer": "Devops Pro",
       "issueDate": "2023",
       "visibility": "PUBLIC"
     }
@@ -1247,8 +1279,8 @@
         "en-US": "English"
       },
       "proficiency": {
-        "pt-BR": "Fluente / C1 Profissional",
-        "en-US": "Full Professional Proficiency (C1)"
+        "pt-BR": "C1 Fluente",
+        "en-US": "C1 Fluent"
       },
       "visibility": "PUBLIC"
     }

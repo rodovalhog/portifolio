@@ -73,6 +73,7 @@ export interface ProfessionalProfile {
   version: string;
   personal: PersonalInformation;
   summary: LocalizedText;
+  personalStatement?: LocalizedText;
   engineeringPhilosophy: LocalizedText[];
   experiences: Experience[];
   projects: Project[];

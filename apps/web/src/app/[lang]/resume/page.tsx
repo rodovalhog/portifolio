@@ -207,10 +207,47 @@ export default async function ResumePage({
             {profile.education.map((edu) => (
               <div key={edu.id} className="text-sm text-zinc-700 dark:text-zinc-300">
                 <span className="font-semibold text-zinc-900 dark:text-zinc-100">{edu.institution}</span> —{" "}
-                <span>{getLocalized(edu.degree, lang)}</span> ({edu.startDate} - {edu.endDate ?? "Present"})
+                <span>{getLocalized(edu.degree, lang)}</span> ({edu.startDate} - {edu.endDate ?? (lang === "pt-BR" ? "Atual" : "Present")})
               </div>
             ))}
           </div>
+
+          {/* Certifications */}
+          {profile.certifications && profile.certifications.length > 0 && (
+            <div className="border-t border-zinc-200 dark:border-zinc-800/80 pt-6">
+              <div className="text-xs font-mono uppercase tracking-wider text-zinc-500 mb-3 font-bold">
+                {t.about.certificationsTitle}
+              </div>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                {profile.certifications.map((cert) => (
+                  <div key={cert.id} className="text-sm text-zinc-700 dark:text-zinc-300">
+                    <span className="font-semibold text-zinc-900 dark:text-zinc-100">{cert.name}</span> —{" "}
+                    <span className="text-zinc-500">{cert.issuer}</span> ({cert.issueDate})
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
+
+          {/* Languages */}
+          {profile.languages && profile.languages.length > 0 && (
+            <div className="border-t border-zinc-200 dark:border-zinc-800/80 pt-6">
+              <div className="text-xs font-mono uppercase tracking-wider text-zinc-500 mb-3 font-bold">
+                {t.about.languagesTitle}
+              </div>
+              <div className="flex flex-wrap gap-4">
+                {profile.languages.map((l) => (
+                  <div key={l.code} className="text-sm text-zinc-700 dark:text-zinc-300">
+                    <span className="font-semibold text-zinc-900 dark:text-zinc-100">
+                      {getLocalized(l.name, lang)}
+                    </span>
+                    :{" "}
+                    <span className="text-zinc-500">{getLocalized(l.proficiency, lang)}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
         </div>
       </Container>
     </Section>

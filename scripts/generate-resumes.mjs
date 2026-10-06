@@ -299,6 +299,22 @@ async function createResumePDF(profile, locale) {
     }
   }
 
+  // --- CERTIFICATIONS & SPECIALIZATIONS ---
+  if (profile.certifications && profile.certifications.length > 0) {
+    drawSectionHeader(isPt ? "Especializações & Certificações" : "Specializations & Certifications");
+    for (const cert of profile.certifications) {
+      checkPageBreak(14);
+      page.drawText(`* ${sanitize(cert.name)} - ${sanitize(cert.issuer)} (${cert.issueDate})`, {
+        x: margin + 4,
+        y,
+        size: 8,
+        font: fontRegular,
+        color: colorText,
+      });
+      y -= 11;
+    }
+  }
+
   // --- LANGUAGES ---
   drawSectionHeader(isPt ? "Idiomas" : "Languages");
   for (const lang of profile.languages) {
