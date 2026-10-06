@@ -4,8 +4,8 @@ import path from "node:path";
 
 export async function GET(request: NextRequest) {
   const { searchParams } = new URL(request.url);
-  const locale = searchParams.get("locale") === "en-US" ? "en" : "pt";
-  const filename = `guilherme-rodovalho-cv-${locale}.pdf`;
+  const isEn = searchParams.get("locale") === "en-US";
+  const filename = isEn ? "guilherme-rodovalho-resume.pdf" : "guilherme-rodovalho-curriculo.pdf";
 
   const filePath = path.resolve(process.cwd(), "public/resumes", filename);
 

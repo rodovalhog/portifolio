@@ -95,8 +95,8 @@ export default async function HomePage({
                 data-mcp-resource="action"
                 data-mcp-action="download"
                 data-mcp-description="Baixar currículo oficial em formato PDF"
-                href={`/resumes/guilherme-rodovalho-cv-${lang === "pt-BR" ? "pt" : "en"}.pdf`}
-                download={`guilherme-rodovalho-cv-${lang === "pt-BR" ? "pt" : "en"}.pdf`}
+                href={`/resumes/guilherme-rodovalho-${lang === "pt-BR" ? "curriculo" : "resume"}.pdf`}
+                download={`guilherme-rodovalho-${lang === "pt-BR" ? "curriculo" : "resume"}.pdf`}
                 target="_blank"
                 rel="noopener noreferrer"
               >

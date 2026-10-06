@@ -81,7 +81,7 @@ export const PORTFOLIO_SEMANTIC_RESOURCES: SemanticResourceMap = {
     resource: "action",
     action: "download",
     description: "Baixar currículo oficial em PDF (disponível em pt-BR e en-US).",
-    target: "/resumes/guilherme-rodovalho-cv-pt.pdf",
+    target: "/resumes/guilherme-rodovalho-curriculo.pdf",
     access: "public",
     parent: "resume",
     breadcrumbs: ["Home", "Currículo", "Download PDF"],

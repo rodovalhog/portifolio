@@ -117,7 +117,7 @@ export class WebMCPServer {
    */
   public async downloadResume(params?: DownloadResumeParams): Promise<{ success: boolean; url: string; filename: string }> {
     const lang = params?.language || (typeof window !== "undefined" && window.location.pathname.startsWith("/en-US") ? "en-US" : "pt-BR");
-    const filename = lang === "pt-BR" ? "guilherme-rodovalho-cv-pt.pdf" : "guilherme-rodovalho-cv-en.pdf";
+    const filename = lang === "pt-BR" ? "guilherme-rodovalho-curriculo.pdf" : "guilherme-rodovalho-resume.pdf";
     const url = `/resumes/${filename}`;
 
     if (typeof window !== "undefined") {
@@ -263,8 +263,8 @@ export class WebMCPServer {
     const filename =
       params.resumeFilename ||
       (locale === "pt-BR"
-        ? "guilherme-rodovalho-cv-pt.pdf"
-        : "guilherme-rodovalho-cv-en.pdf");
+        ? "guilherme-rodovalho-curriculo.pdf"
+        : "guilherme-rodovalho-resume.pdf");
 
     const application = await prepareJobApplication(jobPosting, {
       filename,

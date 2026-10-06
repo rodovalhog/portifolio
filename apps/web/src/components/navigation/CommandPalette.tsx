@@ -105,9 +105,10 @@ export const CommandPalette: React.FC<{
   };
 
   const downloadPdf = (lang: "pt" | "en") => {
+    const filename = lang === "pt" ? "guilherme-rodovalho-curriculo.pdf" : "guilherme-rodovalho-resume.pdf";
     const a = document.createElement("a");
-    a.href = `/resumes/guilherme-rodovalho-cv-${lang}.pdf`;
-    a.download = `guilherme-rodovalho-cv-${lang}.pdf`;
+    a.href = `/resumes/${filename}`;
+    a.download = filename;
     a.click();
     setIsOpen(false);
   };

@@ -78,8 +78,8 @@ export default async function ExperiencePage({
             </a>
 
             <a
-              href={`/resumes/guilherme-rodovalho-cv-${lang === "pt-BR" ? "pt" : "en"}.pdf`}
-              download={`guilherme-rodovalho-cv-${lang === "pt-BR" ? "pt" : "en"}.pdf`}
+              href={`/resumes/guilherme-rodovalho-${lang === "pt-BR" ? "curriculo" : "resume"}.pdf`}
+              download={`guilherme-rodovalho-${lang === "pt-BR" ? "curriculo" : "resume"}.pdf`}
               id="btn-download-resume-hero"
               target="_blank"
               rel="noopener noreferrer"
@@ -180,8 +180,8 @@ export default async function ExperiencePage({
             </a>
 
             <a
-              href={`/resumes/guilherme-rodovalho-cv-${lang === "pt-BR" ? "pt" : "en"}.pdf`}
-              download={`guilherme-rodovalho-cv-${lang === "pt-BR" ? "pt" : "en"}.pdf`}
+              href={`/resumes/guilherme-rodovalho-${lang === "pt-BR" ? "curriculo" : "resume"}.pdf`}
+              download={`guilherme-rodovalho-${lang === "pt-BR" ? "curriculo" : "resume"}.pdf`}
               id="btn-download-resume-footer"
               target="_blank"
               rel="noopener noreferrer"

@@ -237,7 +237,7 @@ function buildWebMCPBridgeScript(targetUrl: string, isSubmitSuccess = false) {
               { semantic: 'linkedin', name: 'linkedin', label: 'LinkedIn Profile', val: data.linkedin || 'https://www.linkedin.com/in/guilherme-rodovalho/' },
               { semantic: 'github', name: 'github', label: 'GitHub Profile', val: data.github || 'https://github.com/rodovalhog' },
               { semantic: 'personalUrl', name: 'personal_url', label: 'Portfolio URL', val: 'https://guilhermerodovalho.dev' },
-              { semantic: 'resume', name: 'resume', label: 'CV / Resume File', val: data.resumeFilename || 'guilherme-rodovalho-cv-en.pdf' },
+              { semantic: 'resume', name: 'resume', label: 'CV / Resume File', val: data.resumeFilename || 'guilherme-rodovalho-resume.pdf' },
               { semantic: 'coverLetter', name: 'cover_letter', label: 'Cover Letter', val: data.coverLetter || '' },
             ];
 

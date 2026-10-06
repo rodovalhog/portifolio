@@ -358,8 +358,8 @@ async function createResumePDF(profile, locale) {
 
 async function main() {
   await fs.mkdir(outputDir, { recursive: true });
-  const ptPath = path.join(outputDir, "guilherme-rodovalho-cv-pt.pdf");
-  const enPath = path.join(outputDir, "guilherme-rodovalho-cv-en.pdf");
+  const ptPath = path.join(outputDir, "guilherme-rodovalho-curriculo.pdf");
+  const enPath = path.join(outputDir, "guilherme-rodovalho-resume.pdf");
 
   const content = await fs.readFile(profilePath, "utf-8");
   const profile = JSON.parse(content);

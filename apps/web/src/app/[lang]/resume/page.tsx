@@ -56,8 +56,8 @@ export default async function ResumePage({
             <PrintButton label={t.resume.printFriendly} />
 
             <a
-              href={`/resumes/guilherme-rodovalho-cv-${lang === "pt-BR" ? "pt" : "en"}.pdf`}
-              download={`guilherme-rodovalho-cv-${lang === "pt-BR" ? "pt" : "en"}.pdf`}
+              href={`/resumes/guilherme-rodovalho-${lang === "pt-BR" ? "curriculo" : "resume"}.pdf`}
+              download={`guilherme-rodovalho-${lang === "pt-BR" ? "curriculo" : "resume"}.pdf`}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-mono text-emerald-700 bg-emerald-50 hover:bg-emerald-100 border border-emerald-200 dark:text-emerald-400 dark:bg-emerald-950/40 dark:hover:bg-emerald-950/70 dark:border-emerald-800/50 transition-colors"

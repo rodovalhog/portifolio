@@ -81,9 +81,9 @@ describe("AI Application Preparer & Zero-Hallucination Guardrails", () => {
 
   it("should generate evidence-backed cover letter with Casas Bahia Staff and 150k rpm metrics", async () => {
     const app = await prepareJobApplication(job, {
-      filename: "guilherme-rodovalho-cv-en.pdf",
+      filename: "guilherme-rodovalho-resume.pdf",
       locale: "en-US",
-      url: "/resumes/guilherme-rodovalho-cv-en.pdf",
+      url: "/resumes/guilherme-rodovalho-resume.pdf",
     });
 
     expect(app.coverLetter).toContain("Casas Bahia");
@@ -96,9 +96,9 @@ describe("AI Application Preparer & Zero-Hallucination Guardrails", () => {
 
   it("should answer English question and AI tools question based on candidate profile", async () => {
     const app = await prepareJobApplication(job, {
-      filename: "guilherme-rodovalho-cv-en.pdf",
+      filename: "guilherme-rodovalho-resume.pdf",
       locale: "en-US",
-      url: "/resumes/guilherme-rodovalho-cv-en.pdf",
+      url: "/resumes/guilherme-rodovalho-resume.pdf",
     });
 
     const englishAnswer = app.answers.find((a) => a.fieldName === "aq_445325[]");
@@ -129,9 +129,9 @@ describe("AI Application Preparer & Zero-Hallucination Guardrails", () => {
     };
 
     const app = await prepareJobApplication(customJob, {
-      filename: "guilherme-rodovalho-cv-en.pdf",
+      filename: "guilherme-rodovalho-resume.pdf",
       locale: "en-US",
-      url: "/resumes/guilherme-rodovalho-cv-en.pdf",
+      url: "/resumes/guilherme-rodovalho-resume.pdf",
     });
 
     const salaryAnswer = app.answers.find((a) => a.fieldId === "field-salary");

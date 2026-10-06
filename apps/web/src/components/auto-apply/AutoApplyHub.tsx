@@ -107,8 +107,8 @@ export const AutoApplyHub: React.FC<AutoApplyHubProps> = ({ lang }) => {
           date: new Date().toISOString(),
           resumeUsed:
             selectedResume === "pt-BR"
-              ? "guilherme-rodovalho-cv-pt.pdf"
-              : "guilherme-rodovalho-cv-en.pdf",
+              ? "guilherme-rodovalho-curriculo.pdf"
+              : "guilherme-rodovalho-resume.pdf",
           status: "manual_action_required",
           atsType: analysis.atsType,
           notes: analysis.blockReason || "Bloqueio anti-bot ou CAPTCHA detectado.",
@@ -127,8 +127,8 @@ export const AutoApplyHub: React.FC<AutoApplyHubProps> = ({ lang }) => {
       // 2. Prepare Application with AI
       const resumeFilename =
         selectedResume === "pt-BR"
-          ? "guilherme-rodovalho-cv-pt.pdf"
-          : "guilherme-rodovalho-cv-en.pdf";
+          ? "guilherme-rodovalho-curriculo.pdf"
+          : "guilherme-rodovalho-resume.pdf";
 
       const prepared = await prepareJobApplication(analysis, {
         filename: resumeFilename,
@@ -172,8 +172,8 @@ export const AutoApplyHub: React.FC<AutoApplyHubProps> = ({ lang }) => {
 
         const resumeFilename =
           selectedResume === "pt-BR"
-            ? "guilherme-rodovalho-cv-pt.pdf"
-            : "guilherme-rodovalho-cv-en.pdf";
+            ? "guilherme-rodovalho-curriculo.pdf"
+            : "guilherme-rodovalho-resume.pdf";
 
         const prepared = await prepareJobApplication(fallbackAnalysis, {
           filename: resumeFilename,

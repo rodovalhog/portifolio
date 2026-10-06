@@ -21,11 +21,11 @@ describe("WebMCP Server & Tools", () => {
   it("should generate proper resume download payload for pt-BR and en-US", async () => {
     const pt = await server.downloadResume({ language: "pt-BR" });
     expect(pt.success).toBe(true);
-    expect(pt.filename).toBe("guilherme-rodovalho-cv-pt.pdf");
+    expect(pt.filename).toBe("guilherme-rodovalho-curriculo.pdf");
 
     const en = await server.downloadResume({ language: "en-US" });
     expect(en.success).toBe(true);
-    expect(en.filename).toBe("guilherme-rodovalho-cv-en.pdf");
+    expect(en.filename).toBe("guilherme-rodovalho-resume.pdf");
   });
 
   it("should correctly switch language between pt-BR and en-US", async () => {
@@ -57,7 +57,7 @@ describe("WebMCP Client", () => {
       language: "en-US",
     })) as { success: boolean; filename: string };
     expect(res.success).toBe(true);
-    expect(res.filename).toBe("guilherme-rodovalho-cv-en.pdf");
+    expect(res.filename).toBe("guilherme-rodovalho-resume.pdf");
   });
 });
 
