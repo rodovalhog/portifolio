@@ -40,6 +40,8 @@ export interface Project {
   metrics: ProjectMetric[];
   technologies: string[];
   skills: string[];
+  evidenceImage?: string;
+  evidenceDescription?: LocalizedText;
   links?: {
     github?: string;
     live?: string;

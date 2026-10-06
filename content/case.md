@@ -17,6 +17,7 @@
 - [Frente 6 — Remoção de código morto](#frente-6--remoção-de-código-morto)
 - [Frente 7 — Análise de bundle](#frente-7--análise-de-bundle)
 - [Resultados consolidados](#resultados-consolidados)
+- [Evidência de Produção — Telemetria APM (Dynatrace)](#evidência-de-produção--telemetria-apm-dynatrace)
 - [Hipóteses refutadas](#hipóteses-refutadas)
 - [Competências demonstradas](#competências-demonstradas)
 - [Versão resumida para currículo](#versão-resumida-para-currículo)
@@ -283,6 +284,22 @@ de barril do design system **não** eram problema, pois declaram ESM e
 | Remoção do Redis | 15 arquivos, 4 deps | Concluído |
 | Sprite de SVG | ~130 KB | Mapeado |
 | Correção de tree-shaking | 81,2 KB | Diagnosticado |
+| **Consumo Global de CPU (APM)** | **−60% ms/requisição** | **Validado em produção** |
+
+---
+
+## Evidência de Produção — Telemetria APM (Dynatrace)
+
+O impacto conjunto das otimizações cirúrgicas (desativação do hash de ETag, consolidação do SSR do Emotion no `<head>` e erradicação de vazamentos de timers no Node) foi registrado e validado em tempo real pelo APM em ambiente produtivo sob tráfego de três bandeiras de varejo:
+
+![Telemetria APM Dynatrace — Queda de 60% no consumo de CPU por requisição em produção](/images/evidence/dynatrace-cpu-drop.jpg)
+
+### Leitura Técnica da Telemetria:
+
+- **Baseline (26 a 28 de Setembro):** Consumo sustentado de **~130 a 160 ms/req** de CPU sob tráfego regular, com picos atingindo 165 ms/req provocados por processamento redundante de ETag e ineficiência de CSS no SSR.
+- **Momento da virada (28 de Setembro às 20:00):** Deploy das correções. Queda imediata e vertical na curva de consumo de CPU por requisição.
+- **Novo patamar sustentado (29 de Setembro):** Estabilização em **~50–55 ms/req**, consolidando uma redução líquida de **~60% no consumo de CPU por requisição**.
+- **Descarte de viés de tráfego:** No dia 29 de setembro, durante horário comercial com vazão superior a **1.100 requisições por minuto** (janela destacada em verde), o consumo de CPU por requisição permaneceu travado em ~50 ms/req, comprovando ganho de performance intrínseco e escalável.
 
 ---
 

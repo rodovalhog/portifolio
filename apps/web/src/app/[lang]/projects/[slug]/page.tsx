@@ -23,6 +23,7 @@ import {
   Flame,
 } from "lucide-react";
 import { PerformanceMicrofrontendCaseStudy } from "@/components/cases/PerformanceMicrofrontendCaseStudy";
+import { TechnicalSeoArchitectureCaseStudy } from "@/components/cases/TechnicalSeoArchitectureCaseStudy";
 
 export async function generateStaticParams() {
   const repo = new FileProfileRepository();
@@ -68,10 +69,11 @@ export default async function ProjectDetailPage({
   }
 
   const isPerformanceCase = slug === "performance-microfrontend-ssr";
+  const isSeoCase = slug === "high-scale-search-architecture";
 
   return (
     <Section spacing="lg">
-      <Container size={isPerformanceCase ? "default" : "narrow"}>
+      <Container size={isPerformanceCase || isSeoCase ? "default" : "narrow"}>
         {/* Back Link */}
         <div className="mb-8">
           <a
@@ -86,6 +88,10 @@ export default async function ProjectDetailPage({
         {isPerformanceCase ? (
           <div className="space-y-8">
             <PerformanceMicrofrontendCaseStudy locale={lang} />
+          </div>
+        ) : isSeoCase ? (
+          <div className="space-y-8">
+            <TechnicalSeoArchitectureCaseStudy locale={lang} />
           </div>
         ) : (
           <>

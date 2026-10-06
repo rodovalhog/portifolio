@@ -65,6 +65,8 @@ export const ProjectSchema = z.object({
   metrics: z.array(ProjectMetricSchema),
   technologies: z.array(z.string()),
   skills: z.array(z.string()),
+  evidenceImage: z.string().optional(),
+  evidenceDescription: LocalizedTextSchema.optional(),
   links: z
     .object({
       github: z.string().optional(),

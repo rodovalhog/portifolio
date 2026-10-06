@@ -22,6 +22,7 @@ import {
   ArrowRight,
   ShieldCheck,
 } from "lucide-react";
+import { PerformanceEvidenceViewer } from "@/components/cases/PerformanceEvidenceViewer";
 
 interface LiveBrowserMetrics {
   ttfb: number | null;
@@ -553,6 +554,11 @@ export function PerformanceObservatory({ locale }: { locale: SupportedLocale }) 
             </div>
           </div>
         )}
+      </div>
+
+      {/* Production Telemetry Evidence Section */}
+      <div className="pt-4">
+        <PerformanceEvidenceViewer locale={locale} />
       </div>
 
       {/* Architecture Comparative Matrix */}

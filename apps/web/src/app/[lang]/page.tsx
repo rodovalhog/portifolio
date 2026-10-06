@@ -110,12 +110,15 @@ export default async function HomePage({
                 </Button>
               </a>
 
+              {/* Talk to AI Assistant button (ocultado a pedido) */}
+              {/*
               <a href={`/${lang}/career`}>
                 <Button variant="secondary" size="lg" className="border-zinc-300 dark:border-zinc-800 text-zinc-700 dark:text-zinc-300 hover:text-zinc-950 dark:hover:text-zinc-100">
                   <Sparkles className="w-4 h-4 mr-1 text-emerald-500" />
                   <span>{t.common.talkToAI}</span>
                 </Button>
               </a>
+              */}
             </div>
           </div>
         </Container>

@@ -29,6 +29,7 @@ import {
   Split,
   Eye,
 } from "lucide-react";
+import { PerformanceEvidenceViewer } from "./PerformanceEvidenceViewer";
 
 interface Props {
   locale: SupportedLocale;
@@ -198,7 +199,20 @@ export function PerformanceMicrofrontendCaseStudy({ locale }: Props) {
           </p>
 
           {/* Quick Metrics Ribbon */}
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 p-4 rounded-xl bg-white/80 dark:bg-zinc-900/60 border border-zinc-200 dark:border-zinc-800">
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3 sm:gap-4 p-4 rounded-xl bg-white/80 dark:bg-zinc-900/60 border border-zinc-200 dark:border-zinc-800">
+            <div>
+              <div className="text-xs font-mono text-zinc-500 uppercase tracking-wider mb-1">
+                {isPt ? "CPU / Req (APM)" : "CPU / Req (APM)"}
+              </div>
+              <div className="text-2xl sm:text-3xl font-bold font-mono text-emerald-600 dark:text-emerald-400 flex items-center gap-1">
+                <TrendingDown className="w-5 h-5" />
+                <span>−60%</span>
+              </div>
+              <div className="text-xs text-zinc-500 dark:text-zinc-400 mt-1">
+                {isPt ? "135ms → 52ms / req" : "135ms → 52ms / req"}
+              </div>
+            </div>
+
             <div>
               <div className="text-xs font-mono text-zinc-500 uppercase tracking-wider mb-1">
                 {isPt ? "Recálculo de Estilo" : "Style Recalculation"}
@@ -322,6 +336,11 @@ export function PerformanceMicrofrontendCaseStudy({ locale }: Props) {
           </div>
         </div>
       </div>
+
+      {/* Empirical Production Evidence Showcase */}
+      <section id="evidence-apm-telemetry" className="scroll-mt-20">
+        <PerformanceEvidenceViewer locale={locale} />
+      </section>
 
       {/* The 7 Technical Fronts - Interactive Navigator */}
       <div className="space-y-6">
@@ -566,6 +585,25 @@ export function PerformanceMicrofrontendCaseStudy({ locale }: Props) {
                     ? "Ganho comprovado: eliminação imediata de 4,9% de CPU por requisição, validado via inspeção de headers."
                     : "Verified outcome: immediate elimination of 4.9% CPU per request, verified via HTTP response headers."}
                 </div>
+              </div>
+
+              {/* Production Telemetry Link Box */}
+              <div className="p-4 rounded-xl border border-emerald-500/30 bg-emerald-50/50 dark:bg-emerald-950/20 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 text-xs font-mono">
+                <div className="flex items-center gap-2 text-emerald-800 dark:text-emerald-300">
+                  <Activity className="w-4 h-4 text-emerald-600 dark:text-emerald-400 shrink-0" />
+                  <span>
+                    {isPt
+                      ? "Validação de Produção: Queda de ~60% na curva de CPU observada no APM Dynatrace"
+                      : "Production Telemetry Proof: ~60% CPU drop validated via Dynatrace APM"}
+                  </span>
+                </div>
+                <a
+                  href="#evidence-apm-telemetry"
+                  className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-emerald-600 hover:bg-emerald-500 text-white font-semibold transition-colors shrink-0"
+                >
+                  <Eye className="w-3.5 h-3.5" />
+                  <span>{isPt ? "Ver Gráfico APM ↑" : "Inspect APM Graph ↑"}</span>
+                </a>
               </div>
             </div>
           )}

@@ -556,6 +556,14 @@
       "metrics": [
         {
           "label": {
+            "pt-BR": "CPU em Produção (APM)",
+            "en-US": "Production CPU (APM)"
+          },
+          "value": "-60%",
+          "change": "135ms → 52ms / req"
+        },
+        {
+          "label": {
             "pt-BR": "Recálculo de Estilo",
             "en-US": "Style Recalculation"
           },
@@ -587,6 +595,11 @@
           "change": "295 tags → 0"
         }
       ],
+      "evidenceImage": "/images/evidence/dynatrace-cpu-drop.jpg",
+      "evidenceDescription": {
+        "pt-BR": "Telemetria APM Dynatrace comprovando redução imediata de ~60% no consumo de CPU por requisição (de ~135ms para ~52ms/req) sob pico de tráfego de 1.1k+ req/min após deploy das otimizações.",
+        "en-US": "Dynatrace APM telemetry verifying immediate ~60% drop in CPU consumption per request (from ~135ms to ~52ms/req) under peak traffic of 1.1k+ req/min post-optimization deploy."
+      },
       "technologies": [
         "Next.js",
         "React 18",
@@ -610,87 +623,101 @@
       "id": "ecommerce-search-engine",
       "slug": "high-scale-search-architecture",
       "title": {
-        "pt-BR": "Arquitetura de Busca e Catálogo de Alta Escala (Casas Bahia)",
-        "en-US": "High-Scale Search & Catalog Architecture (Casas Bahia)"
+        "pt-BR": "Reestruturação de URLs, Canonicalização e SEO Técnico (Casas Bahia)",
+        "en-US": "Structural URL Hierarchy, Canonicalization & Technical SEO (Casas Bahia)"
       },
       "tagline": {
-        "pt-BR": "Reengenharia de frontend, SSR/SSG e SEO técnico para canal com 19M+ usuários e crescimento orgânico expressivo.",
-        "en-US": "Frontend reengineering, SSR/SSG & technical SEO for a platform with 19M+ users and major organic growth."
+        "pt-BR": "Reestruturação arquitetural de URLs de departamentos, categorias e coleções, canonicalização e SEO técnico: de 12 para 92,6K cliques (+7.717.167%) e 23,4M de impressões no Google Search Console.",
+        "en-US": "Architectural refactoring of department, category, and collection URLs, canonical tags, and technical SEO: from 12 to 92.6K clicks (+7,717,167%) and 23.4M impressions on Google Search Console."
       },
       "featured": true,
       "order": 2,
       "period": "2024 - Presente",
       "context": {
-        "pt-BR": "Modernização da arquitetura de busca e navegação de um dos maiores e-commerces da América Latina, atendendo mais de 19 milhões de usuários e 1 milhão de acessos diários.",
-        "en-US": "Modernizing the search and filtering architecture of one of Latin America's largest e-commerce platforms, serving 19M+ users and 1M+ daily visits."
+        "pt-BR": "Modernização da arquitetura de roteamento e navegação de um dos maiores e-commerces da América Latina, atendendo mais de 19 milhões de usuários e 1 milhão de acessos diários.",
+        "en-US": "Modernizing the routing and navigation architecture of one of Latin America's largest e-commerce platforms, serving 19M+ users and 1M+ daily visits."
       },
       "problem": {
-        "pt-BR": "Inconsistências em filtros, canônicas, indexação e tempo de carregamento no caminho crítico de renderização afetavam a conversão e o ranking no Google.",
-        "en-US": "Inconsistent filters, canonical URLs, indexing, and critical rendering path bottlenecks affected conversion rates and SEO rankings."
+        "pt-BR": "Inconsistências em filtros, canônicas ausentes ou fragmentadas, desperdício de crawl budget pelo Googlebot e URLs não padronizadas que deixavam páginas de departamento com 0 cliques no Google.",
+        "en-US": "Inconsistent filters, missing canonical tags, squandered Googlebot crawl budget, and unstandardized URLs leaving major department pages at zero clicks on Google."
       },
       "constraints": {
         "pt-BR": "Garantir 99.99% de disponibilidade sem interrupções nos fluxos de checkout e preservar compatibilidade com APIs de catálogo e facetas de negócio.",
         "en-US": "Ensure 99.99% uptime with zero disruption to checkout flows while maintaining compatibility with legacy catalog APIs."
       },
       "optionsConsidered": {
-        "pt-BR": "1. SPA puro client-side (descartado por prejudicar SEO e TTFB no mobile). 2. SSR monolítico sem cache de borda (descartado por sobrecarregar origem). 3. Renderização híbrida SSR/SSG com CDN Akamai, code splitting e dados estruturados (escolhido).",
-        "en-US": "1. Pure client-side SPA (rejected due to poor SEO and mobile TTFB). 2. Monolithic SSR without edge cache (rejected due to server saturation). 3. Hybrid SSR/SSG with Akamai CDN caching, aggressive code splitting, and structured data (chosen)."
+        "pt-BR": "1. SPA puro client-side (descartado por prejudicar SEO e TTFB no mobile). 2. SSR monolítico sem cache de borda (descartado por sobrecarregar origem). 3. Padrão RESTful semântico /c/[departamento]/[categoria] com SSR no Next.js, auto-canonicalização estrita e JSON-LD (escolhido).",
+        "en-US": "1. Pure client-side SPA (rejected due to poor SEO and mobile TTFB). 2. Monolithic SSR without edge cache (rejected due to server saturation). 3. Semantic RESTful /c/[department]/[category] hierarchy with Next.js SSR, strict canonical rules, and JSON-LD (chosen)."
       },
       "decision": {
-        "pt-BR": "Implementamos renderização híbrida SSR/SSG, reestruturação completa de dados estruturados com HTML semântico e otimização profunda do caminho crítico de renderização.",
-        "en-US": "Implemented hybrid SSR/SSG rendering, rich semantic structured data, and rigorous optimization across the critical rendering path."
+        "pt-BR": "Reestruturação do padrão de URLs para departamento, categoria, subcategoria e coleção, tag canônica correta em todas as facetas, injeção de dados estruturados Schema.org e otimização do caminho crítico de renderização.",
+        "en-US": "Restructured URL patterns for departments, categories, subcategories, and collections, strict canonicalization across all facets, Schema.org structured data injection, and critical rendering path optimization."
       },
       "tradeoffs": {
-        "pt-BR": "Gestão mais refinada de invalidação de cache na Akamai e contratos de dados tipados em troca de velocidade de carregamento instantânea e crescimento orgânico.",
-        "en-US": "Required sophisticated Akamai cache invalidation and strict data contracts in exchange for instant page delivery and massive organic lift."
+        "pt-BR": "Gestão mais refinada de invalidação de cache na Akamai e contratos de dados tipados em troca de velocidade de carregamento instantânea e crescimento orgânico exponencial.",
+        "en-US": "Required sophisticated Akamai cache invalidation and strict data contracts in exchange for instant page delivery and massive exponential organic lift."
       },
       "solution": {
-        "pt-BR": "Code splitting inteligente, lazy loading de componentes não críticos, normalização de URLs e dados semânticos com SSR/SSG e monitoramento contínuo de Core Web Vitals.",
-        "en-US": "Smart code splitting, lazy loading non-critical assets, URL normalization, and structured semantic SSR/SSG with real-time Core Web Vitals monitoring."
+        "pt-BR": "Novo padrão /c/[departamento]/[categoria]/[subcategoria], auto-canonicalização em páginas raízes e canônica consolidada em facetas, JSON-LD (BreadcrumbList e CollectionPage) e Core Web Vitals no padrão Good.",
+        "en-US": "New /c/[department]/[category]/[subcategoria] pattern, self-referencing canonicals on landing pages, JSON-LD (BreadcrumbList & CollectionPage), and Good Core Web Vitals."
       },
       "implementation": {
-        "pt-BR": "Desenvolvido com React, Next.js, TypeScript estrito, Akamai CDN, GA4 e observabilidade em tempo real.",
-        "en-US": "Engineered with React, Next.js, strict TypeScript, Akamai CDN, GA4, and real-time observability."
+        "pt-BR": "Desenvolvido com React, Next.js (SSR), TypeScript estrito, Akamai CDN, Schema.org e telemetria auditada via Google Search Console.",
+        "en-US": "Engineered with React, Next.js (SSR), strict TypeScript, Akamai CDN, Schema.org, and audited telemetry via Google Search Console."
       },
       "impact": {
-        "pt-BR": "Crescimento orgânico de 12 para 92,6 mil cliques em 3 meses com 23M+ impressões no Google Search Console, estabilidade comprovada para 19M+ usuários.",
-        "en-US": "Organic search surge from 12 to 92.6K clicks in 3 months with 23M+ impressions (Google Search Console), proving resilience across 19M+ shoppers."
+        "pt-BR": "Crescimento orgânico de 12 para 92,6 mil cliques em 3 meses (+7.717.167%), 23,4M de impressões (+2.632.167%), posição média no Google saltando de #9 para #2 e categorias liderando com até +3.463.400% de aumento.",
+        "en-US": "Organic search surge from 12 to 92.6K clicks in 3 months (+7,717,167%), 23.4M impressions (+2,632,167%), average Google rank jumping from #9 to #2, and key categories growing up to +3,463,400%."
       },
       "metrics": [
         {
           "label": {
-            "pt-BR": "Crescimento Orgânico",
-            "en-US": "Organic Growth"
+            "pt-BR": "Cliques Orgânicos (GSC)",
+            "en-US": "Organic Clicks (GSC)"
           },
-          "value": "92.6k",
-          "change": "12 -> 92.6k cliques"
+          "value": "92.6K",
+          "change": "+7.717.167% (12 → 92.6K)"
         },
         {
           "label": {
-            "pt-BR": "Impressões GSC",
-            "en-US": "GSC Impressions"
+            "pt-BR": "Impressões SERP",
+            "en-US": "SERP Impressions"
           },
-          "value": "23M+",
-          "change": "em 3 meses"
+          "value": "23.4M",
+          "change": "+2.632.167% (8.9K → 23.4M)"
         },
         {
           "label": {
-            "pt-BR": "Base de Usuários",
-            "en-US": "User Base"
+            "pt-BR": "Posição Média",
+            "en-US": "Average Rank"
           },
-          "value": "19M+",
-          "change": "1M+ diários"
+          "value": "#2",
+          "change": "era #9 (melhora 77%)"
+        },
+        {
+          "label": {
+            "pt-BR": "CTR Médio",
+            "en-US": "Average CTR"
+          },
+          "value": "0.4%",
+          "change": "+300% (era 0.1%)"
         }
       ],
+      "evidenceImage": "/images/evidence/dados-google-console.jpeg",
+      "evidenceDescription": {
+        "pt-BR": "Relatório do Google Search Console comprovando aumento de 12 para 92,6K cliques (+7.717.167%) e 23,4M de impressões com posição média #2 após reestruturação de URLs de departamentos e categorias.",
+        "en-US": "Google Search Console audit verifying growth from 12 to 92.6K clicks (+7,717,167%) and 23.4M impressions with average rank #2 following department and category URL refactoring."
+      },
       "technologies": [
         "React",
         "Next.js",
         "TypeScript",
         "SSR/SSG",
         "SEO Técnico",
+        "Google Search Console",
         "Akamai CDN",
-        "Core Web Vitals",
-        "GA4"
+        "Schema.org / JSON-LD",
+        "Core Web Vitals"
       ],
       "skills": [
         "architecture",

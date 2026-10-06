@@ -27,9 +27,17 @@ export function ProjectCard({
     >
       <div>
         <div className="flex items-center justify-between gap-4 mb-3">
-          <Badge variant={project.featured ? "accent" : "default"}>
-            {project.featured ? "Featured Case Study" : "Case Study"}
-          </Badge>
+          <div className="flex items-center gap-2">
+            <Badge variant={project.featured ? "accent" : "default"}>
+              {project.featured ? "Featured Case Study" : "Case Study"}
+            </Badge>
+            {project.evidenceImage && (
+              <span className="px-2 py-0.5 rounded text-[10px] font-mono font-semibold bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/30 flex items-center gap-1">
+                <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
+                <span>APM Evidence</span>
+              </span>
+            )}
+          </div>
           <span className="text-xs font-mono text-zinc-500">{project.period}</span>
         </div>
 
