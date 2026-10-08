@@ -469,26 +469,41 @@ export function TechnicalSeoArchitectureCaseStudy({ locale }: Props) {
 
               <p className="text-sm text-zinc-700 dark:text-zinc-300 leading-relaxed">
                 {isPt
-                  ? "Antes da reestruturação, as URLs do e-commerce eram despadronizadas, misturando query parameters voláteis com rotas genéricas. Isso impedia que os bots do Google compreendessem a taxonomia dos produtos, resultando em 0 cliques para grande parte dos departamentos (como comprovado na coluna 'Previous 3 months = 0' do GSC)."
-                  : "Before restructuring, e-commerce URLs lacked standardized patterns, interleaving volatile query parameters with generic routes. This prevented Googlebot from understanding catalog taxonomy, resulting in 0 clicks for major departments (verified by 'Previous 3 months = 0' in GSC)."}
+                  ? "Antes da reestruturação, os filtros de catálogo utilizavam delimitadores proprietários com caracteres especiais (:^_), como em ?filtro=categoriac13:^_c14:^_c142. Essa sintaxe causava severos problemas de URL encoding (%3A%5E_), quebrava a normalização nos crawlers e impedia que o Googlebot compreendesse a taxonomia do catálogo, resultando em 0 cliques para grande parte dos departamentos (como comprovado na coluna 'Previous 3 months = 0' do GSC)."
+                  : "Before restructuring, catalog filters relied on proprietary delimiters with special characters (:^_), such as ?filtro=categoriac13:^_c14:^_c142. This syntax caused severe URL encoding issues (%3A%5E_), broke crawler normalization, and prevented Googlebot from understanding catalog taxonomy, resulting in 0 clicks across major departments (verified by 'Previous 3 months = 0' in GSC)."}
               </p>
 
               {/* Code comparison box */}
               <div className="space-y-3 font-mono text-xs">
                 <div className="p-4 rounded-xl bg-rose-500/10 border border-rose-500/30 text-rose-900 dark:text-rose-200">
-                  <div className="font-bold mb-1">// Padrão Anterior (Inconsistente, não indexável):</div>
-                  <div className="text-zinc-600 dark:text-zinc-400">
-                    /busca?q=geladeira&amp;filter_cat=143&amp;sort=price_asc&amp;page=1 (canibalização de parâmetros)
+                  <div className="font-bold mb-1">
+                    {isPt
+                      ? "// Padrão Anterior (Caracteres especiais ':^_', encoding %3A%5E_ e não-indexável):"
+                      : "// Previous Pattern (Special characters ':^_', %3A%5E_ encoding & non-indexable):"}
+                  </div>
+                  <div className="text-rose-800 dark:text-rose-300 font-semibold break-all">
+                    /c/eletrodomesticos/refrigeradores/geladeira-1-porta?filtro=categoriac13:^_c14:^_c142
+                  </div>
+                  <div className="text-zinc-600 dark:text-zinc-400 mt-1 text-[11px]">
+                    {isPt
+                      ? "Filtros concatenados com delimitador ':^_' (não URL-safe, canibalização e falha de normalização no Googlebot)"
+                      : "Filters concatenated with ':^_' delimiter (unsafe encoding, parameter cannibalization & crawler normalization failure)"}
                   </div>
                 </div>
 
                 <div className="p-4 rounded-xl bg-emerald-500/10 border border-emerald-500/30 text-emerald-900 dark:text-emerald-200">
-                  <div className="font-bold mb-1">// Novo Padrão Arquitetural Implementado:</div>
-                  <div className="text-emerald-700 dark:text-emerald-300 font-semibold">
+                  <div className="font-bold mb-1">
+                    {isPt
+                      ? "// Novo Padrão Arquitetural Implementado (100% URL-Safe e Semântico):"
+                      : "// New Architectural Pattern Implemented (100% URL-Safe & Semantic):"}
+                  </div>
+                  <div className="text-emerald-700 dark:text-emerald-300 font-semibold break-all">
                     /c/[departamento]/[categoria]/[subcategoria]?filtro=categoria-c[id]
                   </div>
-                  <div className="text-zinc-500 mt-1 text-[11px]">
-                    Exemplo real: /c/eletrodomesticos/refrigeradores/geladeira-2-portas?filtro=categoria-c13_c14_c143 (Ranqueando no Top 2 nacional)
+                  <div className="text-zinc-500 mt-1 text-[11px] break-all">
+                    {isPt
+                      ? "Exemplo real: /c/eletrodomesticos/refrigeradores/geladeira-2-portas?filtro=categoria-c13_c14_c143 (Padronizado com '_' e hífen, ranqueando no Top 2 nacional)"
+                      : "Real example: /c/eletrodomesticos/refrigeradores/geladeira-2-portas?filtro=categoria-c13_c14_c143 (Standardized with '_' and hyphen, ranking Top 2 nationally)"}
                   </div>
                 </div>
               </div>
@@ -496,8 +511,8 @@ export function TechnicalSeoArchitectureCaseStudy({ locale }: Props) {
               <div className="p-4 rounded-xl bg-zinc-50 dark:bg-zinc-950/60 border border-zinc-200 dark:border-zinc-800 text-xs text-zinc-600 dark:text-zinc-400">
                 <strong>{isPt ? "Decisão Arquitetural:" : "Architectural Decision:"}</strong>{" "}
                 {isPt
-                  ? "Separação estrita entre o slug semântico de navegação (que define o escopo do catálogo) e os parâmetros de refinamento de facetas, permitindo que o motor de SSR do Next.js gere HTML estático pré-renderizado perfeitamente interpretável pelo Googlebot."
-                  : "Strict decoupling between semantic navigation slugs (defining catalog hierarchy) and facet query parameters, allowing Next.js SSR to deliver pristine pre-rendered HTML to crawlers."}
+                  ? "Substituição do delimitador com caracteres especiais proprietários (':^_') por uma sintaxe estritamente limpa e URL-safe ('categoria-c13_c14_c143'), combinada com separação estrita entre o slug semântico de navegação e os parâmetros de facetas com canonicalização determinística no Next.js SSR."
+                  : "Replaced proprietary special-character delimiters (':^_') with a strictly clean, URL-safe syntax ('categoria-c13_c14_c143'), coupled with strict decoupling between semantic navigation slugs and facet parameters with deterministic canonicalization in Next.js SSR."}
               </div>
             </div>
           )}

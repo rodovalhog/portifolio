@@ -57,8 +57,8 @@
 
 A plataforma de e-commerce enfrentava sérias deficiências de indexabilidade e ranqueamento orgânico em suas páginas de catálogo e busca:
 
-1. **URLs Caóticas e Inconsistentes:** Páginas de produtos e categorias dependiam de query parameters dinâmicos desordenados (`/busca?cat=13&sort=...`), dificultando o entendimento da taxonomia pelo algoritmo do Googlebot.
-2. **Desperdício de Crawl Budget:** A geração descontrolada de combinações de filtros faciais e ordenações sem tags canônicas fragmentava a autoridade de página (PageRank) em milhares de URLs duplicadas.
+1. **URLs com Caracteres Especiais & Delimitadores Não-Padrão:** O padrão legado utilizava delimitadores proprietários com caracteres especiais nos parâmetros de filtro (`?filtro=categoriac13:^_c14:^_c142`). Por conter caracteres como circunflexo (`^`) e dois pontos (`:`), o navegador e os crawlers geravam percent-encoding instável (`%3A%5E_`), quebrando a normalização de URLs e impedindo o Googlebot de entender a taxonomia.
+2. **Desperdício de Crawl Budget & Canibalização:** As variações codificadas e decodificadas eram tratadas como URLs duplicadas, fragmentando a autoridade de página (PageRank) e desperdiçando recursos de rastreamento.
 3. **Páginas Chave Inexistentes no Índice:** Como evidenciado pelo GSC ("Previous 3 months = 0"), categorias fundamentais (como Eletrodomésticos e Móveis) não possuíam tráfego orgânico relevante.
 4. **Dependência Client-side:** Crawlers recebiam payloads que demandavam execução client-side de scripts para renderizar dados de catálogo.
 
@@ -66,20 +66,24 @@ A plataforma de e-commerce enfrentava sérias deficiências de indexabilidade e 
 
 ## Frente 1 — Reestruturação do Padrão de URLs
 
-Implementei uma arquitetura semântica e hierárquica padronizada em rotas RESTful no Next.js:
+Implementei uma arquitetura semântica e hierárquica padronizada em rotas RESTful no Next.js, eliminando caracteres especiais e padronizando os parâmetros:
 
 ```
-Padrão Antigo: /busca?q=geladeira&cat=14&page=1
-Novo Padrão:   /c/[departamento]/[categoria]/[subcategoria]?filtro=categoria-c[id]
+Padrão Antigo (Legado com caracteres especiais :^_):
+/c/eletrodomesticos/refrigeradores/geladeira-1-porta?filtro=categoriac13:^_c14:^_c142
+
+Novo Padrão (100% URL-Safe e Semântico):
+/c/[departamento]/[categoria]/[subcategoria]?filtro=categoria-c[id1]_[id2]_[id3]
+Exemplo real: /c/eletrodomesticos/refrigeradores/geladeira-2-portas?filtro=categoria-c13_c14_c143
 ```
 
 ### Exemplos Reais em Produção:
-- `/c/eletrodomesticos` (Departamento raiz)
+- `/c/eletrodomesticos?filtro=categoria-c13` (Departamento raiz)
 - `/c/eletrodomesticos/refrigeradores` (Categoria)
-- `/c/eletrodomesticos/refrigeradores/geladeira-2-portas` (Subcategoria de alta intenção comercial)
-- `/c/eletrodomesticos/lavadoras/maquina-de-lavar-acima-de-10-kg` (Nicho de alta conversão)
+- `/c/eletrodomesticos/refrigeradores/geladeira-2-portas?filtro=categoria-c13_c14_c143` (Subcategoria de alta intenção comercial)
+- `/c/eletrodomesticos/lavadoras/maquina-de-lavar-acima-de-10-kg?filtro=categoria-c13_c24_c168` (Nicho de alta conversão)
 
-**Impacto:** O Googlebot passou a rastrear uma árvore de diretórios lógica, reconhecendo a hierarquia da marca e distribuindo autoridade de domínio uniformemente.
+**Impacto:** O Googlebot passou a rastrear uma árvore de diretórios lógica e 100% URL-safe, eliminando problemas de percent-encoding (`%3A%5E_`), reconhecendo a hierarquia da marca e distribuindo autoridade de domínio uniformemente.
 
 ---
 
